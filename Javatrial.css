@@ -1,0 +1,37 @@
+#lab1{
+    display: block;
+    text-align: center;
+    font-size: 10em;
+}
+#mycon{
+    text-align: center;
+    color: white;
+}
+.but{
+    color: white;
+    background-color: hsl(0, 89%, 72%);
+    border-radius: 5px;
+    padding: 5px 4px;
+    font-weight: bolder;
+}
+.but:hover{
+    background-color:hsl(0, 81%, 53%) ;
+}
+.roll1{
+    justify-self: center;
+    font-size: 1.2em;
+    display: block;
+}
+.roll:hover{
+    background-color:hsl(0, 2%, 12%);
+}
+.labels{
+    font-size: 2em;
+    justify-self: center;
+    display: block;
+}
+.title{
+    text-align: center;
+    font-weight: bolder;
+    color: blue;
+}
