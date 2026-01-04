@@ -1,3 +1,7 @@
+html{
+    background-color: hsl(33, 100%, 88%);
+    font-family: Arial, Helvetica, sans-serif;
+}
 #lab1{
     display: block;
     text-align: center;
@@ -34,4 +38,107 @@
     text-align: center;
     font-weight: bolder;
     color: blue;
+    text-decoration: underline;
+}
+#box{
+    display: flex;
+    border: 2px solid;
+    width:30%;
+    justify-self: center;
+
+}
+#row1{
+    background-color: aquamarine;
+    margin-right: 20px;
+}
+#row2{
+    
+
+    margin-right:1px;
+}
+#row1 button{
+    display: block;
+    justify-self: center;
+    cursor: pointer;
+}
+button:hover{
+    background-color: blueviolet;
+}
+h4{
+    text-align: center;
+    background-color: chocolate;
+}
+pre{
+    text-align: center;
+    color: blueviolet;
+}
+#gbox{
+    display: flex;
+    border: 2px solid;
+    width: 40%;
+    justify-self: center;
+}
+#gi1{
+    background-color: aquamarine;
+    margin-right: 20px;
+}
+#gi1 button{
+    display: block;
+    justify-self: center;
+    cursor: pointer;
+}
+#mh2{
+    text-align: center;
+    color: darkblue;
+    margin-left: 80px;
+}
+.hf{
+    background-color: fuchsia;
+}
+.hf h1{
+    text-align: center;
+    color: chartreuse;
+}
+footer{
+    text-align: center;
+}
+H3{
+    color:blueviolet
+}
+form{
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    max-width: 350px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 5px 5px 20px black;
+}
+#butn{
+    background-color: blue;
+    color: white;
+    padding: 3px;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 8px;
+    border-radius: 6px;
+}
+#labl{
+    font-weight: bold;
+}
+#value{
+    font-size: 1.2em;
+    width: 50%;
+    text-align: center;
+    font-weight: bolder;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+#show{
+    font-weight: bolder;
+    color: hsl(185, 100%, 50%);
+}
+#butn:hover{
+    background-color: crimson;
+    color: black;
 }

@@ -55,35 +55,84 @@ label2.textContent=randomnum2;
 label3.textContent=randomnum3;
 }
         //NUMBER GUESSING GAME
-const minimum=1;
-const maximum=100;
-number=document.getElementById("number");
-const ans=Math.floor(Math.random()*maximum-minimum+1)+minimum; 
-let attempts=0;
-let guess;
-let running=true;
-while(running){
-    number.textContent= guess=window.prompt("ENTER YOUR GUESS NUMBER BETWEEN "+ minimum +" AND "+maximum );
-   
+ const minimum=1;
+ const maximum=100;
+ const gsubmit=document.getElementById("gsubmit");
+let number=document.getElementById("number");
+ const ans = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+ let attempts=0;
+ let guess;
+ gsubmit.onclick=function(){
+    guess=document.getElementById("guess").value;
     guess=Number(guess);
-
-    if(isNaN(guess)){
-        window.alert('Please enter a valid number!!');
-    }
-    else if(guess<minimum||guess>maximum){
-        window.alert('please enter the number in range!!');
-    }
-    else{
-        attempts++;
-        if(guess<ans){
-            window.alert('too low!!');
+     if(isNaN(guess)){
+        number.textContent= 'invalid number!!';
+     }
+     else if(guess<minimum||guess>maximum){
+         number.textContent= 'not range!!';
+     }
+     else{
+         attempts++;
+         if(guess<ans){
+              number.textContent='too low!!';
         }
         else if(guess>ans){
-            window.prompt('too high!!')
+             number.textContent='too high!!';
         }
-        else{
-            window.alert('CONGRATULATIONS👏👏👏 THE CORRECT GUESS WAS '+ guess +" IT HAS TOOK YOU "+attempts+" ATTEMPTS.");
-            running=false;
-        }
+         else{
+             number.textContent='correct!  guess no.was '+guess + ' total attempts= '+attempts;
+         }
+     }
+ };
+
+
+
+         //GRADING SYSTEM
+let score=document.getElementById("score");  
+let grade=document.getElementById("grade");
+let myresult=document.getElementById("myresult");
+myresult.onclick=function(){
+    score=document.getElementById("score").value;
+    score=Number(score);
+    if(score>100){
+        grade.textContent='UNREALISTIC';
     }
-}       
+    else if(score>=80){
+        grade.textContent='Grade A';
+    }
+    else if(score>=60){
+        grade.textContent='Grade B';
+    }
+    else if(score>=50){
+        grade.textContent='Grade C';
+    }
+    else if(score>=40){
+        grade.textContent='Grade D';
+    }
+    else {
+        grade.textContent='Grade E';
+    }
+}
+
+         //TEMPERATUTE CONVERSION
+ const value=document.getElementById("value");
+ const tofahreinheit=document.getElementById("tofahreinheit");
+ const tocelcius=document.getElementById("tocelcius");
+ const show=document.getElementById("show");
+ let temp;
+function convert(){
+if(tofahreinheit.checked){
+    temp=Number(value.value);
+    temp=temp*9/5+32;
+    show.textContent=' To Fahreinheit= '+temp.toFixed(1)+'F';
+}
+else if(tocelcius.checked){
+    temp=Number(value.value);
+    temp=(temp-32)*5/9;
+    show.textContent=' To Celcius= '+temp.toFixed(1)+'C';
+}
+else{
+    show.textContent='SELECT A UNIT';
+}
+}
+    

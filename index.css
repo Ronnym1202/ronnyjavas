@@ -1,0 +1,49 @@
+#logbox{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    border: 2px solid white;
+    padding: 8px;
+    margin: 5px;
+    box-shadow: 5px 5px 10px;
+    width: 400px;
+}
+#logimage img{
+    width: 350px;
+    height: 350px;
+    display: block;
+    justify-self: center;
+}
+#logbox h2{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+ p{
+    text-align: center;
+    color: blue;
+    font-weight: bolder;
+}
+#loginputs{
+    font-size: 2.5em;
+}
+#loginputs input{
+    font-size: 0.7em;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+#logbox button{
+    display: inline;
+    width: 100%;
+    font-size: 1.5em;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    cursor:pointer;
+}
+#logbox button:hover{
+    background-color: aqua;
+    color: blue;
+}

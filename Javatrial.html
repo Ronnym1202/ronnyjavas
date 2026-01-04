@@ -2,35 +2,100 @@
 <html>
     <head>
         <link rel="stylesheet" href="Javatrial.css">
+        <link rel="icon" type="image/jpg" href="ceo.jpg">
         <title>MY JAVA TRIALS1</title>
     </head>
     <body>
-        <h1 class="title">CIRCUMFERENCE</h1>
+        <header class="hf">
+            <h1>SIR RONNY PROGRAMS</h1>
+            <h3>WELCOME AND ENJOY!!😍😍😍</h3>
+        </header>
+                  <!--CIRCUMFERENCE OF A CIRCLE-->
+        <h1 class="title">CIRCUMFERENCE OF A CIRCLE</h1>
+        <H4>WELCOME TO RONNY'S CALCULATION OF CIRCUMFERENCE PROGRAM</H4>
         <h1 id="myhr">Enter the radius of your circle:</h1>
         <label id="myR">Radius:</label>
         <input id="myI" type="text">
         <button id="myS">SUBMIT</button>
         <h3 id="myRes"></h3><br><br>
+                     <!--AGE CALCULATION-->
         <h1 class="title">AGE CALCULATION</h1>
+        <H4>WELCOME TO RONNY'S AGE CALCULATION PROGRAM</H4>
         <labeli>Enter your year of birth:</label>
         <input id="agei" type="text">
         <button id="ageb">Submit</button>
         <h3 id="displayage"></h3><br><br>
+                    <!--COUNTER PROGRAM-->
         <h1 class="title">COUNTER PROGRAM</h1>
+        <H4>WELCOME TO RONNY'S COUNTER PROGRAM</H4>
         <label id="lab1">0</label><br>
         <div id="mycon"><button id="but1" class="but">DECREASE</button>
         <button id="but2" class="but">RESET</button>
         <button id="but3"class="but">INCREASE</button>
     </div><br><br><br>
+                  <!--DICE ROLLING PROGRAM-->
 <h1 class="title">DICE ROLLING</h1>
+<H4>WELCOME TO RONNY'S DICE ROLLING PROGRAM</H4>
     <button class="roll1" id="roll">ROLL</button><br>
     <label id="label1" class="labels"></label><br>
     <label id="label2" class="labels"></label><br>
-    <label id="label3" class="labels"></label><br><br>
+    <label id="label3" class="labels"></label><br><br> 
+               <!--NUMBER GUESSING GAME-->
     <h1 class="title">NUMBER GUESSING GAME</h1>
-    <h3 id="number">enter here</h3>
+    <H4>WELCOME TO RONNY'S GUESSING NUMBER GAME. ENJOY!!!😋</H4>
+    <div id="gbox">
+        <div id="gi1">
+            <h2 id="mh2">GUESS(1-100)</h2>
+            <label for="">Guess No.</label>
+            <input id="guess" type="number" min="1" max="100"><br><br>
+            <button id="gsubmit">submit</button>
+        </div>
+        <div id="gi2">
+            <h2 class="m" id="mh2">ANSWER</h2>
+            <h3 id="number"></h3>
+        </div>
+    </div>
+    <br><br>
+           <!--GRADING SYSTEM-->
+    <h2 class="title">GRADING SYSTEM</h2>
+    <H4>WELCOME TO RONNY'S GRADING SYSTEM</H4>
+    <pre>ENTER YOUR SCORE HERE TO CONFIRM YOUR GRADE</pre>
+    <div id="box">
+        <div id="row1">
+            <h3>SCORE (1%-100%)</h3>
+            <label for="">Score:</label>
+            <input id="score" type="number"><br><br>
+            <button id="myresult">submit</button>
+        </div>
+        <div id="row2">
+            <h3>GRADE(A-E)</h3>
+            <h3 id="grade"></h3>
+        </div>
+    </div><br><br>
 
 
+    <h2 class="title">TEMPERATURE CONVERSION PROGRAM</h2>
+    <H4>WELCOME TO RONNY'S TEMPERATURE CONVERSION PROGRAM!</H4>
+    <form action="">
+        <h3>TEMPERATURE CONVERSION</h3>
+        <input type="number" value="0" id="value"><br>
+        <input type="radio" id="tofahreinheit" name="unit">
+        <label for="tofahreinheit" id="labl" >Celcius => Fahreinheit</label><br>
+        <input type="radio" id="tocelcius" name="unit">
+        <label for="tofahreinheit" id="labl">Fahreinheit => Celcius</label><br>
+        <button id="butn" type="button" onclick="convert()">submit</button>
+        <h5 id="show"></h5>
+    </form><br><br>
+
+
+
+
+    <footer class="hf">
+        &copy; 2025 Ronny's Programs<br>
+        <h2>CALL US:</h2>
+        <h3>TEL.: +254-799188900</h3>
+        <h3>EMAIL:<a href="mailto:ronnymwenda89@gmail.com">ronnymwenda89@gmail.com</a></h3>
+    </footer>
         <script src="Javatrial.js"></script>
     </body>
 </html>
