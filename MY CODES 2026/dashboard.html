@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Math App - Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard-container">
+    <h2 id="welcome"></h2>
+
+    <div class="stats">
+        <div class="card">
+            <h3>Total Points</h3>
+            <p id="points">0</p>
+        </div>
+        <div class="card">
+            <h3>Quizzes Completed</h3>
+            <p id="quizzes">0</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="goToTasks()">Practice / Quizzes</button>
+        <button onclick="goToMain()">Learn / Formulas</button>
+        <button onclick="goToProfile()">Profile</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+<script src="dashboard.js"></script>
+</body>
+</html>

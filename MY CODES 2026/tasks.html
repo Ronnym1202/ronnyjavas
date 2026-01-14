@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Math App - Tasks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard-container">
+    <h2>Math Tasks / Exercises</h2>
+
+    <div id="taskArea" class="section">
+        <p id="question"></p>
+        <input type="number" id="answerInput" placeholder="Enter your answer">
+        <button id="submitBtn">Submit Answer</button>
+        <button onclick="nextTask()">Next Task</button>
+        <button onclick="uploadQuestion()">Upload/Scan Question</button>
+        <p id="workedSteps" class="worked-steps"></p>
+    </div>
+
+    <div class="buttons">
+        <button onclick="goToDashboard()">Back to Dashboard</button>
+    </div>
+</div>
+
+<script>
+const user = localStorage.getItem("currentUser");
+if(!user) window.location.href="index.html";
+
+let users = JSON.parse(localStorage.getItem("users")) || {};
+let currentUser = users[user];
+
+let currentQuestion = {};
+let tasks = ["area", "volume"];
+const questionEl = document.getElementById("question");
+const answerInput = document.getElementById("answerInput");
+const workedStepsEl = document.getElementById("workedSteps");
+
+function generateTask(){
+    workedStepsEl.innerText = "";
+    answerInput.value = "";
+    const type = tasks[Math.floor(Math.random()*tasks.length)];
+
+    if(type==="area"){
+        const shapes = ["Square","Rectangle","Triangle","Circle"];
+        const shape = shapes[Math.floor(Math.random()*shapes.length)];
+        if(shape==="Square"){
+            const s=Math.floor(Math.random()*20)+1;
+            currentQuestion={
+                q:`Find area of square side ${s}`,
+                ans: s*s,
+                steps:`Area = side × side\nArea = ${s} × ${s} = ${s*s}`
+            }
+        } else if(shape==="Rectangle"){
+            const l=Math.floor(Math.random()*20)+1;
+            const w=Math.floor(Math.random()*20)+1;
+            currentQuestion={
+                q:`Find area of rectangle l=${l}, w=${w}`,
+                ans: l*w,
+                steps:`Area = length × width\nArea = ${l} × ${w} = ${l*w}`
+            }
+        } else if(shape==="Triangle"){
+            const b=Math.floor(Math.random()*20)+1;
+            const h=Math.floor(Math.random()*20)+1;
+            currentQuestion={
+                q:`Find area of triangle base=${b}, height=${h}`,
+                ans:(b*h)/2,
+                steps:`Area = (base × height)/2\nArea = (${b} × ${h})/2 = ${(b*h)/2}`
+            }
+        } else if(shape==="Circle"){
+            const r=Math.floor(Math.random()*10)+1;
+            currentQuestion={
+                q:`Find area of circle radius=${r} (π=3.14)`,
+                ans:3.14*r*r,
+                steps:`Area = π × r²\nArea = 3.14 × ${r}² = ${3.14*r*r}`
+            }
+        }
+    } else {
+        // Volume
+        const solids = ["Cube","Cuboid","Cylinder","Sphere"];
+        const solid = solids[Math.floor(Math.random()*solids.length)];
+        if(solid==="Cube"){
+            const s=Math.floor(Math.random()*10)+1;
+            currentQuestion={
+                q:`Find volume of cube side=${s}`,
+                ans:s*s*s,
+                steps:`Volume = side³\nVolume = ${s}³ = ${s*s*s}`
+            }
+        } else if(solid==="Cuboid"){
+            const l=Math.floor(Math.random()*10)+1;
+            const w=Math.floor(Math.random()*10)+1;
+            const h=Math.floor(Math.random()*10)+1;
+            currentQuestion={
+                q:`Find volume of cuboid l=${l},w=${w},h=${h}`,
+                ans:l*w*h,
+                steps:`Volume = length × width × height\nVolume = ${l} × ${w} × ${h} = ${l*w*h}`
+            }
+        } else if(solid==="Cylinder"){
+            const r=Math.floor(Math.random()*5)+1;
+            const h=Math.floor(Math.random()*10)+1;
+            currentQuestion={
+                q:`Find volume of cylinder r=${r},h=${h} (π=3.14)`,
+                ans:3.14*r*r*h,
+                steps:`Volume = π × r² × h\nVolume = 3.14 × ${r}² × ${h} = ${3.14*r*r*h}`
+            }
+        } else if(solid==="Sphere"){
+            const r=Math.floor(Math.random()*5)+1;
+            currentQuestion={
+                q:`Find volume of sphere radius=${r} (π=3.14)`,
+                ans:(4/3)*3.14*r*r*r,
+                steps:`Volume = 4/3 × π × r³\nVolume = 4/3 × 3.14 × ${r}³ ≈ ${((4/3)*3.14*r*r*r).toFixed(2)}`
+            }
+        }
+    }
+
+    questionEl.innerText = currentQuestion.q;
+}
+
+document.getElementById("submitBtn").addEventListener("click", ()=>{
+    const ans = parseFloat(answerInput.value);
+    if(isNaN(ans)){ alert("Enter a valid number"); return; }
+    let result="";
+    if(ans.toFixed(2) == currentQuestion.ans.toFixed(2)){
+        result="Correct ✅\n"+currentQuestion.steps;
+        currentUser.points += 1;
+    } else {
+        result="Wrong ❌\nYour answer: "+ans+"\nCorrect answer: "+currentQuestion.ans+"\n"+currentQuestion.steps;
+    }
+    currentUser.quizzes += 1;
+    users[user] = currentUser;
+    localStorage.setItem("users", JSON.stringify(users));
+    workedStepsEl.innerText = result;
+});
+
+function nextTask(){ generateTask(); }
+function goToDashboard(){ window.location.href="dashboard.html"; }
+function uploadQuestion(){
+    const custom = prompt("Enter your math question (simulate upload/scan)");
+    if(custom) alert("Received: "+custom+"\nSolve manually in tasks.");
+}
+
+// Initial task
+generateTask();
+</script>
+</body>
+</html>
+
+

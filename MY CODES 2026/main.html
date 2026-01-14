@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Math App - Learn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard-container">
+<h2>Math Learning</h2>
+
+<div class="section">
+<h3>Areas of Shapes</h3>
+<ul>
+<li>Square: Area = side × side</li>
+<li>Rectangle: Area = length × width</li>
+<li>Triangle: Area = (base × height)/2</li>
+<li>Circle: Area = π × radius²</li>
+</ul>
+</div>
+
+<div class="section">
+<h3>Volumes of Solids</h3>
+<ul>
+<li>Cube: Volume = side³</li>
+<li>Cuboid: Volume = length × width × height</li>
+<li>Cylinder: Volume = π × r² × h</li>
+<li>Sphere: Volume = 4/3 × π × r³</li>
+</ul>
+</div>
+
+<div class="buttons">
+<button onclick="goToDashboard()">Back to Dashboard</button>
+</div>
+</div>
+
+<script>
+const user = localStorage.getItem("currentUser");
+if(!user) window.location.href="index.html";
+function goToDashboard(){ window.location.href="dashboard.html"; }
+</script>
+</body>
+</html>
+

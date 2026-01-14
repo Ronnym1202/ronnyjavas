@@ -142,3 +142,27 @@ form{
     background-color: crimson;
     color: black;
 }
+#dicecontainer{
+    text-align: center;
+    box-shadow: 5px 5px 15px;
+    padding: 5px 15px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+#dicecontainer input{
+    font-size: 1.1rem;
+    text-align: center;
+    width: 150px;
+}
+#dicecontainer button{
+    border-radius: 6px;
+    padding: 5px 15px;
+    font-weight: bold;
+    background-color: hsl(240, 100%, 50%);
+    cursor: pointer;
+    color: hsl(0, 0%, 100%);
+}
+#dicecontainer button:hover{
+    background-color: hsl(240, 100%, 70%);
+    color: hsl(0, 0%, 0%);
+}

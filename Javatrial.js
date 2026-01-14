@@ -33,7 +33,7 @@ let age;
 ageb.onclick=function(){
     agei=document.getElementById("agei").value;
     agei=Number(agei);
-    age=2025-agei;
+    age=2026-agei;
 displayage.textContent='Your are '+ age +' years old';
 }
          //DICE ROLL
@@ -135,4 +135,22 @@ else{
     show.textContent='SELECT A UNIT';
 }
 }
+
+              //ADVANCED DICE ROLE
+function rolldice(){        
+   let numberofdice=document.getElementById("numberofdice").value;
+   let diceresult=document.getElementById("diceresult");
+   let imageresult=document.getElementById("imageresult");
+   const values=[];
+   const images=[];
+   
+   for(let i=0; i<numberofdice;i++){
+        const value=Math.floor(Math.random()*6)+1;
+        values.push(value);
+        images.push(`<img src="IMAGES/${value}.png" width="80">`);
+       // images.push(`<img src="IMAGES/${value}.png" alt="dice ${value}">`);
+    }
+diceresult.textContent='Dice: '+values.join(' , ');
+imageresult.innerHTML=images.join("");
+ }
     
