@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free computer science games - Binary, Logic Gates, Algorithms, Sorting, Programming concepts. By Mwalimu Ronny.">
+<title>Computer Science Games | Ronny Edu Games</title>
+<link rel="icon" type="image/jpeg" href="profile.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bisque:#ffe4c4;--bisque-light:#fff5ea;--bisque-mid:#ffd4a0;--bisque-dark:#f0c090;
+  --brown:#7a4a1e;--brown-dark:#5a3210;--brown-mid:#a0622a;
+  --accent:#c0392b;--accent2:#1a6b3a;--accent3:#1a3a6b;
+  --ink:#2a1a0a;--ink-soft:#5a3e28;--muted:#9a7a5a;
+  --card:#fffaf4;--card-border:#e8d0b0;
+  --shadow:rgba(122,74,30,.12);--shadow-strong:rgba(122,74,30,.22);
+  --primary-bg:rgba(26,59,107,.06);--secondary-bg:rgba(26,107,58,.06);--uni-bg:rgba(192,57,43,.06);
+  --primary-border:rgba(26,59,107,.2);--secondary-border:rgba(26,107,58,.2);--uni-border:rgba(192,57,43,.2);
+  --mono:'JetBrains Mono',monospace;
+  --radius:14px;--transition:.25s ease;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bisque-light);color:var(--ink);font-family:'Source Sans 3',sans-serif;overflow-x:hidden;line-height:1.6}
+h1,h2,h3{font-family:'Playfair Display',serif}
+a{color:inherit;text-decoration:none}
+nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:68px;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--bisque);display:flex;align-items:center;gap:.5rem}
+.nav-logo small{color:rgba(255,228,196,.55);font-size:.8rem;font-weight:400;font-family:'Source Sans 3',sans-serif;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,228,196,.7);font-weight:600;font-size:.9rem;padding:.35rem 0;border-bottom:2px solid transparent;transition:var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--bisque);border-bottom-color:var(--bisque-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:26px;height:3px;background:var(--bisque);border-radius:3px}
+.page-hero{background:linear-gradient(150deg,var(--brown-dark),#1a3a6b);padding:56px 5%;border-bottom:3px solid var(--brown-mid)}
+.page-hero h1{color:var(--bisque);font-size:clamp(2rem,5vw,3.2rem)}
+.page-hero p{color:rgba(255,228,196,.75);margin-top:.7rem;font-size:1.05rem;max-width:600px}
+.breadcrumb{padding:.9rem 5%;font-size:.84rem;color:var(--muted);border-bottom:1px solid var(--card-border);background:var(--bisque)}
+.breadcrumb a{color:var(--brown-mid)}
+.level-tabs{display:flex;gap:0;border-bottom:3px solid var(--card-border);background:var(--bisque);padding:0 5%;position:sticky;top:68px;z-index:99;box-shadow:0 2px 8px var(--shadow)}
+.level-tab{padding:.85rem 1.8rem;font-weight:700;cursor:pointer;font-size:.92rem;border:none;background:none;color:var(--muted);font-family:'Source Sans 3',sans-serif;border-bottom:3px solid transparent;margin-bottom:-3px;transition:var(--transition)}
+.level-tab:hover{color:var(--brown)}
+.level-tab.active-primary{color:var(--accent3);border-bottom-color:var(--accent3)}
+.level-tab.active-secondary{color:var(--accent2);border-bottom-color:var(--accent2)}
+.level-tab.active-uni{color:var(--accent);border-bottom-color:var(--accent)}
+.level-section{display:none;padding:48px 5% 60px}
+.level-section.visible{display:block}
+.level-header{margin-bottom:2.5rem}
+.level-badge{display:inline-flex;align-items:center;gap:.5rem;border-radius:30px;padding:.4rem 1.1rem;font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:.8rem}
+.lb-primary{background:var(--primary-bg);color:var(--accent3);border:1px solid var(--primary-border)}
+.lb-secondary{background:var(--secondary-bg);color:var(--accent2);border:1px solid var(--secondary-border)}
+.lb-uni{background:var(--uni-bg);color:var(--accent);border:1px solid var(--uni-border)}
+.level-header h2{font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:.4rem}
+.level-header p{color:var(--ink-soft);max-width:600px}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.8rem}
+.game-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px var(--shadow);transition:var(--transition)}
+.game-card:hover{box-shadow:0 6px 28px var(--shadow-strong)}
+.game-card-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--card-border);display:flex;align-items:center;gap:1rem}
+.game-icon-wrap{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;font-family:var(--mono);font-weight:700}
+.game-card-header h3{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.1rem;margin-bottom:.15rem}
+.game-card-header p{color:var(--muted);font-size:.82rem}
+.game-body{padding:1.5rem}
+.score-bar{display:flex;gap:1.5rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.score-item{text-align:center}
+.score-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--brown-dark);line-height:1}
+.score-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:700}
+.game-question{background:linear-gradient(135deg,var(--brown-dark),#1a3a6b);border-radius:10px;padding:1rem 1.4rem;font-family:var(--mono);font-size:1.2rem;color:var(--bisque);text-align:center;margin-bottom:1rem;min-height:62px;display:flex;align-items:center;justify-content:center;word-break:break-all;line-height:1.4}
+.game-input{width:100%;border:2px solid var(--card-border);border-radius:8px;padding:.7rem 1rem;font-size:1rem;font-weight:700;font-family:var(--mono);background:var(--bisque-light);color:var(--ink);outline:none;transition:var(--transition)}
+.game-input:focus{border-color:var(--brown-mid);background:#fff}
+.game-feedback{min-height:1.6rem;font-weight:700;font-size:.95rem;padding:.3rem 0;margin:.4rem 0;text-align:center}
+.fb-correct{color:var(--accent2)}.fb-wrong{color:var(--accent)}
+.opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.8rem}
+.opt-btn{background:var(--bisque-light);border:2px solid var(--card-border);border-radius:8px;padding:.65rem .8rem;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--ink);font-family:'Source Sans 3',sans-serif;transition:var(--transition);text-align:left}
+.opt-btn:hover{border-color:var(--brown-mid);background:var(--bisque)}
+.opt-btn.correct{background:rgba(26,107,58,.12);border-color:var(--accent2);color:var(--accent2)}
+.opt-btn.wrong{background:rgba(192,57,43,.1);border-color:var(--accent);color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.5rem;border-radius:30px;font-weight:700;font-size:.88rem;cursor:pointer;border:2px solid transparent;transition:var(--transition);font-family:'Source Sans 3',sans-serif}
+.btn-brown{background:var(--brown);color:var(--bisque);border-color:var(--brown)}.btn-brown:hover{background:var(--brown-dark)}
+.btn-outline{background:transparent;color:var(--brown-mid);border-color:var(--card-border)}.btn-outline:hover{border-color:var(--brown-mid);background:var(--bisque)}
+.btn-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem}
+.code-block{background:var(--brown-dark);border-radius:10px;padding:1rem 1.2rem;font-family:var(--mono);font-size:.85rem;color:var(--bisque);line-height:1.8;overflow-x:auto;margin-bottom:.8rem;white-space:pre}
+.sort-bars{display:flex;align-items:flex-end;gap:4px;height:120px;background:var(--bisque-light);border-radius:8px;padding:8px 10px 0;border:2px solid var(--card-border);margin-bottom:.8rem}
+.sort-bar{flex:1;border-radius:4px 4px 0 0;transition:height .3s,background .2s;background:var(--brown-mid);min-width:12px;position:relative}
+.sort-bar.comparing{background:var(--accent)}
+.sort-bar.sorted{background:var(--accent2)}
+.ds-cell{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:2px solid var(--card-border);font-family:var(--mono);font-weight:700;font-size:.9rem;transition:var(--transition);border-radius:4px;background:var(--bisque-light)}
+.ds-cell.highlight{background:var(--bisque-mid);border-color:var(--brown)}
+footer{background:var(--brown-dark);padding:2.5rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,228,196,.1)}
+.footer-bottom p,.footer-bottom a{color:rgba(255,228,196,.5);font-size:.82rem}
+.footer-bottom a:hover{color:var(--bisque)}.footer-links{display:flex;gap:1.2rem}
+#scrollTop{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;border-radius:50%;background:var(--brown);color:var(--bisque);border:none;cursor:pointer;font-size:1.1rem;box-shadow:0 4px 16px var(--shadow-strong);transition:var(--transition);display:none;align-items:center;justify-content:center;z-index:500}
+#scrollTop.show{display:flex}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--brown-dark);flex-direction:column;gap:0;padding:.5rem 0;border-bottom:2px solid var(--brown-mid);transform:translateY(-120%);transition:.35s;opacity:0;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  .nav-links.open{transform:translateY(0);opacity:1}
+  .nav-links li{border-bottom:1px solid rgba(255,228,196,.08)}
+  .nav-links a{display:block;padding:.9rem 5%;font-size:1rem}
+  .level-tab{padding:.75rem 1rem;font-size:.84rem}
+  .games-grid{grid-template-columns:1fr}
+  .opts-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span style="font-size:1.5rem">∑</span>
+    <div><div>Ronny Edu Games</div><small>by Mwalimu Ronny</small></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mathematics.html">Mathematics</a></li>
+    <li><a href="computer.html" class="active">Computer Science</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <h1>💻 Computer Science Games</h1>
+  <p>Binary, logic gates, algorithms, data structures, programming concepts — 12 games across three levels, all playable in your browser.</p>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a> › Computer Science Games</div>
+
+<div class="level-tabs">
+  <button class="level-tab active-primary" onclick="showLevel('primary')" id="tab-primary">🌱 Primary</button>
+  <button class="level-tab" onclick="showLevel('secondary')" id="tab-secondary">📐 Secondary</button>
+  <button class="level-tab" onclick="showLevel('university')" id="tab-uni">🎓 University</button>
+</div>
+
+<!-- ======================== PRIMARY ======================== -->
+<div class="level-section visible" id="level-primary">
+  <div class="level-header">
+    <div class="level-badge lb-primary">🌱 Primary Level · Ages 8–13</div>
+    <h2>Primary Computer Science</h2>
+    <p>Introduction to computers, basic binary, simple algorithms and computational thinking — no prior knowledge needed.</p>
+  </div>
+  <div class="games-grid">
+
+    <!-- PC1: BINARY EXPLORER -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">01</div>
+        <div><h3>Binary Explorer</h3><p>Learn to count in binary (base 2)</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="bi-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="bi-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div style="background:var(--brown-dark);border-radius:10px;padding:1rem;text-align:center;margin-bottom:.8rem">
+          <div style="color:rgba(255,228,196,.6);font-size:.8rem;font-weight:700;margin-bottom:.4rem">Convert this binary number to decimal:</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2.2rem;color:var(--bisque);font-weight:700;letter-spacing:8px" id="bi-number"></div>
+        </div>
+        <div style="font-size:.82rem;color:var(--muted);text-align:center;margin-bottom:.8rem">💡 Bit positions: 128, 64, 32, 16, 8, 4, 2, 1</div>
+        <div class="opts-grid" id="bi-opts"></div>
+        <div class="game-feedback" id="bi-fb"></div>
+      </div>
+    </div>
+
+    <!-- PC2: ASCII -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">A→</div>
+        <div><h3>ASCII Adventure</h3><p>Discover that every character has a number code</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="asc-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="asc-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="asc-question" style="font-size:1rem;line-height:1.4">Press Start!</div>
+        <div class="opts-grid" id="asc-opts"></div>
+        <div class="game-feedback" id="asc-fb"></div>
+        <button class="btn btn-brown" onclick="ascStart()">▶ Start</button>
+      </div>
+    </div>
+
+    <!-- PC3: ALGORITHM DETECTIVE -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">📋</div>
+        <div><h3>Algorithm Detective</h3><p>Put algorithm steps in the correct order</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="ald-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="ald-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div style="font-weight:700;color:var(--brown-dark);margin-bottom:.8rem;font-size:.95rem" id="ald-task"></div>
+        <div style="color:var(--muted);font-size:.8rem;margin-bottom:.5rem">Tap two steps to swap them into the right order:</div>
+        <div id="ald-steps" style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.8rem"></div>
+        <div class="game-feedback" id="ald-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="aldCheck()">Submit ✓</button>
+          <button class="btn btn-outline" onclick="aldNextQ()">Skip →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PC4: COMPUTER PARTS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">🖥️</div>
+        <div><h3>Computer Parts Quiz</h3><p>CPU, RAM, ROM, storage and input/output</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="cp-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="cp-q">1/12</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <div class="game-question" id="cp-question" style="font-size:1rem;line-height:1.4;padding:.8rem">Press Start!</div>
+        <div class="opts-grid" id="cp-opts"></div>
+        <div class="game-feedback" id="cp-fb"></div>
+        <button class="btn btn-brown" onclick="cpStart()">▶ Start</button>
+      </div>
+    </div>
+
+    <!-- PC5: PATTERN LOGIC -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">🔣</div>
+        <div><h3>Pattern Logic</h3><p>Spot patterns — the foundation of programming loops</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="pat-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="pat-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div style="background:var(--brown-dark);border-radius:10px;padding:1rem;text-align:center;font-family:'JetBrains Mono',monospace;font-size:1.5rem;color:var(--bisque);letter-spacing:6px;margin-bottom:.8rem" id="pat-sequence"></div>
+        <div style="text-align:center;color:var(--muted);font-weight:600;margin-bottom:.8rem;font-size:.9rem">What comes next in the pattern?</div>
+        <div class="opts-grid" id="pat-opts"></div>
+        <div class="game-feedback" id="pat-fb"></div>
+      </div>
+    </div>
+
+    <!-- PC6: INTERNET BASICS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">🌐</div>
+        <div><h3>Internet Basics</h3><p>How the internet and networks work</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="net-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="net-q">1/10</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <div class="game-question" id="net-question" style="font-size:1rem;line-height:1.4;padding:.8rem">Press Start!</div>
+        <div class="opts-grid" id="net-opts"></div>
+        <div class="game-feedback" id="net-fb"></div>
+        <button class="btn btn-brown" onclick="netStart()">▶ Start</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== SECONDARY ======================== -->
+<div class="level-section" id="level-secondary">
+  <div class="level-header">
+    <div class="level-badge lb-secondary">📐 Secondary Level · Form 1–4</div>
+    <h2>Secondary Computer Science</h2>
+    <p>Number systems, logic gates, programming fundamentals, data representation and sorting algorithms.</p>
+  </div>
+  <div class="games-grid">
+
+    <!-- SC1: NUMBER SYSTEMS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">⇄</div>
+        <div><h3>Number System Converter</h3><p>Binary, Decimal, Octal, Hexadecimal</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="nc-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="nc-streak">0</div><div class="score-lbl">Streak</div></div>
+        </div>
+        <div class="game-question" id="nc-question">Press a mode to start!</div>
+        <input type="text" class="game-input" id="nc-ans" placeholder="Your answer..." onkeydown="if(event.key==='Enter')ncCheck()">
+        <div class="game-feedback" id="nc-fb"></div>
+        <div style="margin-top:.6rem;font-size:.82rem;color:var(--muted)" id="nc-hint"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="ncStart('bin-dec')">Bin→Dec</button>
+          <button class="btn btn-outline" onclick="ncStart('dec-bin')">Dec→Bin</button>
+          <button class="btn btn-outline" onclick="ncStart('dec-hex')">Dec→Hex</button>
+          <button class="btn btn-outline" onclick="ncStart('hex-dec')">Hex→Dec</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SC2: LOGIC GATES -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">⊕</div>
+        <div><h3>Logic Gates</h3><p>AND, OR, NOT, NAND, NOR, XOR truth tables</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="lg-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="lg-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <svg id="lg-svg" height="80" viewBox="0 0 280 80" style="width:100%;max-width:280px;display:block;margin:.5rem auto"></svg>
+        <div class="game-question" id="lg-question" style="font-size:1rem;min-height:50px">Press Start!</div>
+        <div class="opts-grid" id="lg-opts"></div>
+        <div class="game-feedback" id="lg-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="lgStart('basic')">Basic Gates</button>
+          <button class="btn btn-outline" onclick="lgStart('compound')">Compound</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SC3: PROGRAMMING CONCEPTS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">&lt;/&gt;</div>
+        <div><h3>Programming Concepts</h3><p>Variables, loops, conditionals, functions</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="prog-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="prog-q">1/10</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <div class="code-block" id="prog-code" style="min-height:70px"></div>
+        <div style="font-weight:700;color:var(--ink-soft);margin-bottom:.8rem;font-size:.93rem" id="prog-question"></div>
+        <div class="opts-grid" id="prog-opts"></div>
+        <div class="game-feedback" id="prog-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="progStart('pseudocode')">Pseudocode</button>
+          <button class="btn btn-outline" onclick="progStart('python')">Python</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SC4: DATA REPRESENTATION -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">📊</div>
+        <div><h3>Data Representation</h3><p>Bits, bytes, units, images, text encoding</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="dr-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="dr-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="dr-question" style="font-size:1rem;min-height:50px">Press Start!</div>
+        <div class="opts-grid" id="dr-opts"></div>
+        <div class="game-feedback" id="dr-fb"></div>
+        <button class="btn btn-brown" onclick="drStart()">▶ Start / Restart</button>
+      </div>
+    </div>
+
+    <!-- SC5: SORTING VISUALISER -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">↕</div>
+        <div><h3>Sorting Visualiser</h3><p>Watch Bubble, Selection and Insertion sort step by step</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="sv-steps">0</div><div class="score-lbl">Steps</div></div>
+          <div class="score-item"><div class="score-val" id="sv-comps">0</div><div class="score-lbl">Comparisons</div></div>
+        </div>
+        <div class="sort-bars" id="sv-bars"></div>
+        <div style="font-size:.85rem;font-weight:700;color:var(--ink-soft);margin-bottom:.6rem;min-height:1.5em" id="sv-status">Choose an algorithm, then Step or Auto!</div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="svInit('bubble')">Bubble</button>
+          <button class="btn btn-outline" onclick="svInit('selection')">Selection</button>
+          <button class="btn btn-outline" onclick="svInit('insertion')">Insertion</button>
+        </div>
+        <div class="btn-row" style="margin-top:.4rem">
+          <button class="btn btn-outline" onclick="svStep()">Step →</button>
+          <button class="btn btn-outline" onclick="svAuto()">Auto ▶</button>
+          <button class="btn btn-outline" onclick="svReset()">🔄 Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SC6: CYBERSECURITY QUIZ -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">🔐</div>
+        <div><h3>Cybersecurity Quiz</h3><p>Online safety, threats, encryption and protection</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="cy-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="cy-q">1/10</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <div class="game-question" id="cy-question" style="font-size:1rem;line-height:1.4;padding:.8rem">Press Start!</div>
+        <div class="opts-grid" id="cy-opts"></div>
+        <div class="game-feedback" id="cy-fb"></div>
+        <button class="btn btn-brown" onclick="cyStart()">▶ Start</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== UNIVERSITY ======================== -->
+<div class="level-section" id="level-university">
+  <div class="level-header">
+    <div class="level-badge lb-uni">🎓 University Level</div>
+    <h2>University Computer Science</h2>
+    <p>Data structures, complexity analysis, Boolean algebra, search algorithms and advanced CS concepts.</p>
+  </div>
+  <div class="games-grid">
+
+    <!-- UC1: BIG-O -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">O(n)</div>
+        <div><h3>Big-O Complexity</h3><p>Identify time complexity of algorithms</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="bo-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="bo-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="code-block" id="bo-code" style="min-height:80px"></div>
+        <div style="font-weight:700;color:var(--ink-soft);margin-bottom:.8rem;font-size:.93rem">What is the time complexity of this code?</div>
+        <div class="opts-grid" id="bo-opts"></div>
+        <div class="game-feedback" id="bo-fb"></div>
+        <button class="btn btn-brown" onclick="boNext()">▶ Next Question</button>
+      </div>
+    </div>
+
+    <!-- UC2: DATA STRUCTURES -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">🗂️</div>
+        <div><h3>Data Structures</h3><p>Stack, Queue, Tree, Graph, Hash table</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="ds-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="ds-q">1/12</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <div class="game-question" id="ds-question" style="font-size:.95rem;min-height:56px;line-height:1.5">Press Start!</div>
+        <div class="opts-grid" id="ds-opts"></div>
+        <div class="game-feedback" id="ds-fb"></div>
+        <button class="btn btn-brown" onclick="dsStart()">▶ Start / Restart</button>
+      </div>
+    </div>
+
+    <!-- UC3: BOOLEAN ALGEBRA -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">∧∨</div>
+        <div><h3>Boolean Algebra</h3><p>Simplify and evaluate Boolean expressions</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="ba-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="ba-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="ba-question" style="font-family:'JetBrains Mono',monospace;font-size:1.1rem">Press Start!</div>
+        <div class="opts-grid" id="ba-opts"></div>
+        <div class="game-feedback" id="ba-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="baStart('laws')">Boolean Laws</button>
+          <button class="btn btn-outline" onclick="baStart('simplify')">Simplify</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UC4: SEARCH ALGORITHMS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">🔍</div>
+        <div><h3>Search Algorithms</h3><p>Linear vs Binary Search — trace and compare</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="sa-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="sa-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:.8rem;justify-content:center" id="sa-array"></div>
+        <div class="game-question" id="sa-question" style="font-size:1rem;min-height:52px">Press a mode to start!</div>
+        <input type="number" class="game-input" id="sa-ans" placeholder="Number of comparisons..." onkeydown="if(event.key==='Enter')saCheck()">
+        <div class="game-feedback" id="sa-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="saStart('linear')">Linear Search</button>
+          <button class="btn btn-outline" onclick="saStart('binary')">Binary Search</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- UC5: RECURSION -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">🔁</div>
+        <div><h3>Recursion Tracer</h3><p>Trace recursive function calls and outputs</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="rec-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="rec-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="code-block" id="rec-code" style="min-height:80px"></div>
+        <div style="font-weight:700;color:var(--ink-soft);margin-bottom:.8rem;font-size:.93rem" id="rec-question"></div>
+        <div class="opts-grid" id="rec-opts"></div>
+        <div class="game-feedback" id="rec-fb"></div>
+        <button class="btn btn-brown" onclick="recStart()">▶ Start / Restart</button>
+      </div>
+    </div>
+
+    <!-- UC6: NETWORK PROTOCOLS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">🔗</div>
+        <div><h3>Network Protocols</h3><p>TCP/IP, OSI model, HTTP, DNS and more</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="np-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="np-q">1/12</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <div class="game-question" id="np-question" style="font-size:.95rem;min-height:56px;line-height:1.5">Press Start!</div>
+        <div class="opts-grid" id="np-opts"></div>
+        <div class="game-feedback" id="np-fb"></div>
+        <button class="btn btn-brown" onclick="npStart()">▶ Start / Restart</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ronny Edu Games — by Mwalimu Ronny</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="mathematics.html">Maths</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+
+function showLevel(l){
+  ['primary','secondary','university'].forEach(id=>{
+    document.getElementById('level-'+id).classList.remove('visible');
+    document.getElementById('tab-'+id)?.classList.remove('active-primary','active-secondary','active-uni');
+  });
+  document.getElementById('level-'+l).classList.add('visible');
+  const map={primary:'active-primary',secondary:'active-secondary',university:'active-uni'};
+  document.getElementById('tab-'+l)?.classList.add(map[l]);
+}
+window.addEventListener('scroll',()=>document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300));
+
+// ======================== PC1: BINARY EXPLORER ========================
+let biScore=0,biQ=0,biAnswered=false;
+function biRender(){
+  const n=rand(1,31);biAnswered=false;biQ++;
+  const bin=n.toString(2).padStart(5,'0');
+  document.getElementById('bi-number').textContent=bin;document.getElementById('bi-q').textContent=biQ;document.getElementById('bi-fb').textContent='';
+  const opts=[n];while(opts.length<4){const w=rand(0,31);if(!opts.includes(w))opts.push(w);}
+  opts.sort(()=>Math.random()-.5);
+  const el=document.getElementById('bi-opts');el.innerHTML='';
+  opts.forEach(o=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(biAnswered)return;biAnswered=true;
+      if(o===n){biScore++;b.classList.add('correct');document.getElementById('bi-fb').textContent=`✓ ${bin}₂ = ${n}₁₀`;document.getElementById('bi-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');document.getElementById('bi-fb').textContent=`✗ Answer: ${n}`;document.getElementById('bi-fb').className='game-feedback fb-wrong';}
+      document.getElementById('bi-score').textContent=biScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(biRender,800);
+    };el.appendChild(b);
+  });
+}
+biRender();
+
+// ======================== PC2: ASCII ========================
+const ASCII_Q=[
+  {q:'What is the ASCII code for the letter A?',opts:['65','97','41','48'],ans:0},
+  {q:'ASCII code 97 represents which character?',opts:['A','a','1','@'],ans:1},
+  {q:'What does ASCII stand for?',opts:['American Standard Code for Information Interchange','A Special Code In Interfaces','Alphabetic System for Computer Interpretation','A Standard Computer Instruction'],ans:0},
+  {q:'ASCII code 48 represents which character?',opts:['0','A','a','space'],ans:0},
+  {q:'How many bits does standard ASCII use?',opts:['7','8','16','32'],ans:0},
+  {q:'Which has the higher ASCII value?',opts:['Lowercase (a=97)','Uppercase (A=65)','They are equal','Depends on letter'],ans:0},
+  {q:'ASCII code 32 represents?',opts:['Space','0','A','Enter'],ans:0},
+  {q:'Extended ASCII uses how many bits?',opts:['7','8','16','32'],ans:1},
+  {q:'What is the ASCII code for the letter Z?',opts:['90','65','122','89'],ans:0},
+  {q:'ASCII code 10 represents?',opts:['Space','Newline/Enter','Tab','Escape'],ans:1},
+];
+let ascScore=0,ascIdx=0,ascQs=[],ascAnswered=false;
+function ascStart(){ascQs=[...ASCII_Q].sort(()=>Math.random()-.5);ascIdx=0;ascScore=0;ascRender();}
+function ascRender(){
+  const q=ascQs[ascIdx%ascQs.length];ascAnswered=false;
+  document.getElementById('asc-q').textContent=ascIdx+1;document.getElementById('asc-question').textContent=q.q;document.getElementById('asc-fb').textContent='';
+  const el=document.getElementById('asc-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(ascAnswered)return;ascAnswered=true;
+      if(i===q.ans){ascScore++;b.classList.add('correct');document.getElementById('asc-fb').textContent='✓ Correct!';document.getElementById('asc-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('asc-fb').textContent='✗ Wrong!';document.getElementById('asc-fb').className='game-feedback fb-wrong';}
+      document.getElementById('asc-score').textContent=ascScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{ascIdx++;ascRender();},800);
+    };el.appendChild(b);
+  });
+}
+ascStart();
+
+// ======================== PC3: ALGORITHM DETECTIVE ========================
+const ALD_PROBLEMS=[
+  {task:'Making a cup of tea — put these steps in order:',steps:['Drink the tea','Add teabag to cup','Pour boiling water','Boil the kettle','Remove teabag'],correct:[3,2,1,4,0]},
+  {task:'Brushing teeth — correct order:',steps:['Spit and rinse','Put toothpaste on brush','Brush for 2 minutes','Get your toothbrush','Wet the brush'],correct:[3,4,1,2,0]},
+  {task:'Simple addition algorithm:',steps:['Output the result','Read number B','Add A + B','Read number A','Store the sum'],correct:[3,1,2,4,0]},
+  {task:'Sending an email — correct order:',steps:['Click Send','Write the message','Open email app','Type recipient address','Give the email a subject'],correct:[2,3,4,1,0]},
+];
+let aldIdx=0,aldOrder=[],aldSelected=null,aldScore=0;
+function aldNext(){
+  const p=ALD_PROBLEMS[aldIdx%ALD_PROBLEMS.length];
+  document.getElementById('ald-task').textContent=p.task;document.getElementById('ald-q').textContent=aldIdx+1;
+  aldOrder=p.steps.map((s,i)=>({text:s,origIdx:i})).sort(()=>Math.random()-.5);
+  aldSelected=null;document.getElementById('ald-fb').textContent='';renderAldSteps();
+}
+function renderAldSteps(){
+  const el=document.getElementById('ald-steps');el.innerHTML='';
+  aldOrder.forEach((s,i)=>{
+    const div=document.createElement('div');
+    div.style.cssText=`display:flex;align-items:center;gap:.5rem;background:${aldSelected===i?'var(--bisque-mid)':'var(--bisque-light)'};border:2px solid ${aldSelected===i?'var(--brown-mid)':'var(--card-border)'};border-radius:8px;padding:.5rem .8rem;cursor:pointer;font-weight:700;font-size:.88rem;transition:.2s`;
+    div.innerHTML=`<span style="background:var(--brown);color:var(--bisque);border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0">${i+1}</span>${s.text}`;
+    div.onclick=()=>aldSwap(i);el.appendChild(div);
+  });
+}
+function aldSwap(i){
+  if(aldSelected===null){aldSelected=i;}
+  else if(aldSelected===i){aldSelected=null;}
+  else{[aldOrder[aldSelected],aldOrder[i]]=[aldOrder[i],aldOrder[aldSelected]];aldSelected=null;}
+  renderAldSteps();
+}
+function aldCheck(){
+  const p=ALD_PROBLEMS[aldIdx%ALD_PROBLEMS.length];
+  const correct=p.correct.every((c,i)=>aldOrder[i].origIdx===c);
+  const fb=document.getElementById('ald-fb');
+  if(correct){aldScore++;document.getElementById('ald-score').textContent=aldScore;fb.textContent='✓ Perfect order!';fb.className='game-feedback fb-correct';}
+  else{fb.textContent='✗ Not quite — try swapping more steps.';fb.className='game-feedback fb-wrong';}
+}
+function aldNextQ(){aldIdx++;aldNext();}
+aldNext();
+
+// ======================== PC4: COMPUTER PARTS ========================
+const CP_Q=[
+  {q:'What does CPU stand for?',opts:['Central Processing Unit','Computer Processing Unit','Central Program Utility','Core Processing Utility'],ans:0},
+  {q:'RAM stands for?',opts:['Random Access Memory','Read And Memory','Random Array Mode','Read Access Mode'],ans:0},
+  {q:'Which stores data permanently even when power is off?',opts:['RAM','CPU Cache','ROM','Register'],ans:2},
+  {q:'What is the primary function of the CPU?',opts:['Store data','Process instructions','Display output','Provide power'],ans:1},
+  {q:'An input device is?',opts:['Printer','Monitor','Keyboard','Speaker'],ans:2},
+  {q:'1 byte = how many bits?',opts:['4','8','16','32'],ans:1},
+  {q:'Which is a secondary storage device?',opts:['RAM','CPU Cache','Hard Disk Drive','Register'],ans:2},
+  {q:'The motherboard is?',opts:['The power supply','The main circuit board connecting all components','A type of RAM','An output device'],ans:1},
+  {q:'GPU stands for?',opts:['Graphics Processing Unit','General Program Utility','Graphics Program Unit','Global Processing Utility'],ans:0},
+  {q:'Which stores data temporarily while the computer is on?',opts:['Hard Disk','ROM','RAM','SSD'],ans:2},
+  {q:'An output device is?',opts:['Keyboard','Mouse','Scanner','Monitor'],ans:3},
+  {q:'What does BIOS stand for?',opts:['Basic Input/Output System','Binary Instruction Output System','Base Input Operating System','Basic Instruction Output Set'],ans:0},
+];
+let cpScore=0,cpIdx=0,cpQs=[],cpAnswered=false;
+function cpStart(){cpQs=[...CP_Q].sort(()=>Math.random()-.5);cpIdx=0;cpScore=0;cpRender();}
+function cpRender(){
+  const q=cpQs[cpIdx%cpQs.length];cpAnswered=false;
+  document.getElementById('cp-q').textContent=`${cpIdx+1}/${cpQs.length}`;document.getElementById('cp-question').textContent=q.q;document.getElementById('cp-fb').textContent='';
+  const el=document.getElementById('cp-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(cpAnswered)return;cpAnswered=true;
+      if(i===q.ans){cpScore++;b.classList.add('correct');document.getElementById('cp-fb').textContent='✓ Correct!';document.getElementById('cp-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('cp-fb').textContent='✗ Wrong!';document.getElementById('cp-fb').className='game-feedback fb-wrong';}
+      document.getElementById('cp-score').textContent=cpScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{cpIdx++;cpRender();},800);
+    };el.appendChild(b);
+  });
+}
+cpStart();
+
+// ======================== PC5: PATTERN LOGIC ========================
+const PATTERNS=[
+  {seq:['🔴','🔵','🔴','🔵','🔴'],ans:'🔵',opts:['🔴','🔵','🟡','🟢']},
+  {seq:['2','4','6','8','10'],ans:'12',opts:['11','12','14','16']},
+  {seq:['A','B','C','D','E'],ans:'F',opts:['E','F','G','H']},
+  {seq:['1','4','9','16','25'],ans:'36',opts:['30','36','49','35']},
+  {seq:['🟢','🟢','🔴','🟢','🟢'],ans:'🔴',opts:['🟢','🔴','🔵','🟡']},
+  {seq:['Z','Y','X','W','V'],ans:'U',opts:['T','U','V','W']},
+  {seq:['1','2','4','8','16'],ans:'32',opts:['24','30','32','36']},
+  {seq:['3','6','9','12','15'],ans:'18',opts:['16','17','18','20']},
+];
+let patScore=0,patIdx=0,patAnswered=false;
+function patRender(){
+  const q=PATTERNS[patIdx%PATTERNS.length];patAnswered=false;
+  document.getElementById('pat-sequence').textContent=q.seq.join('  ');document.getElementById('pat-q').textContent=patIdx+1;document.getElementById('pat-fb').textContent='';
+  const el=document.getElementById('pat-opts');el.innerHTML='';
+  q.opts.forEach(o=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(patAnswered)return;patAnswered=true;
+      if(o===q.ans){patScore++;b.classList.add('correct');document.getElementById('pat-fb').textContent='✓ Correct!';document.getElementById('pat-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');document.getElementById('pat-fb').textContent=`✗ Answer: ${q.ans}`;document.getElementById('pat-fb').className='game-feedback fb-wrong';}
+      document.getElementById('pat-score').textContent=patScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{patIdx++;patRender();},800);
+    };el.appendChild(b);
+  });
+}
+patRender();
+
+// ======================== PC6: INTERNET BASICS ========================
+const NET_Q=[
+  {q:'What does WWW stand for?',opts:['World Wide Web','World Wide Wire','Web Wide World','Wide World Web'],ans:0},
+  {q:'What does HTTP stand for?',opts:['HyperText Transfer Protocol','High Transfer Text Protocol','Hyper Transfer Tech Protocol','HyperText Tech Protocol'],ans:0},
+  {q:'What is an IP address?',opts:['A website name','A unique numerical address for a device on a network','A type of cable','A browser type'],ans:1},
+  {q:'DNS stands for?',opts:['Digital Network Service','Domain Name System','Data Network Standard','Direct Name Service'],ans:1},
+  {q:'A router is used to?',opts:['Store files','Direct data packets between networks','Display web pages','Send emails'],ans:1},
+  {q:'HTTPS is more secure than HTTP because it uses?',opts:['More bandwidth','Encryption (SSL/TLS)','Faster servers','Better images'],ans:1},
+  {q:'What does LAN stand for?',opts:['Large Area Network','Local Area Network','Long Access Network','Linked Area Node'],ans:1},
+  {q:'What is Wi-Fi?',opts:['A type of cable','Wireless networking technology','A website','A programming language'],ans:1},
+  {q:'A web browser is?',opts:['A type of virus','Software to access and display websites','An internet provider','A search engine'],ans:1},
+  {q:'What does URL stand for?',opts:['Universal Resource Locator','Uniform Resource Locator','United Reference Link','Universal Reference Locator'],ans:1},
+];
+let netScore=0,netIdx=0,netQs=[],netAnswered=false;
+function netStart(){netQs=[...NET_Q].sort(()=>Math.random()-.5);netIdx=0;netScore=0;netRender();}
+function netRender(){
+  const q=netQs[netIdx%netQs.length];netAnswered=false;
+  document.getElementById('net-q').textContent=`${netIdx+1}/10`;document.getElementById('net-question').textContent=q.q;document.getElementById('net-fb').textContent='';
+  const el=document.getElementById('net-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(netAnswered)return;netAnswered=true;
+      if(i===q.ans){netScore++;b.classList.add('correct');document.getElementById('net-fb').textContent='✓ Correct!';document.getElementById('net-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('net-fb').textContent='✗ Wrong!';document.getElementById('net-fb').className='game-feedback fb-wrong';}
+      document.getElementById('net-score').textContent=netScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{netIdx++;netRender();},800);
+    };el.appendChild(b);
+  });
+}
+netStart();
+
+// ======================== SC1: NUMBER SYSTEMS ========================
+let ncScore=0,ncStreak=0,ncMode='bin-dec',ncAns;
+function ncStart(mode){ncMode=mode;ncScore=0;ncStreak=0;document.getElementById('nc-score').textContent=0;ncNext();}
+function ncNext(){
+  document.getElementById('nc-ans').value='';document.getElementById('nc-fb').textContent='';
+  if(ncMode==='bin-dec'){const n=rand(1,255);ncAns=String(n);document.getElementById('nc-question').textContent=`Convert to decimal: ${n.toString(2)}₂`;document.getElementById('nc-hint').textContent='Hint: Sum up the powers of 2 for each 1-bit';}
+  else if(ncMode==='dec-bin'){const n=rand(1,63);ncAns=n.toString(2);document.getElementById('nc-question').textContent=`Convert to binary: ${n}₁₀`;document.getElementById('nc-hint').textContent='Hint: Repeatedly divide by 2, read remainders upward';}
+  else if(ncMode==='dec-hex'){const n=rand(10,255);ncAns=n.toString(16).toUpperCase();document.getElementById('nc-question').textContent=`Convert to hexadecimal: ${n}₁₀`;document.getElementById('nc-hint').textContent='Hint: A=10, B=11, C=12, D=13, E=14, F=15';}
+  else{const n=rand(10,255);ncAns=String(n);document.getElementById('nc-question').textContent=`Convert to decimal: ${n.toString(16).toUpperCase()}₁₆`;document.getElementById('nc-hint').textContent='Hint: Multiply each digit by its power of 16';}
+  document.getElementById('nc-ans').focus();
+}
+function ncCheck(){
+  const v=document.getElementById('nc-ans').value.trim().toUpperCase();const fb=document.getElementById('nc-fb');
+  if(v===ncAns.toUpperCase()){ncScore++;ncStreak++;fb.textContent=`✓ Correct! = ${ncAns}`;fb.className='game-feedback fb-correct';}
+  else{ncStreak=0;fb.textContent=`✗ Answer: ${ncAns}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('nc-score').textContent=ncScore;document.getElementById('nc-streak').textContent=ncStreak;
+  setTimeout(ncNext,700);
+}
+document.getElementById('nc-ans').addEventListener('keydown',e=>{if(e.key==='Enter')ncCheck();});
+
+// ======================== SC2: LOGIC GATES ========================
+const LG_DATA={
+  basic:[
+    {q:'A=1, B=1. What is A AND B?',opts:['0','1'],ans:1,gate:'AND'},
+    {q:'A=1, B=0. What is A AND B?',opts:['0','1'],ans:0,gate:'AND'},
+    {q:'A=0, B=0. What is A OR B?',opts:['0','1'],ans:0,gate:'OR'},
+    {q:'A=1, B=0. What is A OR B?',opts:['0','1'],ans:1,gate:'OR'},
+    {q:'A=1. What is NOT A?',opts:['0','1'],ans:0,gate:'NOT'},
+    {q:'A=0. What is NOT A?',opts:['0','1'],ans:1,gate:'NOT'},
+    {q:'A=1, B=1. What is A NAND B?',opts:['0','1'],ans:0,gate:'NAND'},
+    {q:'A=0, B=0. What is A NAND B?',opts:['0','1'],ans:1,gate:'NAND'},
+    {q:'A=1, B=1. What is A NOR B?',opts:['0','1'],ans:0,gate:'NOR'},
+    {q:'A=1, B=0. What is A XOR B?',opts:['0','1'],ans:1,gate:'XOR'},
+  ],
+  compound:[
+    {q:'A=1, B=0. (A OR B) AND (NOT A) = ?',opts:['0','1'],ans:0,gate:'AND'},
+    {q:'A=1, B=1. NOT(A AND B) = ?',opts:['0','1'],ans:0,gate:'NAND'},
+    {q:'A=0, B=0. NOT(A OR B) = ?',opts:['0','1'],ans:1,gate:'NOR'},
+    {q:'A=1, B=1, C=0. A AND (B OR C) = ?',opts:['0','1'],ans:1,gate:'AND'},
+    {q:'A=1. NOT(NOT A) = ?',opts:['0','1'],ans:1,gate:'NOT'},
+    {q:'A=1, B=0. A XOR B = ?',opts:['0','1'],ans:1,gate:'XOR'},
+  ]
+};
+let lgScore=0,lgIdx=0,lgMode='basic',lgQs=[],lgAnswered=false;
+function lgStart(mode){lgMode=mode;lgScore=0;lgIdx=0;lgAnswered=false;lgQs=[...LG_DATA[mode]].sort(()=>Math.random()-.5);lgRender();}
+function lgRender(){
+  const q=lgQs[lgIdx%lgQs.length];lgAnswered=false;
+  document.getElementById('lg-q').textContent=lgIdx+1;document.getElementById('lg-question').textContent=q.q;document.getElementById('lg-fb').textContent='';
+  drawGate(q.gate);
+  const el=document.getElementById('lg-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(lgAnswered)return;lgAnswered=true;
+      if(i===q.ans){lgScore++;b.classList.add('correct');document.getElementById('lg-fb').textContent='✓ Correct!';document.getElementById('lg-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('lg-fb').textContent='✗ Wrong!';document.getElementById('lg-fb').className='game-feedback fb-wrong';}
+      document.getElementById('lg-score').textContent=lgScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{lgIdx++;lgRender();},800);
+    };el.appendChild(b);
+  });
+}
+function drawGate(type){
+  const svg=document.getElementById('lg-svg');svg.innerHTML='';
+  const ns='http://www.w3.org/2000/svg';
+  const mk=(tag,attrs)=>{const el=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));return el;};
+  const line=(x1,y1,x2,y2)=>mk('line',{x1,y1,x2,y2,stroke:'#7a4a1e','stroke-width':'2'});
+  svg.appendChild(line(10,25,55,25));
+  if(type!=='NOT')svg.appendChild(line(10,55,55,55));
+  svg.appendChild(line(135,40,170,40));
+  const rect=mk('rect',{x:55,y:10,width:80,height:60,rx:6,fill:'#fff5ea',stroke:'#7a4a1e','stroke-width':'2.5'});svg.appendChild(rect);
+  const text=mk('text',{x:95,y:44,'text-anchor':'middle','font-weight':'700','font-family':'JetBrains Mono,monospace','font-size':'13',fill:'#5a3210'});
+  text.textContent=type;svg.appendChild(text);
+  const lblA=mk('text',{x:5,y:22,'font-size':'11','font-weight':'700','font-family':'JetBrains Mono,monospace',fill:'#9a7a5a'});lblA.textContent='A';svg.appendChild(lblA);
+  if(type!=='NOT'){const lblB=mk('text',{x:5,y:52,'font-size':'11','font-weight':'700','font-family':'JetBrains Mono,monospace',fill:'#9a7a5a'});lblB.textContent='B';svg.appendChild(lblB);}
+  const lblOut=mk('text',{x:150,y:36,'font-size':'11','font-weight':'700','font-family':'JetBrains Mono,monospace',fill:'#9a7a5a'});lblOut.textContent='OUT';svg.appendChild(lblOut);
+  if(type==='NAND'||type==='NOR'){const c=mk('circle',{cx:140,cy:40,r:6,fill:'#fff5ea',stroke:'#7a4a1e','stroke-width':'2'});svg.appendChild(c);}
+}
+lgStart('basic');
+
+// ======================== SC3: PROGRAMMING CONCEPTS ========================
+const PROG_DATA={
+  pseudocode:[
+    {code:`x ← 10\ny ← 5\nOUTPUT x + y`,q:'What does this pseudocode output?',opts:['10','5','15','50'],ans:2},
+    {code:`FOR i ← 1 TO 5\n  OUTPUT i * 2\nENDFOR`,q:'How many times does the loop run?',opts:['4','5','6','10'],ans:1},
+    {code:`x ← 7\nIF x > 5 THEN\n  OUTPUT "big"\nELSE\n  OUTPUT "small"\nENDIF`,q:'What is the output?',opts:['"small"','"big"','7','Nothing'],ans:1},
+    {code:`total ← 0\nFOR i ← 1 TO 4\n  total ← total + i\nENDFOR\nOUTPUT total`,q:'What is the final output?',opts:['4','10','6','16'],ans:1},
+    {code:`x ← 0\nWHILE x < 3\n  x ← x + 1\nENDWHILE\nOUTPUT x`,q:'What does this output?',opts:['0','2','3','4'],ans:2},
+  ],
+  python:[
+    {code:`x = 3\ny = x ** 2\nprint(y)`,q:'What is printed?',opts:['6','9','3','8'],ans:1},
+    {code:`nums = [1, 2, 3, 4]\nprint(len(nums))`,q:'What is printed?',opts:['1','4','8','[1,2,3,4]'],ans:1},
+    {code:`for i in range(3):\n    print(i)`,q:'What is the last value printed?',opts:['0','1','2','3'],ans:2},
+    {code:`def greet(name):\n    return "Hello " + name\nprint(greet("Ronny"))`,q:'What is printed?',opts:['Ronny','Hello','Hello Ronny','greet(Ronny)'],ans:2},
+    {code:`x = 10\nif x % 2 == 0:\n    print("even")\nelse:\n    print("odd")`,q:'What is printed?',opts:['"odd"','"even"','10','nothing'],ans:1},
+  ]
+};
+let progScore=0,progIdx=0,progMode='pseudocode',progQs=[],progAnswered=false;
+function progStart(mode){progMode=mode;progScore=0;progIdx=0;progAnswered=false;progQs=[...PROG_DATA[mode]].sort(()=>Math.random()-.5);progRender();}
+function progRender(){
+  const q=progQs[progIdx%progQs.length];progAnswered=false;
+  document.getElementById('prog-q').textContent=`${progIdx+1}/${progQs.length}`;
+  document.getElementById('prog-code').textContent=q.code;
+  document.getElementById('prog-question').textContent=q.q;document.getElementById('prog-fb').textContent='';
+  const el=document.getElementById('prog-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(progAnswered)return;progAnswered=true;
+      if(i===q.ans){progScore++;b.classList.add('correct');document.getElementById('prog-fb').textContent='✓ Correct!';document.getElementById('prog-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('prog-fb').textContent='✗ Wrong!';document.getElementById('prog-fb').className='game-feedback fb-wrong';}
+      document.getElementById('prog-score').textContent=progScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{progIdx++;progRender();},800);
+    };el.appendChild(b);
+  });
+}
+progStart('pseudocode');
+
+// ======================== SC4: DATA REPRESENTATION ========================
+const DR_Q=[
+  {q:'How many bits are in 1 byte?',opts:['4','8','16','32'],ans:1},
+  {q:'How many bytes are in 1 kilobyte (KB)?',opts:['100','512','1000','1024'],ans:3},
+  {q:'What is 1 megabyte equal to?',opts:['1000 KB','1024 KB','512 KB','2048 KB'],ans:1},
+  {q:'A black and white image uses how many bits per pixel?',opts:['1','2','4','8'],ans:0},
+  {q:'A colour image with 256 colours needs how many bits per pixel?',opts:['4','6','8','16'],ans:2},
+  {q:'What does "lossless" compression mean?',opts:['Data is lost','Original data is fully recoverable','File size stays the same','Only images can be compressed'],ans:1},
+  {q:'Which number system uses base 16?',opts:['Binary','Octal','Decimal','Hexadecimal'],ans:3},
+  {q:'A nibble is how many bits?',opts:['2','4','8','16'],ans:1},
+  {q:'1 terabyte (TB) = ?',opts:['1024 MB','1024 GB','1000 KB','512 GB'],ans:1},
+  {q:'Sound is stored digitally by a process called?',opts:['Compression','Sampling','Encoding','Decoding'],ans:1},
+];
+let drScore=0,drIdx=0,drQs=[],drAnswered=false;
+function drStart(){drQs=[...DR_Q].sort(()=>Math.random()-.5);drIdx=0;drScore=0;drRender();}
+function drRender(){
+  const q=drQs[drIdx%drQs.length];drAnswered=false;
+  document.getElementById('dr-q').textContent=drIdx+1;document.getElementById('dr-question').textContent=q.q;document.getElementById('dr-fb').textContent='';
+  const el=document.getElementById('dr-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(drAnswered)return;drAnswered=true;
+      if(i===q.ans){drScore++;b.classList.add('correct');document.getElementById('dr-fb').textContent='✓ Correct!';document.getElementById('dr-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('dr-fb').textContent='✗ Wrong!';document.getElementById('dr-fb').className='game-feedback fb-wrong';}
+      document.getElementById('dr-score').textContent=drScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{drIdx++;drRender();},800);
+    };el.appendChild(b);
+  });
+}
+drStart();
+
+// ======================== SC5: SORTING VISUALISER ========================
+let svArr=[],svAlgo='bubble',svI=0,svJ=0,svSteps=0,svComps=0,svDone=false,svAutoTimer=null;
+function svInit(algo){
+  svAlgo=algo;svArr=Array.from({length:8},()=>rand(10,95));
+  svI=0;svJ=0;svSteps=0;svComps=0;svDone=false;clearTimeout(svAutoTimer);
+  document.getElementById('sv-steps').textContent=0;document.getElementById('sv-comps').textContent=0;
+  document.getElementById('sv-status').textContent=`${algo.charAt(0).toUpperCase()+algo.slice(1)} Sort — press Step or Auto!`;
+  svRenderBars([]);
+}
+function svRenderBars(active=[],sortedCount=0){
+  const el=document.getElementById('sv-bars');el.innerHTML='';
+  svArr.forEach((v,i)=>{
+    const bar=document.createElement('div');bar.className='sort-bar';
+    bar.style.height=(v*1.1)+'px';
+    if(active.includes(i))bar.classList.add('comparing');
+    else if(i<sortedCount)bar.classList.add('sorted');
+    el.appendChild(bar);
+  });
+}
+function svStep(){
+  if(svDone){document.getElementById('sv-status').textContent='✅ Array fully sorted!';return;}
+  svSteps++;document.getElementById('sv-steps').textContent=svSteps;
+  if(svAlgo==='bubble'){
+    const n=svArr.length;
+    if(svI>=n-1){svDone=true;svRenderBars([],n);document.getElementById('sv-status').textContent='✅ Bubble sort complete!';return;}
+    svComps++;document.getElementById('sv-comps').textContent=svComps;
+    if(svArr[svJ]>svArr[svJ+1]){[svArr[svJ],svArr[svJ+1]]=[svArr[svJ+1],svArr[svJ]];document.getElementById('sv-status').textContent=`Swapped positions ${svJ} ↔ ${svJ+1}`;}
+    else document.getElementById('sv-status').textContent=`${svArr[svJ]} ≤ ${svArr[svJ+1]}, no swap`;
+    svRenderBars([svJ,svJ+1],n-1-svI);
+    svJ++;if(svJ>=n-1-svI){svJ=0;svI++;}
+  } else if(svAlgo==='selection'){
+    const n=svArr.length;
+    if(svI>=n-1){svDone=true;svRenderBars([],n);document.getElementById('sv-status').textContent='✅ Selection sort complete!';return;}
+    let minIdx=svI;for(let k=svI+1;k<n;k++){svComps++;if(svArr[k]<svArr[minIdx])minIdx=k;}
+    document.getElementById('sv-comps').textContent=svComps;
+    if(minIdx!==svI){[svArr[svI],svArr[minIdx]]=[svArr[minIdx],svArr[svI]];document.getElementById('sv-status').textContent=`Placed ${svArr[svI]} at position ${svI}`;}
+    else document.getElementById('sv-status').textContent=`${svArr[svI]} already in place`;
+    svRenderBars([svI,minIdx],svI);svI++;
+  } else {
+    if(svI>=svArr.length){svDone=true;svRenderBars([],svArr.length);document.getElementById('sv-status').textContent='✅ Insertion sort complete!';return;}
+    const key=svArr[svI];let k=svI-1;
+    while(k>=0&&svArr[k]>key){svArr[k+1]=svArr[k];k--;svComps++;}
+    svArr[k+1]=key;document.getElementById('sv-status').textContent=`Inserted ${key} at position ${k+1}`;
+    document.getElementById('sv-comps').textContent=svComps;svRenderBars([svI],svI-1);svI++;
+  }
+}
+function svAuto(){clearTimeout(svAutoTimer);function step(){if(!svDone){svStep();svAutoTimer=setTimeout(step,500);}};step();}
+function svReset(){clearTimeout(svAutoTimer);svInit(svAlgo);}
+svInit('bubble');
+
+// ======================== SC6: CYBERSECURITY ========================
+const CY_Q=[
+  {q:'What is phishing?',opts:['A type of encryption','Tricking users into revealing sensitive information','A network protocol','A type of firewall'],ans:1},
+  {q:'A strong password should contain?',opts:['Only numbers','Your name and birthday','Mix of letters, numbers and symbols','At least 4 characters'],ans:2},
+  {q:'What does HTTPS mean?',opts:['Hyper Transfer Text Protocol Secure','HyperText Transfer Protocol Secure','High Text Transfer Protocol Secure','Hyper Technology Protocol Secure'],ans:1},
+  {q:'What is malware?',opts:['Security software','Malicious software designed to harm','A type of network','A web browser'],ans:1},
+  {q:'What is two-factor authentication (2FA)?',opts:['Two passwords','Logging in from two devices','A second verification step after a password','Two usernames'],ans:2},
+  {q:'What does a firewall do?',opts:['Speeds up internet','Blocks unauthorised network access','Encrypts files','Stores passwords'],ans:1},
+  {q:'What is encryption?',opts:['Deleting data','Converting data into a coded format','Backing up data','Compressing files'],ans:1},
+  {q:'What is ransomware?',opts:['Software that speeds up a PC','Malware that locks files and demands payment','A type of antivirus','A firewall tool'],ans:1},
+  {q:'Which is the safest way to connect to public Wi-Fi?',opts:['Never use any security','Use a VPN','Share your password','Turn off firewall'],ans:1},
+  {q:'What does VPN stand for?',opts:['Very Private Network','Virtual Private Network','Virtual Protected Node','Verified Private Network'],ans:1},
+];
+let cyScore=0,cyIdx=0,cyQs=[],cyAnswered=false;
+function cyStart(){cyQs=[...CY_Q].sort(()=>Math.random()-.5);cyIdx=0;cyScore=0;cyRender();}
+function cyRender(){
+  const q=cyQs[cyIdx%cyQs.length];cyAnswered=false;
+  document.getElementById('cy-q').textContent=`${cyIdx+1}/10`;document.getElementById('cy-question').textContent=q.q;document.getElementById('cy-fb').textContent='';
+  const el=document.getElementById('cy-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(cyAnswered)return;cyAnswered=true;
+      if(i===q.ans){cyScore++;b.classList.add('correct');document.getElementById('cy-fb').textContent='✓ Correct!';document.getElementById('cy-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('cy-fb').textContent='✗ Wrong!';document.getElementById('cy-fb').className='game-feedback fb-wrong';}
+      document.getElementById('cy-score').textContent=cyScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{cyIdx++;cyRender();},800);
+    };el.appendChild(b);
+  });
+}
+cyStart();
+
+// ======================== UC1: BIG-O ========================
+const BO_DATA=[
+  {code:`for i in range(n):\n    print(i)`,ans:1,opts:['O(1)','O(n)','O(n²)','O(log n)'],note:'Single loop over n elements'},
+  {code:`for i in range(n):\n  for j in range(n):\n    print(i, j)`,ans:2,opts:['O(n)','O(2n)','O(n²)','O(n³)'],note:'Nested loops → O(n²)'},
+  {code:`x = arr[0]\nreturn x`,ans:0,opts:['O(1)','O(n)','O(log n)','O(n²)'],note:'Direct array access → O(1)'},
+  {code:`# Binary search\nwhile low <= high:\n    mid = (low+high)//2\n    ...`,ans:2,opts:['O(1)','O(n)','O(log n)','O(n log n)'],note:'Halving the search space → O(log n)'},
+  {code:`# Merge sort\ndef merge_sort(arr):\n    # divide and conquer\n    ...`,ans:1,opts:['O(n)','O(n log n)','O(n²)','O(log n)'],note:'Divide and conquer → O(n log n)'},
+  {code:`for i in range(n):\n  for j in range(n):\n    for k in range(n):\n      print(i,j,k)`,ans:1,opts:['O(n²)','O(n³)','O(3n)','O(n!)'],note:'Three nested loops → O(n³)'},
+  {code:`# Bubble sort\nfor i in range(n):\n    for j in range(n-i-1):\n        if arr[j] > arr[j+1]: swap`,ans:2,opts:['O(n)','O(n log n)','O(n²)','O(log n)'],note:'Bubble sort → O(n²)'},
+];
+let boScore=0,boIdx=0,boQs=[],boAnswered=false;
+function boNext(){
+  if(boQs.length===0)boQs=[...BO_DATA].sort(()=>Math.random()-.5);
+  if(boIdx>=boQs.length){boQs=[...BO_DATA].sort(()=>Math.random()-.5);boIdx=0;}
+  const q=boQs[boIdx];boAnswered=false;
+  document.getElementById('bo-q').textContent=boIdx+1;document.getElementById('bo-code').textContent=q.code;document.getElementById('bo-fb').textContent='';
+  const el=document.getElementById('bo-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(boAnswered)return;boAnswered=true;
+      if(i===q.ans){boScore++;b.classList.add('correct');document.getElementById('bo-fb').textContent=`✓ ${q.note}`;document.getElementById('bo-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('bo-fb').textContent=`✗ ${q.note}`;document.getElementById('bo-fb').className='game-feedback fb-wrong';}
+      document.getElementById('bo-score').textContent=boScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      boIdx++;
+    };el.appendChild(b);
+  });
+}
+boNext();
+
+// ======================== UC2: DATA STRUCTURES ========================
+const DS_Q=[
+  {q:'A Stack uses which principle?',opts:['FIFO','LIFO','Random Access','Priority'],ans:1},
+  {q:'A Queue uses which principle?',opts:['LIFO','FIFO','Random','Last Out'],ans:1},
+  {q:'In a binary tree, each node has at most how many children?',opts:['1','2','3','Unlimited'],ans:1},
+  {q:'Which operation adds an element to a Stack?',opts:['enqueue','dequeue','push','pop'],ans:2},
+  {q:'Which operation removes from the front of a Queue?',opts:['push','pop','enqueue','dequeue'],ans:3},
+  {q:'A hash table provides average-case lookup of?',opts:['O(n)','O(log n)','O(1)','O(n²)'],ans:2},
+  {q:'Which data structure is best for BFS?',opts:['Stack','Queue','Tree','Array'],ans:1},
+  {q:'Which data structure is best for DFS?',opts:['Queue','Stack','Hash Table','Linked List'],ans:1},
+  {q:'A linked list node contains?',opts:['Data only','A pointer only','Data and a pointer','An array of values'],ans:2},
+  {q:'Binary search requires the array to be?',opts:['Unsorted','Sorted','Randomised','Compressed'],ans:1},
+  {q:'What is the height of an empty binary tree?',opts:['-1 or 0','1','2','undefined'],ans:0},
+  {q:'AVL trees are self-balancing to maintain O(log n). True or False?',opts:['True','False'],ans:0},
+];
+let dsScore=0,dsIdx=0,dsQs=[],dsAnswered=false;
+function dsStart(){dsQs=[...DS_Q].sort(()=>Math.random()-.5);dsIdx=0;dsScore=0;dsRender();}
+function dsRender(){
+  const q=dsQs[dsIdx%dsQs.length];dsAnswered=false;
+  document.getElementById('ds-q').textContent=`${dsIdx+1}/${dsQs.length}`;document.getElementById('ds-question').textContent=q.q;document.getElementById('ds-fb').textContent='';
+  const el=document.getElementById('ds-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(dsAnswered)return;dsAnswered=true;
+      if(i===q.ans){dsScore++;b.classList.add('correct');document.getElementById('ds-fb').textContent='✓ Correct!';document.getElementById('ds-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('ds-fb').textContent='✗ Wrong!';document.getElementById('ds-fb').className='game-feedback fb-wrong';}
+      document.getElementById('ds-score').textContent=dsScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{dsIdx++;dsRender();},800);
+    };el.appendChild(b);
+  });
+}
+dsStart();
+
+// ======================== UC3: BOOLEAN ALGEBRA ========================
+const BA_DATA={
+  laws:[
+    {q:'A AND 1 = ?',opts:['A','1','0','NOT A'],ans:0},
+    {q:'A OR 0 = ?',opts:['0','1','A','NOT A'],ans:2},
+    {q:'A AND 0 = ?',opts:['A','1','0','NOT A'],ans:2},
+    {q:'A OR 1 = ?',opts:['A','1','0','NOT A'],ans:1},
+    {q:'A AND A = ?',opts:['0','1','A','2A'],ans:2},
+    {q:'A OR A = ?',opts:['0','1','A','2A'],ans:2},
+    {q:'A AND NOT A = ?',opts:['A','1','0','NOT A'],ans:2},
+    {q:'A OR NOT A = ?',opts:['A','1','0','NOT A'],ans:1},
+    {q:'NOT(NOT A) = ?',opts:['NOT A','A','0','1'],ans:1},
+    {q:'De Morgan: NOT(A AND B) = ?',opts:['NOT A AND NOT B','NOT A OR NOT B','A OR B','A AND B'],ans:1},
+  ],
+  simplify:[
+    {q:'Simplify: A.B + A.NOT B',opts:['A','B','0','1'],ans:0},
+    {q:'Simplify: A + A.B',opts:['A+B','A','B','A.B'],ans:1},
+    {q:'Simplify: (A+B)(A+C)',opts:['A+BC','A.B','A+B+C','A.C'],ans:0},
+    {q:'De Morgan: NOT(A OR B) = ?',opts:['NOT A OR NOT B','NOT A AND NOT B','A AND B','NOT(A AND B)'],ans:1},
+    {q:'Simplify: A.(A + B)',opts:['A+B','A.B','A','B'],ans:2},
+    {q:'Simplify: A + NOT A.B',opts:['A+B','A','B','1'],ans:0},
+  ]
+};
+let baScore=0,baIdx=0,baMode='laws',baQs=[],baAnswered=false;
+function baStart(mode){baMode=mode;baScore=0;baIdx=0;baAnswered=false;baQs=[...BA_DATA[mode]].sort(()=>Math.random()-.5);baRender();}
+function baRender(){
+  const q=baQs[baIdx%baQs.length];baAnswered=false;
+  document.getElementById('ba-q').textContent=baIdx+1;document.getElementById('ba-question').textContent=q.q;document.getElementById('ba-fb').textContent='';
+  const el=document.getElementById('ba-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(baAnswered)return;baAnswered=true;
+      if(i===q.ans){baScore++;b.classList.add('correct');document.getElementById('ba-fb').textContent='✓ Correct!';document.getElementById('ba-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('ba-fb').textContent='✗ Wrong!';document.getElementById('ba-fb').className='game-feedback fb-wrong';}
+      document.getElementById('ba-score').textContent=baScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{baIdx++;baRender();},800);
+    };el.appendChild(b);
+  });
+}
+baStart('laws');
+
+// ======================== UC4: SEARCH ALGORITHMS ========================
+let saScore=0,saQ=0,saMode='linear',saAns,saArray=[];
+function saStart(mode){saMode=mode;saScore=0;saQ=0;document.getElementById('sa-score').textContent=0;saNext();}
+function saNext(){
+  saQ++;document.getElementById('sa-q').textContent=saQ;document.getElementById('sa-ans').value='';document.getElementById('sa-fb').textContent='';
+  const size=rand(6,10);
+  const set=new Set();while(set.size<size)set.add(rand(1,50));
+  saArray=[...set].sort((a,b)=>a-b);
+  const target=saArray[rand(0,saArray.length-1)];
+  const el=document.getElementById('sa-array');el.innerHTML='';
+  saArray.forEach((v)=>{
+    const cell=document.createElement('div');cell.className='ds-cell';cell.textContent=v;
+    if(v===target)cell.classList.add('highlight');
+    el.appendChild(cell);
+  });
+  if(saMode==='linear'){
+    saAns=saArray.indexOf(target)+1;
+    document.getElementById('sa-question').textContent=`Linear Search: How many comparisons to find ${target}? (highlighted)`;
+  } else {
+    let lo=0,hi=saArray.length-1,steps=0;
+    while(lo<=hi){steps++;const mid=Math.floor((lo+hi)/2);if(saArray[mid]===target)break;else if(saArray[mid]<target)lo=mid+1;else hi=mid-1;}
+    saAns=steps;
+    document.getElementById('sa-question').textContent=`Binary Search (sorted): How many comparisons to find ${target}?`;
+  }
+  document.getElementById('sa-ans').focus();
+}
+function saCheck(){
+  const v=parseInt(document.getElementById('sa-ans').value);const fb=document.getElementById('sa-fb');
+  if(v===saAns){saScore++;fb.textContent=`✓ Correct! ${saAns} comparison(s)`;fb.className='game-feedback fb-correct';}
+  else{fb.textContent=`✗ Answer: ${saAns} comparison(s)`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('sa-score').textContent=saScore;setTimeout(saNext,800);
+}
+document.getElementById('sa-ans').addEventListener('keydown',e=>{if(e.key==='Enter')saCheck();});
+
+// ======================== UC5: RECURSION ========================
+const REC_Q=[
+  {code:`def fact(n):\n    if n == 0:\n        return 1\n    return n * fact(n-1)\nprint(fact(4))`,q:'What does this print?',opts:['4','12','24','16'],ans:2},
+  {code:`def fact(n):\n    if n == 0:\n        return 1\n    return n * fact(n-1)\nprint(fact(0))`,q:'What does this print?',opts:['0','1','−1','Error'],ans:1},
+  {code:`def sum_r(n):\n    if n == 0:\n        return 0\n    return n + sum_r(n-1)\nprint(sum_r(3))`,q:'What does this print?',opts:['3','6','9','0'],ans:1},
+  {code:`def fib(n):\n    if n <= 1:\n        return n\n    return fib(n-1) + fib(n-2)\nprint(fib(5))`,q:'What does this print?',opts:['3','5','8','13'],ans:1},
+  {code:`def count(n):\n    if n == 0:\n        print("Done")\n        return\n    print(n)\n    count(n-1)\ncount(3)`,q:'What is the LAST thing printed?',opts:['3','0','Done','1'],ans:2},
+  {code:`def fact(n):\n    if n == 0:\n        return 1\n    return n * fact(n-1)\nprint(fact(5))`,q:'What does this print?',opts:['25','60','120','5'],ans:2},
+];
+let recScore=0,recIdx=0,recQs=[],recAnswered=false;
+function recStart(){recQs=[...REC_Q].sort(()=>Math.random()-.5);recIdx=0;recScore=0;recRender();}
+function recRender(){
+  const q=recQs[recIdx%recQs.length];recAnswered=false;
+  document.getElementById('rec-q').textContent=recIdx+1;document.getElementById('rec-code').textContent=q.code;
+  document.getElementById('rec-question').textContent=q.q;document.getElementById('rec-fb').textContent='';
+  const el=document.getElementById('rec-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{if(recAnswered)return;recAnswered=true;
+      if(i===q.ans){recScore++;b.classList.add('correct');document.getElementById('rec-fb').textContent='✓ Correct!';document.getElementById('rec-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('rec-fb').textContent='✗ Wrong!';document.getElementById('rec-fb').className='game-feedback fb-wrong';}
+      document.getElementById('rec-score').textContent=recScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{recIdx++;recRender();},800);
+    };el.appendChild(b);
+  });
+}
+recStart();
+
+// ======================== UC6: NETWORK PROTOCOLS ========================
+const NP_Q=[
+  {q:'Which protocol is used to send emails?',opts:['FTP','HTTP','SMTP','DNS'],ans:2},
+  {q:'How many layers does the OSI model have?',opts:['4','5','7','9'],ans:2},
+  {q:'Which layer of the OSI model handles IP addressing?',opts:['Layer 1 – Physical','Layer 2 – Data Link','Layer 3 – Network','Layer 4 – Transport'],ans:2},
+  {q:'TCP stands for?',opts:['Transfer Control Protocol','Transmission Control Protocol','Transport Channel Protocol','Transfer Channel Protocol'],ans:1},
+  {q:'What does DNS do?',opts:['Encrypts web traffic','Translates domain names to IP addresses','Manages email routing','Controls network access'],ans:1},
+  {q:'HTTP operates on which port by default?',opts:['21','25','80','443'],ans:2},
+  {q:'HTTPS operates on which port by default?',opts:['21','80','443','8080'],ans:2},
+  {q:'Which protocol is used for file transfers?',opts:['SMTP','FTP','DNS','DHCP'],ans:1},
+  {q:'What does DHCP do?',opts:['Encrypts data','Automatically assigns IP addresses','Translates domain names','Filters web content'],ans:1},
+  {q:'UDP differs from TCP in that UDP is?',opts:['More reliable','Connection-oriented','Faster but connectionless','Encrypted by default'],ans:2},
+  {q:'Which OSI layer is responsible for end-to-end communication?',opts:['Layer 2 – Data Link','Layer 3 – Network','Layer 4 – Transport','Layer 7 – Application'],ans:2},
+  {q:'What is the purpose of the ARP protocol?',opts:['Assign IP addresses','Map IP addresses to MAC addresses','Transfer files securely','Route packets between networks'],ans:1},
+];
+let npScore=0,npIdx=0,npQs=[],npAnswered=false;
+function npStart(){npQs=[...NP_Q].sort(()=>Math.random()-.5);npIdx=0;npScore=0;npRender();}
+function npRender(){
+  const q=npQs[npIdx%npQs.length];npAnswered=false;
+  document.getElementById('np-q').textContent=`${npIdx+1}/${npQs.length}`;
+  document.getElementById('np-question').textContent=q.q;
+  document.getElementById('np-fb').textContent='';
+  const el=document.getElementById('np-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(npAnswered)return;npAnswered=true;
+      if(i===q.ans){
+        npScore++;b.classList.add('correct');
+        document.getElementById('np-fb').textContent='✓ Correct!';
+        document.getElementById('np-fb').className='game-feedback fb-correct';
+      } else {
+        b.classList.add('wrong');
+        el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');
+        document.getElementById('np-fb').textContent='✗ Wrong!';
+        document.getElementById('np-fb').className='game-feedback fb-wrong';
+      }
+      document.getElementById('np-score').textContent=npScore;
+      el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{npIdx++;npRender();},800);
+    };
+    el.appendChild(b);
+  });
+}
+npStart();
+</script>
+</body>
+</html>

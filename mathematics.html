@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free maths games online — Primary, Secondary and University level. Arithmetic, Algebra, Geometry, Calculus, Statistics and more. By Mwalimu Ronny.">
+<title>Mathematics Games | Ronny Edu Games</title>
+<link rel="icon" type="image/jpeg" href="profile.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bisque:#ffe4c4;--bisque-light:#fff5ea;--bisque-mid:#ffd4a0;--bisque-dark:#f0c090;
+  --brown:#7a4a1e;--brown-dark:#5a3210;--brown-mid:#a0622a;
+  --accent:#c0392b;--accent2:#1a6b3a;--accent3:#1a3a6b;
+  --ink:#2a1a0a;--ink-soft:#5a3e28;--muted:#9a7a5a;
+  --card:#fffaf4;--card-border:#e8d0b0;
+  --shadow:rgba(122,74,30,.12);--shadow-strong:rgba(122,74,30,.22);
+  --primary-bg:rgba(26,59,107,.06);--secondary-bg:rgba(26,107,58,.06);--uni-bg:rgba(192,57,43,.06);
+  --primary-border:rgba(26,59,107,.2);--secondary-border:rgba(26,107,58,.2);--uni-border:rgba(192,57,43,.2);
+  --radius:14px;--transition:.25s ease;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bisque-light);color:var(--ink);font-family:'Source Sans 3',sans-serif;overflow-x:hidden;line-height:1.6}
+h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+a{color:inherit;text-decoration:none}
+nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:68px;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--bisque);letter-spacing:.3px;display:flex;align-items:center;gap:.5rem}
+.nav-logo small{color:rgba(255,228,196,.55);font-size:.8rem;font-weight:400;font-family:'Source Sans 3',sans-serif;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,228,196,.7);font-weight:600;font-size:.9rem;padding:.35rem 0;border-bottom:2px solid transparent;transition:var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--bisque);border-bottom-color:var(--bisque-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:26px;height:3px;background:var(--bisque);border-radius:3px}
+.page-hero{background:linear-gradient(150deg,var(--brown-dark),var(--brown));padding:56px 5%;border-bottom:3px solid var(--brown-mid)}
+.page-hero h1{color:var(--bisque);font-size:clamp(2rem,5vw,3.2rem)}
+.page-hero p{color:rgba(255,228,196,.75);margin-top:.7rem;font-size:1.05rem;max-width:600px}
+.breadcrumb{padding:.9rem 5%;font-size:.84rem;color:var(--muted);border-bottom:1px solid var(--card-border);background:var(--bisque)}
+.breadcrumb a{color:var(--brown-mid)}
+.level-tabs{display:flex;gap:0;border-bottom:3px solid var(--card-border);background:var(--bisque);padding:0 5%;position:sticky;top:68px;z-index:99;box-shadow:0 2px 8px var(--shadow)}
+.level-tab{padding:.85rem 1.8rem;font-weight:700;cursor:pointer;font-size:.92rem;border:none;background:none;color:var(--muted);font-family:'Source Sans 3',sans-serif;border-bottom:3px solid transparent;margin-bottom:-3px;transition:var(--transition)}
+.level-tab:hover{color:var(--brown)}
+.level-tab.active-primary{color:var(--accent3);border-bottom-color:var(--accent3)}
+.level-tab.active-secondary{color:var(--accent2);border-bottom-color:var(--accent2)}
+.level-tab.active-uni{color:var(--accent);border-bottom-color:var(--accent)}
+.level-section{display:none;padding:48px 5% 60px}
+.level-section.visible{display:block}
+.level-header{margin-bottom:2.5rem}
+.level-badge{display:inline-flex;align-items:center;gap:.5rem;border-radius:30px;padding:.4rem 1.1rem;font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:.8rem}
+.lb-primary{background:var(--primary-bg);color:var(--accent3);border:1px solid var(--primary-border)}
+.lb-secondary{background:var(--secondary-bg);color:var(--accent2);border:1px solid var(--secondary-border)}
+.lb-uni{background:var(--uni-bg);color:var(--accent);border:1px solid var(--uni-border)}
+.level-header h2{font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:.4rem}
+.level-header p{color:var(--ink-soft);max-width:600px}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.8rem}
+.game-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px var(--shadow);transition:var(--transition)}
+.game-card:hover{box-shadow:0 6px 28px var(--shadow-strong)}
+.game-card-header{padding:1.2rem 1.5rem;border-bottom:1px solid var(--card-border);display:flex;align-items:center;gap:1rem}
+.game-icon-wrap{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.game-card-header h3{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.1rem;margin-bottom:.15rem}
+.game-card-header p{color:var(--muted);font-size:.82rem}
+.game-body{padding:1.5rem}
+.score-bar{display:flex;gap:1.5rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.score-item{text-align:center}
+.score-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--brown-dark);line-height:1}
+.score-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:700}
+.game-question{background:linear-gradient(135deg,var(--brown-dark),var(--brown));border-radius:10px;padding:1rem 1.4rem;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--bisque);text-align:center;margin-bottom:1rem;min-height:62px;display:flex;align-items:center;justify-content:center}
+.game-input{width:100%;border:2px solid var(--card-border);border-radius:8px;padding:.7rem 1rem;font-size:1.1rem;font-weight:700;font-family:'Source Sans 3',sans-serif;background:var(--bisque-light);color:var(--ink);outline:none;transition:var(--transition)}
+.game-input:focus{border-color:var(--brown-mid);background:#fff}
+.game-feedback{min-height:1.6rem;font-weight:700;font-size:.95rem;padding:.3rem 0;margin:.4rem 0;text-align:center}
+.fb-correct{color:var(--accent2)}.fb-wrong{color:var(--accent)}
+.timer-bar-wrap{background:var(--card-border);border-radius:4px;height:8px;margin-bottom:1rem;overflow:hidden}
+.timer-bar{height:8px;border-radius:4px;transition:width .1s linear;background:var(--brown-mid)}
+.opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.8rem}
+.opt-btn{background:var(--bisque-light);border:2px solid var(--card-border);border-radius:8px;padding:.65rem .8rem;cursor:pointer;font-weight:700;font-size:.9rem;color:var(--ink);font-family:'Source Sans 3',sans-serif;transition:var(--transition);text-align:left}
+.opt-btn:hover{border-color:var(--brown-mid);background:var(--bisque)}
+.opt-btn.correct{background:rgba(26,107,58,.12);border-color:var(--accent2);color:var(--accent2)}
+.opt-btn.wrong{background:rgba(192,57,43,.1);border-color:var(--accent);color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.5rem;border-radius:30px;font-weight:700;font-size:.88rem;cursor:pointer;border:2px solid transparent;transition:var(--transition);font-family:'Source Sans 3',sans-serif}
+.btn-brown{background:var(--brown);color:var(--bisque);border-color:var(--brown)}.btn-brown:hover{background:var(--brown-dark)}
+.btn-outline{background:transparent;color:var(--brown-mid);border-color:var(--card-border)}.btn-outline:hover{border-color:var(--brown-mid);background:var(--bisque)}
+.btn-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem}
+canvas{display:block;border-radius:8px;border:2px solid var(--card-border);background:#fff}
+footer{background:var(--brown-dark);padding:2.5rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,228,196,.1)}
+.footer-bottom p,.footer-bottom a{color:rgba(255,228,196,.5);font-size:.82rem}
+.footer-bottom a:hover{color:var(--bisque)}.footer-links{display:flex;gap:1.2rem}
+#scrollTop{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;border-radius:50%;background:var(--brown);color:var(--bisque);border:none;cursor:pointer;font-size:1.1rem;box-shadow:0 4px 16px var(--shadow-strong);transition:var(--transition);display:none;align-items:center;justify-content:center;z-index:500}
+#scrollTop.show{display:flex}
+/* Number Sense game grid */
+.ns-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:.8rem}
+.ns-cell{aspect-ratio:1;border-radius:6px;border:2px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Source Sans 3',sans-serif;font-size:.9rem;cursor:pointer;transition:var(--transition);background:var(--bisque-light)}
+.ns-cell:hover{border-color:var(--brown-mid);background:var(--bisque)}
+.ns-cell.selected{background:var(--brown);color:var(--bisque);border-color:var(--brown-dark)}
+.ns-cell.correct-cell{background:rgba(26,107,58,.15);border-color:var(--accent2)}
+.ns-cell.wrong-cell{background:rgba(192,57,43,.1);border-color:var(--accent)}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--brown-dark);flex-direction:column;gap:0;padding:.5rem 0;border-bottom:2px solid var(--brown-mid);transform:translateY(-120%);transition:.35s;opacity:0;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  .nav-links.open{transform:translateY(0);opacity:1}
+  .nav-links li{border-bottom:1px solid rgba(255,228,196,.08)}
+  .nav-links a{display:block;padding:.9rem 5%;font-size:1rem}
+  .level-tab{padding:.75rem 1rem;font-size:.84rem}
+  .games-grid{grid-template-columns:1fr}
+  .opts-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span style="font-size:1.5rem">∑</span>
+    <div><div>Ronny Edu Games</div><small>by Mwalimu Ronny</small></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mathematics.html" class="active">Mathematics</a></li>
+    <li><a href="computer.html">Computer Science</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <h1>🔢 Mathematics Games</h1>
+  <p>From counting and shapes to calculus and matrices — 12 games across three school levels. No login, no download, just play.</p>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a> › Mathematics Games</div>
+
+<div class="level-tabs">
+  <button class="level-tab active-primary" onclick="showLevel('primary')" id="tab-primary">🌱 Primary</button>
+  <button class="level-tab" onclick="showLevel('secondary')" id="tab-secondary">📐 Secondary</button>
+  <button class="level-tab" onclick="showLevel('university')" id="tab-uni">🎓 University</button>
+</div>
+
+<!-- ======================== PRIMARY ======================== -->
+<div class="level-section visible" id="level-primary">
+  <div class="level-header">
+    <div class="level-badge lb-primary">🌱 Primary Level · Ages 8–13</div>
+    <h2>Primary Mathematics Games</h2>
+    <p>Build strong number sense, master basic operations, explore shapes, and develop pattern recognition — all through play.</p>
+  </div>
+  <div class="games-grid">
+
+    <!-- P1: MATH BLAST -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">⚡</div>
+        <div><h3>Math Blast</h3><p>Answer arithmetic questions against the clock</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="mb-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="mb-time">30</div><div class="score-lbl">Seconds</div></div>
+          <div class="score-item"><div class="score-val" id="mb-best">0</div><div class="score-lbl">Best</div></div>
+        </div>
+        <div class="timer-bar-wrap"><div class="timer-bar" id="mb-bar" style="width:100%"></div></div>
+        <div class="game-question" id="mb-q">Press Start!</div>
+        <input type="number" class="game-input" id="mb-ans" placeholder="Your answer..." onkeydown="if(event.key==='Enter')mbCheck()">
+        <div class="game-feedback" id="mb-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="mbStart('easy')">Easy (+,−)</button>
+          <button class="btn btn-outline" onclick="mbStart('medium')">Medium (×,÷)</button>
+          <button class="btn btn-outline" onclick="mbStart('hard')">Hard (Mixed)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- P2: PLACE VALUE -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">🔢</div>
+        <div><h3>Place Value Explorer</h3><p>Identify hundreds, tens, ones and beyond</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="pv-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="pv-q">1</div><div class="score-lbl">Question</div></div>
+        </div>
+        <div style="background:var(--brown-dark);border-radius:10px;padding:1.2rem;text-align:center;margin-bottom:1rem">
+          <div style="font-family:'Playfair Display',serif;font-size:2.8rem;color:var(--bisque);font-weight:900" id="pv-number"></div>
+          <div style="color:rgba(255,228,196,.7);font-size:.9rem;margin-top:.3rem" id="pv-qtext"></div>
+        </div>
+        <div class="opts-grid" id="pv-opts"></div>
+        <div class="game-feedback" id="pv-fb"></div>
+        <button class="btn btn-brown" onclick="pvNext()">Next →</button>
+      </div>
+    </div>
+
+    <!-- P3: SHAPES CALCULATOR -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">△</div>
+        <div><h3>Shape Calculator</h3><p>Area and perimeter of common shapes</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="sh-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="sh-streak">0</div><div class="score-lbl">Streak</div></div>
+        </div>
+        <canvas id="sh-canvas" width="280" height="160" style="margin:0 auto .8rem;display:block"></canvas>
+        <div style="font-weight:700;margin-bottom:.6rem;color:var(--ink-soft);font-size:.93rem" id="sh-prompt"></div>
+        <input type="number" class="game-input" id="sh-ans" placeholder="Enter value..." onkeydown="if(event.key==='Enter')shCheck()">
+        <div class="game-feedback" id="sh-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="shNext()">New Shape</button>
+          <button class="btn btn-outline" onclick="shCheck()">Submit ✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- P4: TIMES TABLES -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">✕</div>
+        <div><h3>Times Tables Trainer</h3><p>Master multiplication tables 1–12</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="tt-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="tt-wrong">0</div><div class="score-lbl">Errors</div></div>
+          <div class="score-item"><div class="score-val" id="tt-table">—</div><div class="score-lbl">Table</div></div>
+        </div>
+        <div class="game-question" id="tt-q">Choose a table below!</div>
+        <input type="number" class="game-input" id="tt-ans" placeholder="Answer..." onkeydown="if(event.key==='Enter')ttCheck()">
+        <div class="game-feedback" id="tt-fb"></div>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem" id="tt-selector"></div>
+      </div>
+    </div>
+
+    <!-- P5: FRACTIONS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">½</div>
+        <div><h3>Fraction Match</h3><p>Identify equivalent fractions and simplify</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="fr-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="fr-q">1</div><div class="score-lbl">Question</div></div>
+        </div>
+        <div class="game-question" id="fr-display" style="font-size:2.2rem"></div>
+        <div id="fr-qtext" style="text-align:center;color:var(--ink-soft);font-weight:600;margin-bottom:.8rem;font-size:.93rem"></div>
+        <div class="opts-grid" id="fr-opts"></div>
+        <div class="game-feedback" id="fr-fb"></div>
+        <button class="btn btn-brown" onclick="frReset()">🔄 Restart</button>
+      </div>
+    </div>
+
+    <!-- P6: NUMBER ORDERING -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--primary-bg)">123</div>
+        <div><h3>Number Ordering</h3><p>Arrange numbers from smallest to largest</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="no-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="no-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div style="color:var(--ink-soft);font-weight:700;font-size:.9rem;margin-bottom:.6rem">Tap numbers in order from <strong>smallest → largest</strong>:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem;min-height:44px" id="no-nums"></div>
+        <div style="color:var(--muted);font-size:.82rem;margin-bottom:.5rem">Your order:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;min-height:44px;padding:.4rem;background:var(--bisque);border-radius:8px;border:2px dashed var(--card-border)" id="no-answer"></div>
+        <div class="game-feedback" id="no-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="noCheck()">Submit ✓</button>
+          <button class="btn btn-outline" onclick="noNext()">New Set</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== SECONDARY ======================== -->
+<div class="level-section" id="level-secondary">
+  <div class="level-header">
+    <div class="level-badge lb-secondary">📐 Secondary Level · Form 1–4</div>
+    <h2>Secondary Mathematics Games</h2>
+    <p>Algebra, geometry, trigonometry, statistics, sequences — aligned to the KCSE mathematics syllabus.</p>
+  </div>
+  <div class="games-grid">
+
+    <!-- S1: ALGEBRA BLITZ -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">𝑥</div>
+        <div><h3>Algebra Blitz</h3><p>Solve linear and quadratic equations</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="alg-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="alg-q">1</div><div class="score-lbl">Q</div></div>
+          <div class="score-item"><div class="score-val" id="alg-streak">0</div><div class="score-lbl">Streak</div></div>
+        </div>
+        <div class="game-question" id="alg-question" style="font-size:1.3rem">Press Start!</div>
+        <div style="color:var(--muted);font-size:.85rem;margin-bottom:.6rem;text-align:center" id="alg-hint"></div>
+        <input type="number" step="0.01" class="game-input" id="alg-ans" placeholder="x = ?" onkeydown="if(event.key==='Enter')algCheck()">
+        <div class="game-feedback" id="alg-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="algStart('linear')">Linear</button>
+          <button class="btn btn-outline" onclick="algStart('quadratic')">Quadratic</button>
+          <button class="btn btn-outline" onclick="algStart('simultaneous')">Simultaneous</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- S2: TRIGONOMETRY -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">📐</div>
+        <div><h3>Trigonometry Challenge</h3><p>Sin, cos, tan values and identities</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="trig-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="trig-q">1/10</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <canvas id="trig-canvas" width="260" height="140" style="margin:0 auto .8rem;display:block"></canvas>
+        <div class="game-question" id="trig-question" style="font-size:1.2rem">Press Start!</div>
+        <div class="opts-grid" id="trig-opts"></div>
+        <div class="game-feedback" id="trig-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="trigStart('basic')">Basic Ratios</button>
+          <button class="btn btn-outline" onclick="trigStart('identities')">Identities</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- S3: STATISTICS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">σ</div>
+        <div><h3>Statistics Analyser</h3><p>Mean, median, mode and range</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="stat-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="stat-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div id="stat-dataset" style="background:var(--bisque);border-radius:8px;padding:.8rem;text-align:center;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--brown-dark);margin-bottom:.8rem;letter-spacing:2px;font-weight:700"></div>
+        <div style="font-weight:700;color:var(--ink-soft);margin-bottom:.6rem;font-size:.95rem" id="stat-task"></div>
+        <input type="number" step="0.01" class="game-input" id="stat-ans" placeholder="Answer..." onkeydown="if(event.key==='Enter')statCheck()">
+        <div class="game-feedback" id="stat-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="statNext()">Next Question</button>
+          <button class="btn btn-outline" onclick="statHint()">Hint 💡</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- S4: GEOMETRY EXPLORER -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">◯</div>
+        <div><h3>Geometry Explorer</h3><p>Areas, volumes, angles and circle theorems</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="geo-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="geo-streak">0</div><div class="score-lbl">Streak 🔥</div></div>
+        </div>
+        <canvas id="geo-canvas" width="280" height="160" style="margin:0 auto .8rem;display:block"></canvas>
+        <div style="font-weight:700;color:var(--ink-soft);margin-bottom:.6rem;font-size:.93rem" id="geo-prompt"></div>
+        <input type="number" step="0.01" class="game-input" id="geo-ans" placeholder="Answer (2 d.p.)..." onkeydown="if(event.key==='Enter')geoCheck()">
+        <div class="game-feedback" id="geo-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="geoNext()">New Problem</button>
+          <button class="btn btn-outline" onclick="geoCheck()">Submit ✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- S5: SEQUENCES & SERIES -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">∑</div>
+        <div><h3>Sequences &amp; Series</h3><p>Arithmetic, geometric progressions and series sums</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="seq-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="seq-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="seq-display" style="font-size:1.3rem;flex-direction:column;gap:.2rem">Press Start!</div>
+        <div style="color:var(--muted);font-size:.85rem;text-align:center;margin-bottom:.5rem" id="seq-subtext"></div>
+        <input type="number" step="0.01" class="game-input" id="seq-ans" placeholder="Answer..." onkeydown="if(event.key==='Enter')seqCheck()">
+        <div class="game-feedback" id="seq-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="seqStart('AP')">AP</button>
+          <button class="btn btn-outline" onclick="seqStart('GP')">GP</button>
+          <button class="btn btn-outline" onclick="seqStart('sum')">Series Sum</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- S6: INDICES & LOGARITHMS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--secondary-bg)">xⁿ</div>
+        <div><h3>Indices &amp; Logarithms</h3><p>Laws of indices and log rules</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="ind-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="ind-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="ind-question" style="font-size:1.2rem">Press Start!</div>
+        <div class="opts-grid" id="ind-opts"></div>
+        <div class="game-feedback" id="ind-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="indStart('indices')">Indices</button>
+          <button class="btn btn-outline" onclick="indStart('logs')">Logarithms</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== UNIVERSITY ======================== -->
+<div class="level-section" id="level-university">
+  <div class="level-header">
+    <div class="level-badge lb-uni">🎓 University Level · College &amp; Beyond</div>
+    <h2>University Mathematics Games</h2>
+    <p>Calculus, linear algebra, probability and complex analysis — challenging games for serious maths students.</p>
+  </div>
+  <div class="games-grid">
+
+    <!-- U1: DIFFERENTIATION -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">d/dx</div>
+        <div><h3>Derivative Challenge</h3><p>Differentiate polynomial, trig and exponential functions</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="diff-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="diff-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="diff-question" style="font-size:1.2rem">Press Start!</div>
+        <div style="color:var(--muted);font-size:.83rem;text-align:center;margin-bottom:.5rem" id="diff-hint"></div>
+        <div class="opts-grid" id="diff-opts"></div>
+        <div class="game-feedback" id="diff-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="diffStart('poly')">Polynomials</button>
+          <button class="btn btn-outline" onclick="diffStart('trig')">Trig</button>
+          <button class="btn btn-outline" onclick="diffStart('chain')">Chain Rule</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- U2: INTEGRATION -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">∫</div>
+        <div><h3>Integration Master</h3><p>Indefinite and definite integral challenges</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="int-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="int-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="int-question" style="font-size:1.2rem">Press Start!</div>
+        <div class="opts-grid" id="int-opts"></div>
+        <div class="game-feedback" id="int-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="intStart('indefinite')">Indefinite</button>
+          <button class="btn btn-outline" onclick="intStart('definite')">Definite</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- U3: MATRICES -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">[ ]</div>
+        <div><h3>Matrix Operations</h3><p>Determinants, multiplication and inverses</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="mat-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="mat-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div style="font-family:'Playfair Display',serif;text-align:center;margin-bottom:.8rem;font-size:1.1rem;color:var(--brown-dark)" id="mat-display"></div>
+        <div style="font-weight:700;color:var(--ink-soft);margin-bottom:.6rem;font-size:.93rem;text-align:center" id="mat-task"></div>
+        <input type="number" step="0.01" class="game-input" id="mat-ans" placeholder="Answer..." onkeydown="if(event.key==='Enter')matCheck()">
+        <div class="game-feedback" id="mat-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="matStart('det')">Determinant</button>
+          <button class="btn btn-outline" onclick="matStart('mult')">Multiply</button>
+          <button class="btn btn-outline" onclick="matStart('trace')">Trace</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- U4: PROBABILITY -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">P(x)</div>
+        <div><h3>Probability Engine</h3><p>Classical, conditional and Bayes problems</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="prob-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="prob-q">1/8</div><div class="score-lbl">Progress</div></div>
+        </div>
+        <div class="game-question" id="prob-question" style="font-size:1rem;line-height:1.4;padding:.8rem 1rem">Press Start!</div>
+        <div class="opts-grid" id="prob-opts"></div>
+        <div class="game-feedback" id="prob-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="probStart('classical')">Classical</button>
+          <button class="btn btn-outline" onclick="probStart('conditional')">Conditional</button>
+          <button class="btn btn-outline" onclick="probStart('combined')">Combined</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- U5: LIMITS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">lim</div>
+        <div><h3>Limits Challenge</h3><p>Evaluate limits as x approaches a value</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="lim-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="lim-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="lim-question" style="font-size:1.1rem">Press Start!</div>
+        <div class="opts-grid" id="lim-opts"></div>
+        <div class="game-feedback" id="lim-fb"></div>
+        <button class="btn btn-brown" onclick="limStart()">▶ Start</button>
+      </div>
+    </div>
+
+    <!-- U6: COMPLEX NUMBERS -->
+    <div class="game-card">
+      <div class="game-card-header">
+        <div class="game-icon-wrap" style="background:var(--uni-bg)">a+bi</div>
+        <div><h3>Complex Numbers</h3><p>Operations on complex numbers and Argand diagrams</p></div>
+      </div>
+      <div class="game-body">
+        <div class="score-bar">
+          <div class="score-item"><div class="score-val" id="cx-score">0</div><div class="score-lbl">Score</div></div>
+          <div class="score-item"><div class="score-val" id="cx-q">1</div><div class="score-lbl">Q</div></div>
+        </div>
+        <div class="game-question" id="cx-question" style="font-size:1.1rem">Press Start!</div>
+        <div class="opts-grid" id="cx-opts"></div>
+        <div class="game-feedback" id="cx-fb"></div>
+        <div class="btn-row">
+          <button class="btn btn-brown" onclick="cxStart('ops')">Operations</button>
+          <button class="btn btn-outline" onclick="cxStart('modarg')">Modulus &amp; Argument</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ronny Edu Games — by Mwalimu Ronny</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="computer.html">CS Games</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const rand=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+
+// LEVEL TABS
+function showLevel(l){
+  ['primary','secondary','university'].forEach(id=>{
+    document.getElementById('level-'+id).classList.remove('visible');
+    document.getElementById('tab-'+id)?.classList.remove('active-primary','active-secondary','active-uni');
+  });
+  document.getElementById('level-'+l).classList.add('visible');
+  const map={primary:'active-primary',secondary:'active-secondary',university:'active-uni'};
+  document.getElementById('tab-'+l)?.classList.add(map[l]);
+}
+window.addEventListener('scroll',()=>document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300));
+
+// ======================== P1: MATH BLAST ========================
+let mbRunning=false,mbScore=0,mbBest=0,mbInterval=null,mbA,mbB,mbOp,mbMode='easy';
+function mbGen(){
+  const ops={easy:['+','-'],medium:['×','÷'],hard:['+','-','×','÷']};
+  mbOp=ops[mbMode][rand(0,ops[mbMode].length-1)];
+  if(mbOp==='+'){mbA=rand(1,50);mbB=rand(1,50);}
+  else if(mbOp==='-'){mbA=rand(10,99);mbB=rand(1,mbA);}
+  else if(mbOp==='×'){mbA=rand(2,12);mbB=rand(2,12);}
+  else{mbB=rand(2,12);mbA=mbB*rand(1,12);}
+  document.getElementById('mb-q').textContent=`${mbA} ${mbOp} ${mbB} = ?`;
+  document.getElementById('mb-ans').value='';document.getElementById('mb-ans').focus();
+  document.getElementById('mb-fb').textContent='';
+}
+function mbGetAns(){return mbOp==='+'?mbA+mbB:mbOp==='-'?mbA-mbB:mbOp==='×'?mbA*mbB:mbA/mbB;}
+function mbCheck(){
+  if(!mbRunning)return;
+  const v=parseFloat(document.getElementById('mb-ans').value);
+  const el=document.getElementById('mb-fb');
+  if(Math.abs(v-mbGetAns())<0.01){mbScore++;el.textContent='✓ Correct!';el.className='game-feedback fb-correct';}
+  else{el.textContent=`✗ Was ${mbGetAns()}`;el.className='game-feedback fb-wrong';}
+  document.getElementById('mb-score').textContent=mbScore;
+  setTimeout(()=>{if(mbRunning)mbGen();},400);
+}
+function mbStart(mode){
+  mbMode=mode;clearInterval(mbInterval);mbScore=0;let t=30;mbRunning=true;
+  document.getElementById('mb-score').textContent=0;document.getElementById('mb-time').textContent=30;
+  mbGen();
+  mbInterval=setInterval(()=>{
+    t--;document.getElementById('mb-time').textContent=t;
+    document.getElementById('mb-bar').style.width=(t/30*100)+'%';
+    if(t<=0){clearInterval(mbInterval);mbRunning=false;
+      document.getElementById('mb-q').textContent='Time Up!';
+      if(mbScore>mbBest){mbBest=mbScore;document.getElementById('mb-best').textContent=mbBest;}
+      document.getElementById('mb-fb').textContent=`Final: ${mbScore}  Best: ${mbBest}`;
+      document.getElementById('mb-fb').className='game-feedback fb-correct';
+    }
+  },1000);
+}
+
+// ======================== P2: PLACE VALUE ========================
+const pvData=[
+  {n:3456,q:'What digit is in the HUNDREDS place?',ans:4},
+  {n:7823,q:'What digit is in the THOUSANDS place?',ans:7},
+  {n:12045,q:'What digit is in the TENS place?',ans:4},
+  {n:98001,q:'What digit is in the TEN-THOUSANDS place?',ans:9},
+  {n:563,q:'What is the VALUE of the digit 5?',ans:500},
+  {n:4729,q:'What is the VALUE of the digit 2?',ans:20},
+  {n:8150,q:'What digit is in the ONES place?',ans:0},
+  {n:30607,q:'What digit is in the HUNDREDS place?',ans:6},
+  {n:24830,q:'What digit is in the THOUSANDS place?',ans:4},
+  {n:7005,q:'What is the VALUE of the digit 7?',ans:7000},
+];
+let pvIdx=0,pvScore=0,pvAnswered=false;
+function pvRender(){
+  const q=pvData[pvIdx%pvData.length];pvAnswered=false;
+  document.getElementById('pv-number').textContent=q.n.toLocaleString();
+  document.getElementById('pv-qtext').textContent=q.q;
+  document.getElementById('pv-q').textContent=pvIdx+1;
+  document.getElementById('pv-fb').textContent='';
+  const opts=[q.ans];
+  while(opts.length<4){const w=q.ans<10?rand(0,9):rand(0,9)*Math.pow(10,Math.floor(Math.log10(q.ans)));if(!opts.includes(w))opts.push(w);}
+  opts.sort(()=>Math.random()-.5);
+  const el=document.getElementById('pv-opts');el.innerHTML='';
+  opts.forEach(o=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(pvAnswered)return;pvAnswered=true;
+      if(o===q.ans){pvScore++;b.classList.add('correct');document.getElementById('pv-fb').textContent='✓ Correct!';document.getElementById('pv-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');document.getElementById('pv-fb').textContent=`✗ Answer: ${q.ans}`;document.getElementById('pv-fb').className='game-feedback fb-wrong';}
+      document.getElementById('pv-score').textContent=pvScore;
+      el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+    };el.appendChild(b);
+  });
+}
+function pvNext(){pvIdx++;pvRender();}
+pvRender();
+
+// ======================== P3: SHAPES ========================
+let shScore=0,shStreak=0,shCurrent;
+const shTypes=['rect-area','rect-perimeter','triangle-area','circle-area','circle-circumference'];
+function shNext(){
+  const type=shTypes[rand(0,shTypes.length-1)];
+  const a=rand(3,15),b=rand(3,15),r=rand(3,10);
+  const canvas=document.getElementById('sh-canvas'),ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,280,160);ctx.fillStyle='#fff5ea';ctx.fillRect(0,0,280,160);
+  let prompt='',ans=0;
+  ctx.strokeStyle='#7a4a1e';ctx.lineWidth=3;ctx.fillStyle='rgba(122,74,30,.08)';
+  if(type==='rect-area'||type==='rect-perimeter'){
+    const w=Math.min(a*12,200),h=Math.min(b*10,120);const x=(280-w)/2,y=(160-h)/2;
+    ctx.fillRect(x,y,w,h);ctx.strokeRect(x,y,w,h);
+    ctx.fillStyle='#5a3210';ctx.font='bold 13px sans-serif';ctx.textAlign='center';
+    ctx.fillText(`${a}`,140,y-5);ctx.fillText(`${b}`,x-14,y+h/2+5);
+    ans=type==='rect-area'?a*b:2*(a+b);
+    prompt=type==='rect-area'?`Find the AREA of this rectangle (b=${a}, h=${b})`:`Find the PERIMETER (b=${a}, h=${b})`;
+  } else if(type==='triangle-area'){
+    const cx=140,cy=140,tw=Math.min(a*14,220),th=Math.min(b*8,110);
+    ctx.beginPath();ctx.moveTo(cx,cy-th);ctx.lineTo(cx-tw/2,cy);ctx.lineTo(cx+tw/2,cy);ctx.closePath();
+    ctx.fill();ctx.stroke();
+    ctx.fillStyle='#5a3210';ctx.font='bold 13px sans-serif';ctx.textAlign='center';
+    ctx.fillText(`b=${a}`,cx,cy+15);ctx.fillText(`h=${b}`,cx+tw/2+20,cy-th/2);
+    ans=parseFloat((0.5*a*b).toFixed(2));
+    prompt=`Find the AREA of this triangle (b=${a}, h=${b})`;
+  } else {
+    const rad=Math.min(r*7,65);
+    ctx.beginPath();ctx.arc(140,80,rad,0,Math.PI*2);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#5a3210';ctx.font='bold 14px sans-serif';ctx.textAlign='center';
+    ctx.fillText(`r=${r}`,140,80+5);
+    ans=type==='circle-area'?parseFloat((Math.PI*r*r).toFixed(2)):parseFloat((2*Math.PI*r).toFixed(2));
+    prompt=type==='circle-area'?`Find the AREA of this circle (r=${r}), use π=3.14159`:`Find the CIRCUMFERENCE (r=${r}), use π=3.14159`;
+  }
+  shCurrent=ans;document.getElementById('sh-prompt').textContent=prompt;
+  document.getElementById('sh-ans').value='';document.getElementById('sh-fb').textContent='';document.getElementById('sh-ans').focus();
+}
+function shCheck(){
+  const v=parseFloat(document.getElementById('sh-ans').value);if(isNaN(v))return;
+  const fb=document.getElementById('sh-fb');
+  if(Math.abs(v-shCurrent)<0.1){shScore++;shStreak++;fb.textContent=`✓ Correct! (${shCurrent})`;fb.className='game-feedback fb-correct';}
+  else{shStreak=0;fb.textContent=`✗ Answer: ${shCurrent}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('sh-score').textContent=shScore;document.getElementById('sh-streak').textContent=shStreak;
+}
+shNext();
+
+// ======================== P4: TIMES TABLES ========================
+let ttScore=0,ttWrong=0,ttTable=2,ttB;
+function ttBuild(){
+  const sel=document.getElementById('tt-selector');sel.innerHTML='';
+  for(let i=1;i<=12;i++){
+    const b=document.createElement('button');b.className='btn btn-outline';b.style.cssText='padding:.4rem .8rem;font-size:.82rem';b.textContent=`${i}×`;
+    b.onclick=()=>{ttTable=i;document.getElementById('tt-table').textContent=i+'×';ttNext();};sel.appendChild(b);
+  }
+}
+function ttNext(){
+  ttB=rand(1,12);
+  document.getElementById('tt-q').textContent=`${ttTable} × ${ttB} = ?`;
+  document.getElementById('tt-ans').value='';document.getElementById('tt-fb').textContent='';document.getElementById('tt-ans').focus();
+}
+function ttCheck(){
+  const v=parseInt(document.getElementById('tt-ans').value);const ans=ttTable*ttB;
+  const fb=document.getElementById('tt-fb');
+  if(v===ans){ttScore++;fb.textContent='✓ Correct!';fb.className='game-feedback fb-correct';}
+  else{ttWrong++;fb.textContent=`✗ Was ${ans}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('tt-score').textContent=ttScore;document.getElementById('tt-wrong').textContent=ttWrong;
+  setTimeout(ttNext,500);
+}
+document.getElementById('tt-ans').addEventListener('keydown',e=>{if(e.key==='Enter')ttCheck();});
+ttBuild();ttNext();
+
+// ======================== P5: FRACTIONS ========================
+const frQuestions=[
+  {d:'1/2',q:'Which fraction is equivalent to 1/2?',opts:['2/4','1/3','3/5','2/3'],ans:0},
+  {d:'3/4',q:'Simplify 6/8',opts:['3/4','2/3','4/5','1/2'],ans:0},
+  {d:'2/5',q:'Which is larger — 2/5 or 3/8?',opts:['2/5','3/8','Equal','Cannot tell'],ans:0},
+  {d:'1/3',q:'What is 1/3 + 1/3?',opts:['2/3','1/6','2/9','1/3'],ans:0},
+  {d:'5/6',q:'Simplify 10/12',opts:['5/6','4/5','2/3','7/8'],ans:0},
+  {d:'3/8',q:'What is 3/4 − 3/8?',opts:['3/8','1/4','1/2','5/8'],ans:0},
+  {d:'2/3',q:'What is 1/3 × 2?',opts:['2/3','2/9','1/6','4/3'],ans:0},
+  {d:'3/5',q:'Which is smallest: 3/5, 2/3, 5/8?',opts:['3/5','2/3','5/8','Equal'],ans:0},
+];
+let frIdx=0,frScore=0,frAnswered=false,frQs;
+function frReset(){frQs=[...frQuestions].sort(()=>Math.random()-.5);frIdx=0;frScore=0;document.getElementById('fr-score').textContent=0;frRender();}
+function frRender(){
+  const q=frQs[frIdx%frQs.length];frAnswered=false;
+  document.getElementById('fr-display').textContent=q.d;document.getElementById('fr-qtext').textContent=q.q;
+  document.getElementById('fr-fb').textContent='';document.getElementById('fr-q').textContent=frIdx+1;
+  const el=document.getElementById('fr-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(frAnswered)return;frAnswered=true;
+      if(i===q.ans){frScore++;b.classList.add('correct');document.getElementById('fr-fb').textContent='✓ Correct!';document.getElementById('fr-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('fr-fb').textContent='✗ Wrong!';document.getElementById('fr-fb').className='game-feedback fb-wrong';}
+      document.getElementById('fr-score').textContent=frScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{frIdx++;frRender();},900);
+    };el.appendChild(b);
+  });
+}
+frReset();
+
+// ======================== P6: NUMBER ORDERING ========================
+let noScore=0,noQ=0,noNumbers=[],noSelected=[];
+function noGenerate(){
+  const count=rand(4,6);const nums=new Set();
+  while(nums.size<count)nums.add(rand(1,9999));
+  noNumbers=[...nums];noSelected=[];
+}
+function noRender(){
+  noQ++;document.getElementById('no-q').textContent=noQ;
+  noGenerate();
+  const el=document.getElementById('no-nums');el.innerHTML='';
+  const shuffled=[...noNumbers].sort(()=>Math.random()-.5);
+  shuffled.forEach(n=>{
+    const b=document.createElement('button');
+    b.style.cssText='background:var(--brown);color:var(--bisque);border:none;border-radius:8px;padding:.4rem .8rem;font-weight:700;cursor:pointer;font-family:Playfair Display,serif;font-size:1rem';
+    b.textContent=n;b.dataset.val=n;
+    b.onclick=()=>{
+      if(noSelected.includes(n))return;
+      noSelected.push(n);b.style.opacity='.3';b.disabled=true;
+      const ans=document.getElementById('no-answer');
+      const chip=document.createElement('span');
+      chip.style.cssText='background:var(--accent3);color:var(--bisque);border-radius:8px;padding:.4rem .8rem;font-weight:700;font-size:1rem;font-family:Playfair Display,serif';
+      chip.textContent=n;ans.appendChild(chip);
+    };
+    el.appendChild(b);
+  });
+  document.getElementById('no-answer').innerHTML='';document.getElementById('no-fb').textContent='';
+}
+function noCheck(){
+  const sorted=[...noNumbers].sort((a,b)=>a-b);
+  const correct=JSON.stringify(noSelected)===JSON.stringify(sorted);
+  const fb=document.getElementById('no-fb');
+  if(correct){noScore++;fb.textContent='✓ Correct order!';fb.className='game-feedback fb-correct';document.getElementById('no-score').textContent=noScore;setTimeout(noRender,900);}
+  else{fb.textContent=`✗ Correct: ${sorted.join(' < ')}`;fb.className='game-feedback fb-wrong';}
+}
+function noNext(){noRender();}
+noRender();
+
+// ======================== S1: ALGEBRA BLITZ ========================
+let algScore=0,algQ=0,algStreak=0,algAns,algMode='linear';
+function algStart(mode){algMode=mode;algScore=0;algQ=0;algStreak=0;document.getElementById('alg-score').textContent=0;algNext();}
+function algNext(){
+  algQ++;document.getElementById('alg-q').textContent=algQ;document.getElementById('alg-fb').textContent='';
+  document.getElementById('alg-ans').value='';document.getElementById('alg-hint').textContent='';
+  if(algMode==='linear'){
+    const a=rand(1,9),b=rand(1,20),c=rand(b+1,b+a*10);algAns=parseFloat(((c-b)/a).toFixed(2));
+    document.getElementById('alg-question').textContent=`Solve: ${a}x + ${b} = ${c}`;
+    document.getElementById('alg-hint').textContent='Hint: subtract then divide';
+  } else if(algMode==='quadratic'){
+    const p=rand(1,8),q2=rand(1,8);
+    const c=p*q2,b2=p+q2;
+    document.getElementById('alg-question').textContent=`Solve: x² − ${b2}x + ${c} = 0  (give smaller root)`;
+    document.getElementById('alg-hint').textContent=`Hint: factorize — (x−${p})(x−${q2})=0`;
+    algAns=Math.min(p,q2);
+  } else {
+    const a=rand(2,6),b=rand(1,10),c=rand(1,a-1),d=rand(b+1,b+20);
+    algAns=parseFloat(((d-b)/(a-c)).toFixed(2));
+    document.getElementById('alg-question').textContent=`Solve: ${a}x + ${b} = ${c}x + ${d}`;
+    document.getElementById('alg-hint').textContent='Collect x terms on one side';
+  }
+  document.getElementById('alg-ans').focus();
+}
+function algCheck(){
+  const v=parseFloat(document.getElementById('alg-ans').value);const fb=document.getElementById('alg-fb');
+  if(Math.abs(v-algAns)<0.05){algScore++;algStreak++;fb.textContent=`✓ Correct! x = ${algAns}`;fb.className='game-feedback fb-correct';}
+  else{algStreak=0;fb.textContent=`✗ Answer: x = ${algAns}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('alg-score').textContent=algScore;document.getElementById('alg-streak').textContent=algStreak;
+  setTimeout(algNext,700);
+}
+document.getElementById('alg-ans').addEventListener('keydown',e=>{if(e.key==='Enter')algCheck();});
+
+// ======================== S2: TRIGONOMETRY ========================
+const trigQ={
+  basic:[
+    {q:'sin(30°) = ?',opts:['1/2','√3/2','1/√2','1'],ans:0},
+    {q:'cos(60°) = ?',opts:['1/2','√3/2','0','1'],ans:0},
+    {q:'tan(45°) = ?',opts:['0','1/2','1','√3'],ans:2},
+    {q:'sin(90°) = ?',opts:['0','1/2','√3/2','1'],ans:3},
+    {q:'cos(0°) = ?',opts:['0','1/2','1','√3'],ans:2},
+    {q:'tan(60°) = ?',opts:['1','√2','√3','2'],ans:2},
+    {q:'sin(45°) = ?',opts:['1/2','1/√2','√3/2','1'],ans:1},
+    {q:'cos(30°) = ?',opts:['1/2','√3/2','1/√2','0'],ans:1},
+    {q:'sin(0°) = ?',opts:['0','1/2','√3/2','1'],ans:0},
+    {q:'cos(90°) = ?',opts:['1','1/2','0','−1'],ans:2},
+  ],
+  identities:[
+    {q:'sin²θ + cos²θ = ?',opts:['0','1','2','sinθcosθ'],ans:1},
+    {q:'1 + tan²θ = ?',opts:['sec²θ','cosec²θ','1','cot²θ'],ans:0},
+    {q:'sin(2θ) = ?',opts:['2sinθ','2cosθ','2sinθcosθ','sin²θ'],ans:2},
+    {q:'cos(A+B) = ?',opts:['cosAcosB+sinAsinB','cosAcosB−sinAsinB','sinAcosB','cosAsinB'],ans:1},
+    {q:'sec θ = ?',opts:['1/sinθ','1/cosθ','1/tanθ','cosθ/sinθ'],ans:1},
+    {q:'tanθ in terms of sinθ and cosθ?',opts:['sinθ/cosθ','cosθ/sinθ','sinθ·cosθ','1/sinθ'],ans:0},
+    {q:'sin(A−B) = ?',opts:['sinAcosB+cosAsinB','sinAcosB−cosAsinB','cosAcosB','sinAsinB'],ans:1},
+    {q:'1 + cot²θ = ?',opts:['cosec²θ','sec²θ','tan²θ','1'],ans:0},
+    {q:'cos(2θ) = ?',opts:['cos²θ−sin²θ','2cos²θ','2sin²θ','sinθcosθ'],ans:0},
+    {q:'cosec θ = ?',opts:['1/cosθ','1/sinθ','1/tanθ','sinθ/cosθ'],ans:1},
+  ]
+};
+let trigScore=0,trigIdx=0,trigMode='basic',trigQs=[],trigAnswered=false;
+function trigStart(mode){trigMode=mode;trigScore=0;trigIdx=0;trigAnswered=false;trigQs=[...trigQ[mode]].sort(()=>Math.random()-.5);trigRender();}
+function trigRender(){
+  const q=trigQs[trigIdx%trigQs.length];trigAnswered=false;
+  document.getElementById('trig-q').textContent=`${trigIdx+1}/10`;
+  document.getElementById('trig-question').textContent=q.q;document.getElementById('trig-fb').textContent='';
+  const canvas=document.getElementById('trig-canvas'),ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,260,140);ctx.fillStyle='#fff5ea';ctx.fillRect(0,0,260,140);
+  ctx.strokeStyle='#d0a070';ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(130,70,55,0,Math.PI*2);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(75,70);ctx.lineTo(185,70);ctx.moveTo(130,15);ctx.lineTo(130,125);ctx.stroke();
+  ctx.fillStyle='#5a3210';ctx.font='11px Source Sans 3,sans-serif';ctx.textAlign='center';
+  ctx.fillText('0°',191,74);ctx.fillText('90°',130,10);ctx.fillText('180°',69,74);ctx.fillText('270°',130,130);
+  const el=document.getElementById('trig-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(trigAnswered)return;trigAnswered=true;
+      if(i===q.ans){trigScore++;b.classList.add('correct');document.getElementById('trig-fb').textContent='✓ Correct!';document.getElementById('trig-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('trig-fb').textContent='✗ Wrong!';document.getElementById('trig-fb').className='game-feedback fb-wrong';}
+      document.getElementById('trig-score').textContent=trigScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{trigIdx++;trigRender();},800);
+    };el.appendChild(b);
+  });
+}
+trigStart('basic');
+
+// ======================== S3: STATISTICS ========================
+let statScore=0,statQ=0,statAns,statDataset,statTask;
+function genDataset(){const n=rand(5,8);const arr=[];for(let i=0;i<n;i++)arr.push(rand(2,20));return arr.sort((a,b)=>a-b);}
+function statNext(){
+  statQ++;document.getElementById('stat-q').textContent=statQ;
+  statDataset=genDataset();document.getElementById('stat-dataset').textContent=statDataset.join(' , ');
+  document.getElementById('stat-ans').value='';document.getElementById('stat-fb').textContent='';
+  const tasks=[
+    {t:'Find the MEAN (average). Round to 2 decimal places.',fn:()=>parseFloat((statDataset.reduce((s,v)=>s+v,0)/statDataset.length).toFixed(2))},
+    {t:'Find the MEDIAN (middle value).',fn:()=>{const m=Math.floor(statDataset.length/2);return statDataset.length%2===0?(statDataset[m-1]+statDataset[m])/2:statDataset[m];}},
+    {t:'Find the MODE (most frequent value). Enter 0 if no mode.',fn:()=>{const freq={};statDataset.forEach(v=>freq[v]=(freq[v]||0)+1);const max=Math.max(...Object.values(freq));const modes=Object.keys(freq).filter(k=>freq[k]===max);return modes.length===statDataset.length?0:parseInt(modes[0]);}},
+    {t:'Find the RANGE (max − min).',fn:()=>statDataset[statDataset.length-1]-statDataset[0]},
+  ];
+  const task=tasks[rand(0,tasks.length-1)];
+  statTask=task.t;statAns=task.fn();
+  document.getElementById('stat-task').textContent=task.t;
+  document.getElementById('stat-ans').focus();
+}
+function statCheck(){
+  const v=parseFloat(document.getElementById('stat-ans').value);const fb=document.getElementById('stat-fb');
+  if(Math.abs(v-statAns)<0.05){statScore++;fb.textContent=`✓ Correct! (${statAns})`;fb.className='game-feedback fb-correct';}
+  else{fb.textContent=`✗ Answer: ${statAns}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('stat-score').textContent=statScore;
+}
+function statHint(){
+  const fb=document.getElementById('stat-fb');
+  if(statTask.includes('MEAN'))fb.textContent='Hint: Sum all values ÷ count';
+  else if(statTask.includes('MEDIAN'))fb.textContent='Hint: Data is sorted — find the middle value';
+  else if(statTask.includes('MODE'))fb.textContent='Hint: Which value appears most often?';
+  else fb.textContent='Hint: Largest − Smallest';
+}
+document.getElementById('stat-ans').addEventListener('keydown',e=>{if(e.key==='Enter')statCheck();});
+statNext();
+
+// ======================== S4: GEOMETRY ========================
+let geoScore=0,geoStreak=0,geoCurrent;
+function geoNext(){
+  document.getElementById('geo-fb').textContent='';document.getElementById('geo-ans').value='';
+  const type=rand(1,5);const r=rand(3,12),a=rand(4,14),b=rand(4,14),c=rand(4,14),l=rand(3,10),w=rand(3,10),h=rand(3,10);
+  const canvas=document.getElementById('geo-canvas'),ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,280,160);ctx.fillStyle='#fff5ea';ctx.fillRect(0,0,280,160);
+  ctx.strokeStyle='#7a4a1e';ctx.lineWidth=2.5;ctx.fillStyle='rgba(122,74,30,.08)';
+  let prompt='';
+  if(type===1){
+    ctx.beginPath();ctx.arc(140,80,Math.min(r*7,65),0,Math.PI*2);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#5a3210';ctx.font='bold 13px sans-serif';ctx.textAlign='center';ctx.fillText(`r = ${r}`,140,80+5);
+    geoCurrent=parseFloat((Math.PI*r*r).toFixed(2));
+    prompt=`Find the AREA of a circle: r=${r}cm. Use π=3.14159. Answer to 2 d.p.`;
+  } else if(type===2){
+    ctx.beginPath();ctx.arc(140,80,Math.min(r*7,65),0,Math.PI*2);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#5a3210';ctx.font='bold 13px sans-serif';ctx.textAlign='center';ctx.fillText(`r = ${r}`,140,80+5);
+    geoCurrent=parseFloat((2*Math.PI*r).toFixed(2));
+    prompt=`Find the CIRCUMFERENCE of a circle: r=${r}cm. Use π=3.14159.`;
+  } else if(type===3){
+    const s=(a+b+c)/2;geoCurrent=parseFloat(Math.sqrt(s*(s-a)*(s-b)*(s-c)).toFixed(2));
+    ctx.beginPath();ctx.moveTo(40,140);ctx.lineTo(40+a*10,140);ctx.lineTo(40+b*5,30);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.fillStyle='#5a3210';ctx.font='12px sans-serif';ctx.textAlign='center';
+    ctx.fillText(`a=${a}`,40+a*5,155);ctx.fillText(`b=${b}`,40+b*8,80);
+    prompt=`Find the AREA of this triangle (Heron's formula): sides ${a}, ${b}, ${c}cm. Answer to 2 d.p.`;
+  } else if(type===4){
+    geoCurrent=2*(l*w+l*h+w*h);
+    ctx.fillRect(60,40,l*12,h*9);ctx.strokeRect(60,40,l*12,h*9);
+    ctx.fillStyle='#5a3210';ctx.font='11px sans-serif';ctx.textAlign='center';
+    ctx.fillText(`l=${l}`,60+l*6,40+h*9+14);ctx.fillText(`w=${w}`,50,40+h*4.5);
+    prompt=`SURFACE AREA of a cuboid: l=${l}, w=${w}, h=${h} cm.`;
+  } else {
+    geoCurrent=parseFloat((Math.PI*r*r*h).toFixed(2));
+    const rx=Math.min(r*5,55),ry=Math.max(rx*.25,8);
+    ctx.fillStyle='rgba(122,74,30,.12)';ctx.fillRect(140-rx,30+ry,rx*2,h*9);ctx.strokeRect(140-rx,30+ry,rx*2,h*9);
+    ctx.beginPath();ctx.ellipse(140,30+ry,rx,ry,0,0,Math.PI*2);ctx.fillStyle='rgba(122,74,30,.2)';ctx.fill();ctx.stroke();
+    ctx.fillStyle='#5a3210';ctx.font='12px sans-serif';ctx.textAlign='center';
+    ctx.fillText(`r=${r}`,140,30+ry+5);ctx.fillText(`h=${h}`,140+rx+18,30+ry+h*4.5);
+    prompt=`Find the VOLUME of this cylinder: r=${r}, h=${h}cm. Use π=3.14159.`;
+  }
+  document.getElementById('geo-prompt').textContent=prompt;document.getElementById('geo-ans').focus();
+}
+function geoCheck(){
+  const v=parseFloat(document.getElementById('geo-ans').value);const fb=document.getElementById('geo-fb');
+  if(Math.abs(v-geoCurrent)<0.1){geoScore++;geoStreak++;fb.textContent=`✓ Correct! (${geoCurrent})`;fb.className='game-feedback fb-correct';}
+  else{geoStreak=0;fb.textContent=`✗ Answer: ${geoCurrent}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('geo-score').textContent=geoScore;document.getElementById('geo-streak').textContent=geoStreak;
+}
+geoNext();
+
+// ======================== S5: SEQUENCES ========================
+let seqScore=0,seqQ=0,seqAns,seqMode='AP';
+function seqStart(mode){seqMode=mode;seqScore=0;seqQ=0;document.getElementById('seq-score').textContent=0;seqNext();}
+function seqNext(){
+  seqQ++;document.getElementById('seq-q').textContent=seqQ;
+  document.getElementById('seq-ans').value='';document.getElementById('seq-fb').textContent='';
+  document.getElementById('seq-subtext').textContent='';
+  if(seqMode==='AP'){
+    const a=rand(2,15),d=rand(1,8),n=rand(5,10);seqAns=a+(n-1)*d;
+    const terms=[a,a+d,a+2*d,a+3*d].join(', ')+', ...';
+    document.getElementById('seq-display').textContent=terms;
+    document.getElementById('seq-subtext').textContent=`AP: a=${a}, d=${d}. Find the ${n}th term.`;
+  } else if(seqMode==='GP'){
+    const a=rand(2,5),r=rand(2,3),n=rand(4,6);seqAns=a*Math.pow(r,n-1);
+    document.getElementById('seq-display').textContent=[a,a*r,a*r*r,a*r*r*r].join(', ')+', ...';
+    document.getElementById('seq-subtext').textContent=`GP: a=${a}, r=${r}. Find the ${n}th term.`;
+  } else {
+    const a=rand(2,10),d=rand(1,5),n=rand(5,10);seqAns=n/2*(2*a+(n-1)*d);
+    document.getElementById('seq-display').textContent=`a=${a}, d=${d}, n=${n}`;
+    document.getElementById('seq-subtext').textContent=`AP: Find the SUM of the first ${n} terms. Use Sn = n/2(2a+(n−1)d)`;
+  }
+  document.getElementById('seq-ans').focus();
+}
+function seqCheck(){
+  const v=parseFloat(document.getElementById('seq-ans').value);const fb=document.getElementById('seq-fb');
+  if(Math.abs(v-seqAns)<0.5){seqScore++;fb.textContent=`✓ Correct! (${seqAns})`;fb.className='game-feedback fb-correct';}
+  else{fb.textContent=`✗ Answer: ${seqAns}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('seq-score').textContent=seqScore;setTimeout(seqNext,700);
+}
+document.getElementById('seq-ans').addEventListener('keydown',e=>{if(e.key==='Enter')seqCheck();});
+seqStart('AP');
+
+// ======================== S6: INDICES & LOGS ========================
+const indData={
+  indices:[
+    {q:'x³ × x⁴ = ?',opts:['x⁷','x¹²','x¹','x³⁴'],ans:0},
+    {q:'x⁸ ÷ x³ = ?',opts:['x⁵','x¹¹','x²⁴','x²'],ans:0},
+    {q:'(x²)³ = ?',opts:['x⁵','x⁶','x⁸','x²³'],ans:1},
+    {q:'x⁰ = ?',opts:['0','1','x','undefined'],ans:1},
+    {q:'x⁻² = ?',opts:['1/x²','−x²','x²','−2x'],ans:0},
+    {q:'√(x⁴) = ?',opts:['x²','x⁴','x⁸','2x'],ans:0},
+    {q:'2³ × 2⁴ = ?',opts:['4⁷','2⁷','2¹²','4¹²'],ans:1},
+    {q:'(2³)² = ?',opts:['2⁵','2⁶','4⁶','2⁸'],ans:1},
+  ],
+  logs:[
+    {q:'log₁₀(100) = ?',opts:['1','2','10','100'],ans:1},
+    {q:'log₂(8) = ?',opts:['2','3','4','6'],ans:1},
+    {q:'log(a) + log(b) = ?',opts:['log(a+b)','log(a×b)','log(a−b)','log(a÷b)'],ans:1},
+    {q:'log(a) − log(b) = ?',opts:['log(a−b)','log(a÷b)','log(a×b)','log(a+b)'],ans:1},
+    {q:'log(aⁿ) = ?',opts:['a·log(n)','n·log(a)','log(a)+n','log(n)−log(a)'],ans:1},
+    {q:'log₁₀(1) = ?',opts:['1','−1','0','10'],ans:2},
+    {q:'log₂(32) = ?',opts:['4','5','6','8'],ans:1},
+    {q:'If log(x) = 2, then x = ?',opts:['2','20','100','1000'],ans:2},
+  ]
+};
+let indScore=0,indIdx=0,indMode='indices',indQs=[],indAnswered=false;
+function indStart(mode){indMode=mode;indScore=0;indIdx=0;indAnswered=false;indQs=[...indData[mode]].sort(()=>Math.random()-.5);indRender();}
+function indRender(){
+  const q=indQs[indIdx%indQs.length];indAnswered=false;
+  document.getElementById('ind-q').textContent=indIdx+1;document.getElementById('ind-question').textContent=q.q;
+  document.getElementById('ind-fb').textContent='';
+  const el=document.getElementById('ind-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(indAnswered)return;indAnswered=true;
+      if(i===q.ans){indScore++;b.classList.add('correct');document.getElementById('ind-fb').textContent='✓ Correct!';document.getElementById('ind-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('ind-fb').textContent='✗ Wrong!';document.getElementById('ind-fb').className='game-feedback fb-wrong';}
+      document.getElementById('ind-score').textContent=indScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{indIdx++;indRender();},800);
+    };el.appendChild(b);
+  });
+}
+indStart('indices');
+
+// ======================== U1: DERIVATIVES ========================
+const diffData={
+  poly:[
+    {q:'d/dx (x⁵) = ?',opts:['5x⁴','4x⁵','5x','x⁴'],ans:0},
+    {q:'d/dx (3x⁴ − 2x) = ?',opts:['12x³ − 2','12x³','3x³ − 2','12x⁴ − 2'],ans:0},
+    {q:'d/dx (7x) = ?',opts:['7x','7','0','14'],ans:1},
+    {q:'d/dx (x⁻²) = ?',opts:['−2x⁻³','2x⁻³','−2x','x⁻³'],ans:0},
+    {q:'d/dx (√x) = ?',opts:['1/(2√x)','√x/2','2√x','1/√x'],ans:0},
+    {q:'d/dx (x⁰) = ?',opts:['0','1','x','x⁻¹'],ans:0},
+    {q:'d/dx (6x³ + 2x²) = ?',opts:['18x² + 4x','6x² + 2x','3x² + 2','18x² + 2'],ans:0},
+  ],
+  trig:[
+    {q:'d/dx (sin x) = ?',opts:['cos x','−cos x','−sin x','tan x'],ans:0},
+    {q:'d/dx (cos x) = ?',opts:['sin x','−sin x','cos x','−cos x'],ans:1},
+    {q:'d/dx (tan x) = ?',opts:['sec²x','cos²x','sin²x','cosec²x'],ans:0},
+    {q:'d/dx (sin 2x) = ?',opts:['2cos 2x','cos 2x','2sin 2x','−2cos 2x'],ans:0},
+    {q:'d/dx (cos 3x) = ?',opts:['3sin 3x','−3sin 3x','−sin 3x','3cos 3x'],ans:1},
+    {q:'d/dx (sec x) = ?',opts:['sec x tan x','sec²x','cosec x cot x','tan x'],ans:0},
+  ],
+  chain:[
+    {q:'d/dx (3x+2)⁴ = ?',opts:['12(3x+2)³','4(3x+2)³','(3x+2)⁴','4(3x+2)'],ans:0},
+    {q:'d/dx (sin(x²)) = ?',opts:['2x cos(x²)','cos(x²)','2x sin(x²)','x cos(x²)'],ans:0},
+    {q:'d/dx e^(2x) = ?',opts:['2e^(2x)','e^(2x)','2xe^x','e^(2x)/2'],ans:0},
+    {q:'d/dx ln(3x) = ?',opts:['1/x','3/x','1/(3x)','3 ln x'],ans:0},
+    {q:'d/dx (2x−1)⁵ = ?',opts:['10(2x−1)⁴','5(2x−1)⁴','(2x−1)⁵','2(2x−1)⁴'],ans:0},
+  ]
+};
+let diffScore=0,diffQ=0,diffMode='poly',diffIdx=0,diffQs=[],diffAnswered=false;
+function diffStart(mode){diffMode=mode;diffScore=0;diffQ=0;diffAnswered=false;diffQs=[...diffData[mode]].sort(()=>Math.random()-.5);diffIdx=0;diffRender();}
+function diffRender(){
+  const q=diffQs[diffIdx%diffQs.length];diffAnswered=false;diffQ++;
+  document.getElementById('diff-q').textContent=diffQ;document.getElementById('diff-question').textContent=q.q;
+  document.getElementById('diff-fb').textContent='';document.getElementById('diff-hint').textContent='';
+  const el=document.getElementById('diff-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(diffAnswered)return;diffAnswered=true;
+      if(i===q.ans){diffScore++;b.classList.add('correct');document.getElementById('diff-fb').textContent='✓ Correct!';document.getElementById('diff-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('diff-fb').textContent='✗ Wrong!';document.getElementById('diff-fb').className='game-feedback fb-wrong';}
+      document.getElementById('diff-score').textContent=diffScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{diffIdx++;diffRender();},800);
+    };el.appendChild(b);
+  });
+}
+diffStart('poly');
+
+// ======================== U2: INTEGRATION ========================
+const intData={
+  indefinite:[
+    {q:'∫ x⁴ dx = ?',opts:['x⁵/5 + C','4x³ + C','5x⁵ + C','x⁵ + C'],ans:0},
+    {q:'∫ cos x dx = ?',opts:['−sin x + C','sin x + C','cos x + C','tan x + C'],ans:1},
+    {q:'∫ e^x dx = ?',opts:['e^x + C','xe^x + C','e^x − 1','e^(x+1) + C'],ans:0},
+    {q:'∫ 1/x dx = ?',opts:['ln|x| + C','1/x² + C','x ln x + C','−1/x² + C'],ans:0},
+    {q:'∫ 6x² dx = ?',opts:['2x³ + C','6x³ + C','3x² + C','12x + C'],ans:0},
+    {q:'∫ sin x dx = ?',opts:['cos x + C','−cos x + C','−sin x + C','sec x + C'],ans:1},
+    {q:'∫ sec²x dx = ?',opts:['tan x + C','sec x tan x + C','2 sec x + C','sec²x/2 + C'],ans:0},
+  ],
+  definite:[
+    {q:'∫₀² x dx = ?',opts:['2','4','1','3'],ans:0},
+    {q:'∫₀^π sin x dx = ?',opts:['0','2','1','π'],ans:1},
+    {q:'∫₁² 2x dx = ?',opts:['3','4','5','6'],ans:0},
+    {q:'∫₀¹ e^x dx = ?',opts:['e−1','e','1','e+1'],ans:0},
+    {q:'∫₁³ x² dx = ?',opts:['26/3','9','8/3','8'],ans:0},
+    {q:'∫₀² 3x² dx = ?',opts:['6','8','12','4'],ans:1},
+  ]
+};
+let intScore=0,intQ=0,intMode='indefinite',intIdx=0,intQs=[],intAnswered=false;
+function intStart(mode){intMode=mode;intScore=0;intQ=0;intAnswered=false;intQs=[...intData[mode]].sort(()=>Math.random()-.5);intIdx=0;intRender();}
+function intRender(){
+  const q=intQs[intIdx%intQs.length];intAnswered=false;intQ++;
+  document.getElementById('int-q').textContent=intQ;document.getElementById('int-question').textContent=q.q;
+  document.getElementById('int-fb').textContent='';
+  const el=document.getElementById('int-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(intAnswered)return;intAnswered=true;
+      if(i===q.ans){intScore++;b.classList.add('correct');document.getElementById('int-fb').textContent='✓ Correct!';document.getElementById('int-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('int-fb').textContent='✗ Wrong!';document.getElementById('int-fb').className='game-feedback fb-wrong';}
+      document.getElementById('int-score').textContent=intScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{intIdx++;intRender();},800);
+    };el.appendChild(b);
+  });
+}
+intStart('indefinite');
+
+// ======================== U3: MATRICES ========================
+let matScore=0,matQ=0,matMode='det',matAns;
+function matStart(mode){matMode=mode;matScore=0;matQ=0;document.getElementById('mat-score').textContent=0;matNext();}
+function matNext(){
+  matQ++;document.getElementById('mat-q').textContent=matQ;
+  document.getElementById('mat-ans').value='';document.getElementById('mat-fb').textContent='';
+  const a=rand(1,8),b=rand(1,8),c=rand(1,8),d=rand(1,8);
+  const e2=rand(1,5),f=rand(1,5),g=rand(1,5),h=rand(1,5);
+  if(matMode==='det'){
+    matAns=a*d-b*c;
+    document.getElementById('mat-display').innerHTML=`det [ ${a}  ${b} ]<br>&nbsp;&nbsp;&nbsp;&nbsp;[ ${c}  ${d} ]`;
+    document.getElementById('mat-task').textContent=`Determinant = (${a}×${d}) − (${b}×${c})`;
+  } else if(matMode==='mult'){
+    matAns=a*e2+b*g;
+    document.getElementById('mat-display').innerHTML=`[ ${a}  ${b} ] × [ ${e2}  ${f} ]<br>[ ${c}  ${d} ]   [ ${g}  ${h} ]`;
+    document.getElementById('mat-task').textContent=`Find top-left element: row1 · col1 = ${a}×${e2} + ${b}×${g}`;
+  } else {
+    matAns=a+d;
+    document.getElementById('mat-display').innerHTML=`Trace of [ ${a}  ${b} ]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ ${c}  ${d} ]`;
+    document.getElementById('mat-task').textContent=`Trace = sum of diagonal = ${a} + ${d}`;
+  }
+  document.getElementById('mat-ans').focus();
+}
+function matCheck(){
+  const v=parseFloat(document.getElementById('mat-ans').value);const fb=document.getElementById('mat-fb');
+  if(Math.abs(v-matAns)<0.5){matScore++;fb.textContent=`✓ Correct! (${matAns})`;fb.className='game-feedback fb-correct';}
+  else{fb.textContent=`✗ Answer: ${matAns}`;fb.className='game-feedback fb-wrong';}
+  document.getElementById('mat-score').textContent=matScore;setTimeout(matNext,700);
+}
+document.getElementById('mat-ans').addEventListener('keydown',e=>{if(e.key==='Enter')matCheck();});
+matStart('det');
+
+// ======================== U4: PROBABILITY ========================
+const probData={
+  classical:[
+    {q:'A bag has 3 red and 7 blue balls. P(red) = ?',opts:['3/10','7/10','3/7','1/3'],ans:0},
+    {q:'A fair die is thrown. P(even) = ?',opts:['1/2','1/3','2/3','1/6'],ans:0},
+    {q:'A card is drawn from 52 cards. P(ace) = ?',opts:['1/13','1/52','4/13','1/4'],ans:0},
+    {q:'Two coins are tossed. P(both heads) = ?',opts:['1/4','1/2','3/4','1/8'],ans:0},
+    {q:'P(rolling a 5 on a fair die) = ?',opts:['1/6','1/5','5/6','1/3'],ans:0},
+    {q:'A bag has 5 green, 3 yellow. P(not green) = ?',opts:['3/8','5/8','3/5','1/3'],ans:0},
+  ],
+  conditional:[
+    {q:'P(A) = 0.4, P(B) = 0.3, P(A∩B) = 0.12. Independent?',opts:['Yes — P(A)×P(B)=P(A∩B)','No','Cannot tell','Only if exclusive'],ans:0},
+    {q:'P(A|B) means?',opts:['P(A) given B occurred','P(A)×P(B)','P(A)+P(B)','P(A)−P(B)'],ans:0},
+    {q:'P(A∩B) = P(A|B) × ?',opts:['P(B)','P(A)','P(A)+P(B)','1−P(B)'],ans:0},
+    {q:'P(A) = 0.5, P(B|A) = 0.4. P(A∩B) = ?',opts:['0.2','0.5','0.9','0.4'],ans:0},
+    {q:'P(A∪B) = P(A) + P(B) − ?',opts:['P(A∩B)','P(A|B)','P(B|A)','P(A)P(B)'],ans:0},
+  ],
+  combined:[
+    {q:'P(A) = 0.6, P(A\') = ?',opts:['0.4','0.6','1.6','0.36'],ans:0},
+    {q:'P(A)=0.3, P(B)=0.5 independent. P(A∩B) = ?',opts:['0.15','0.8','0.35','0.2'],ans:0},
+    {q:'Mutually exclusive: P(A)=0.3, P(B)=0.4. P(A∪B) = ?',opts:['0.7','0.12','0.1','1'],ans:0},
+    {q:'P(A)=1/3, P(B)=1/4 (indep). P(neither) = ?',opts:['1/2','1/3','1/4','3/4'],ans:0},
+    {q:'P(A∪B)=0.9, P(A)=0.6, P(B)=0.5. P(A∩B) = ?',opts:['0.2','0.1','0.3','0.4'],ans:0},
+  ]
+};
+let probScore=0,probIdx=0,probMode='classical',probQs=[],probAnswered=false;
+function probStart(mode){probMode=mode;probScore=0;probIdx=0;probAnswered=false;probQs=[...probData[mode]].sort(()=>Math.random()-.5);probRender();}
+function probRender(){
+  const q=probQs[probIdx%probQs.length];probAnswered=false;
+  document.getElementById('prob-q').textContent=`${probIdx+1}/${probQs.length}`;
+  document.getElementById('prob-question').textContent=q.q;document.getElementById('prob-fb').textContent='';
+  const el=document.getElementById('prob-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(probAnswered)return;probAnswered=true;
+      if(i===q.ans){probScore++;b.classList.add('correct');document.getElementById('prob-fb').textContent='✓ Correct!';document.getElementById('prob-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('prob-fb').textContent='✗ Wrong!';document.getElementById('prob-fb').className='game-feedback fb-wrong';}
+      document.getElementById('prob-score').textContent=probScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{probIdx++;probRender();},800);
+    };el.appendChild(b);
+  });
+}
+probStart('classical');
+
+// ======================== U5: LIMITS ========================
+const limData=[
+  {q:'lim(x→2) of x² = ?',opts:['2','4','8','∞'],ans:1},
+  {q:'lim(x→0) of sin(x)/x = ?',opts:['0','1','∞','undefined'],ans:1},
+  {q:'lim(x→∞) of 1/x = ?',opts:['1','∞','0','−1'],ans:2},
+  {q:'lim(x→3) of (x²−9)/(x−3) = ?',opts:['0','3','6','undefined'],ans:2},
+  {q:'lim(x→0) of (e^x − 1)/x = ?',opts:['0','1','e','∞'],ans:1},
+  {q:'lim(x→∞) of (2x+1)/(x+5) = ?',opts:['0','1','2','∞'],ans:2},
+  {q:'lim(x→2) of (x²−4)/(x−2) = ?',opts:['0','2','4','undefined'],ans:2},
+  {q:'lim(x→0) of cos(x) = ?',opts:['0','1','−1','∞'],ans:1},
+  {q:'lim(x→∞) of (3x²+2x)/(x²) = ?',opts:['0','2','3','∞'],ans:2},
+  {q:'lim(x→1) of (x²−1)/(x−1) = ?',opts:['0','1','2','3'],ans:2},
+];
+let limScore=0,limIdx=0,limQs=[],limAnswered=false;
+function limStart(){limQs=[...limData].sort(()=>Math.random()-.5);limIdx=0;limScore=0;limAnswered=false;limRender();}
+function limRender(){
+  const q=limQs[limIdx%limQs.length];limAnswered=false;
+  document.getElementById('lim-q').textContent=limIdx+1;document.getElementById('lim-question').textContent=q.q;
+  document.getElementById('lim-fb').textContent='';
+  const el=document.getElementById('lim-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(limAnswered)return;limAnswered=true;
+      if(i===q.ans){limScore++;b.classList.add('correct');document.getElementById('lim-fb').textContent='✓ Correct!';document.getElementById('lim-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('lim-fb').textContent='✗ Wrong!';document.getElementById('lim-fb').className='game-feedback fb-wrong';}
+      document.getElementById('lim-score').textContent=limScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{limIdx++;limRender();},800);
+    };el.appendChild(b);
+  });
+}
+limStart();
+
+// ======================== U6: COMPLEX NUMBERS ========================
+const cxData={
+  ops:[
+    {q:'(2+3i) + (4+5i) = ?',opts:['6+8i','6+2i','8+8i','2+8i'],ans:0},
+    {q:'(5+2i) − (3+4i) = ?',opts:['2−2i','2+6i','8+6i','8−6i'],ans:0},
+    {q:'(1+i)(1−i) = ?',opts:['0','1−i²','2','1+0i'],ans:2},
+    {q:'(2+i)² = ?',opts:['4+4i+i²','3+4i','4+i²','5+4i'],ans:1},
+    {q:'i² = ?',opts:['1','−1','i','−i'],ans:1},
+    {q:'i³ = ?',opts:['i','−i','1','−1'],ans:1},
+    {q:'i⁴ = ?',opts:['−1','i','1','−i'],ans:2},
+    {q:'Conjugate of (3−4i) = ?',opts:['3+4i','−3+4i','3−4i','4+3i'],ans:0},
+  ],
+  modarg:[
+    {q:'|3+4i| = ?',opts:['3','4','5','7'],ans:2},
+    {q:'|1+i| = ?',opts:['1','√2','2','√3'],ans:1},
+    {q:'arg(1+0i) = ?',opts:['0°','45°','90°','180°'],ans:0},
+    {q:'arg(0+i) = ?',opts:['0°','45°','90°','180°'],ans:2},
+    {q:'arg(−1+0i) = ?',opts:['0°','90°','180°','270°'],ans:2},
+    {q:'|a+bi| is found using?',opts:['a+b','√(a+b)','√(a²+b²)','a²+b²'],ans:2},
+    {q:'The real part of (5−3i) is?',opts:['5','−3','3','−5'],ans:0},
+    {q:'The imaginary part of (2+7i) is?',opts:['2','7i','7','2i'],ans:2},
+  ]
+};
+let cxScore=0,cxIdx=0,cxMode='ops',cxQs=[],cxAnswered=false;
+function cxStart(mode){cxMode=mode;cxScore=0;cxIdx=0;cxAnswered=false;cxQs=[...cxData[mode]].sort(()=>Math.random()-.5);cxRender();}
+function cxRender(){
+  const q=cxQs[cxIdx%cxQs.length];cxAnswered=false;
+  document.getElementById('cx-q').textContent=cxIdx+1;document.getElementById('cx-question').textContent=q.q;
+  document.getElementById('cx-fb').textContent='';
+  const el=document.getElementById('cx-opts');el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');b.className='opt-btn';b.textContent=o;
+    b.onclick=()=>{
+      if(cxAnswered)return;cxAnswered=true;
+      if(i===q.ans){cxScore++;b.classList.add('correct');document.getElementById('cx-fb').textContent='✓ Correct!';document.getElementById('cx-fb').className='game-feedback fb-correct';}
+      else{b.classList.add('wrong');el.querySelectorAll('.opt-btn')[q.ans].classList.add('correct');document.getElementById('cx-fb').textContent='✗ Wrong!';document.getElementById('cx-fb').className='game-feedback fb-wrong';}
+      document.getElementById('cx-score').textContent=cxScore;el.querySelectorAll('.opt-btn').forEach(x=>x.onclick=null);
+      setTimeout(()=>{cxIdx++;cxRender();},800);
+    };el.appendChild(b);
+  });
+}
+cxStart('ops');
+</script>
+</body>
+</html>

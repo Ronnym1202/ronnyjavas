@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About Ronny Edu Games — free educational games by Mwalimu Ronny.">
+<title>About | Ronny Edu Games</title>
+<link rel="icon" type="image/jpeg" href="profile.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bisque:#ffe4c4;--bisque-light:#fff8f0;--bisque-mid:#ffd4a0;--brown:#7a4a1e;--brown-dark:#5a3210;--brown-mid:#a0622a;--ink:#2a1a0a;--ink-soft:#5a3e28;--muted:#9a7a5a;--card:#fffaf4;--card-border:#e8d0b0;--shadow:rgba(122,74,30,.12);--radius:14px;--transition:.25s ease;}
+html{scroll-behavior:smooth}
+body{background:var(--bisque-light);color:var(--ink);font-family:'Source Sans 3',sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Playfair Display',serif}
+a{color:inherit;text-decoration:none}
+nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:68px;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--bisque);display:flex;align-items:center;gap:.5rem}
+.nav-logo small{color:rgba(255,228,196,.55);font-size:.8rem;font-weight:400;font-family:'Source Sans 3',sans-serif;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,228,196,.7);font-weight:600;font-size:.9rem;padding:.35rem 0;border-bottom:2px solid transparent;transition:var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--bisque);border-bottom-color:var(--bisque-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:26px;height:3px;background:var(--bisque);border-radius:3px}
+.page-hero{background:linear-gradient(150deg,var(--brown-dark),var(--brown));padding:56px 5%;border-bottom:3px solid var(--brown-mid)}
+.page-hero h1{color:var(--bisque);font-size:clamp(2rem,5vw,3rem)}
+.page-hero p{color:rgba(255,228,196,.75);margin-top:.6rem;font-size:1.05rem}
+.breadcrumb{padding:.9rem 5%;font-size:.84rem;color:var(--muted);border-bottom:1px solid var(--card-border);background:var(--bisque)}
+.breadcrumb a{color:var(--brown-mid)}
+.section{padding:56px 5%}
+.content-wrap{max-width:760px}
+.content-wrap h2{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.8rem;margin-bottom:.8rem;margin-top:2rem}
+.content-wrap h2:first-child{margin-top:0}
+.content-wrap p{color:var(--ink-soft);margin-bottom:1rem}
+.content-wrap ul{margin-left:1.5rem;margin-bottom:1rem;color:var(--ink-soft)}
+.content-wrap li{margin-bottom:.4rem}
+.stat-row{display:flex;gap:2rem;flex-wrap:wrap;margin:2rem 0}
+.stat-box{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:1.2rem 1.8rem;text-align:center;box-shadow:0 2px 8px var(--shadow)}
+.stat-box .val{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--brown-dark)}
+.stat-box .lbl{font-size:.78rem;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-weight:700}
+footer{background:var(--brown-dark);padding:2rem 5%;border-top:3px solid var(--brown-mid)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1rem;border-top:1px solid rgba(255,228,196,.1)}
+.footer-bottom p,.footer-bottom a{color:rgba(255,228,196,.5);font-size:.82rem}
+.footer-bottom a:hover{color:var(--bisque)}.footer-links{display:flex;gap:1.2rem}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--brown-dark);flex-direction:column;gap:0;padding:.5rem 0;border-bottom:2px solid var(--brown-mid);transform:translateY(-120%);transition:.35s;opacity:0}
+  .nav-links.open{transform:translateY(0);opacity:1}
+  .nav-links li{border-bottom:1px solid rgba(255,228,196,.08)}
+  .nav-links a{display:block;padding:.9rem 5%}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span style="font-size:1.5rem">∑</span>
+    <div><div>Ronny Edu Games</div><small>by Mwalimu Ronny</small></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mathematics.html">Mathematics</a></li>
+    <li><a href="computer.html">Computer Science</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="page-hero">
+  <h1>About Ronny Edu Games</h1>
+  <p>Free educational games, built by a teacher who believes learning should be joyful.</p>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a> › About</div>
+<div class="section">
+  <div class="content-wrap">
+    <div class="stat-row">
+      <div class="stat-box"><div class="val">24</div><div class="lbl">Games</div></div>
+      <div class="stat-box"><div class="val">2</div><div class="lbl">Subjects</div></div>
+      <div class="stat-box"><div class="val">3</div><div class="lbl">Levels</div></div>
+      <div class="stat-box"><div class="val">0</div><div class="lbl">Cost</div></div>
+    </div>
+    <h2>About This Project</h2>
+    <p>Ronny Edu Games is a free collection of interactive educational games covering Mathematics and Computer Science. Every game was designed and built by <strong>Mwalimu Ronny</strong> — a practising Mathematics and Computer Science teacher.</p>
+    <p>The site was created out of a simple belief: students learn better when they are engaged, challenged and having fun. Too many great learning tools are hidden behind subscriptions or app downloads. This site changes that.</p>
+    <h2>Who Is It For?</h2>
+    <p>The games are organised into three levels to cater for every stage of education:</p>
+    <ul>
+      <li><strong>Primary (Ages 8–13):</strong> Foundational number sense, basic operations, shapes, binary and computational thinking.</li>
+      <li><strong>Secondary (Form 1–4):</strong> Aligned to the KCSE syllabus. Algebra, trigonometry, statistics, logic gates, programming and sorting algorithms.</li>
+      <li><strong>University Level:</strong> Calculus, matrices, probability, data structures, complexity (Big-O) and Boolean algebra.</li>
+    </ul>
+    <h2>Our Principles</h2>
+    <ul>
+      <li>🆓 <strong>Free forever</strong> — no subscriptions, no paywalls, no premium tiers.</li>
+      <li>🚫 <strong>No advertisements</strong> — a distraction-free space built purely for learning.</li>
+      <li>🔐 <strong>No login required</strong> — no accounts, no emails, no data collected.</li>
+      <li>📱 <strong>Works everywhere</strong> — any device with a browser, including low-end phones.</li>
+      <li>🎓 <strong>Curriculum-aligned</strong> — secondary games follow the KCSE Mathematics and Computer Studies syllabi.</li>
+    </ul>
+    <h2>Technology</h2>
+    <p>The entire site is built with plain HTML, CSS and JavaScript — no frameworks, no dependencies, no trackers. It loads fast on any connection and works offline once cached.</p>
+    <h2>About Mwalimu Ronny</h2>
+    <p>Mwalimu Ronny is a Mathematics and Computer Science teacher based in Kenya. Beyond this project, you can find more of his work at <a href="https://bestronny.netlify.app" target="_blank" style="color:var(--brown-mid);font-weight:700">bestronny.netlify.app</a>.</p>
+  </div>
+</div>
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ronny Edu Games — by Mwalimu Ronny</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="mathematics.html">Maths</a>
+      <a href="computer.html">CS</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

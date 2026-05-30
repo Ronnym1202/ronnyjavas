@@ -1,29 +1,246 @@
 <!DOCTYPE html>
-<html>
-    <head>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
-        <link rel="icon" type="image/jpg" href="ceo.jpg">
-        <title>LOGIN PAGE</title>
-    </head>
-    <body>
-        <div id="logbox">
-            <h2>LOGIN</h2>
-            <div id="logimage">
-                <img src="ceo.jpg" alt="LOGIN PROFILE">
-                <P>RONNY'S WEBSITE</P>
-            </div>
-            <form action="">
-                <div id="loginputs">
-                    <label for="text">Username:</label>
-                    <input type="text" name="" id="" minlength="9" required>
-                </div>
-                <div id="loginputs">
-                    <label for="password">Password:</label>
-                    <input type="password" min="9" required>
-                </div>
-               <a href="Javatrial.html"><button type="button">Login</button></a>
-            </form>
-        </div>
-    </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free educational games for Mathematics and Computer Science — Primary, Secondary and University level. By Mwalimu Ronny.">
+<title>Ronny Edu Games | Free Math &amp; CS Games</title>
+<link rel="icon" type="image/jpeg" href="profile.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bisque:#ffe4c4;--bisque-light:#fff8f0;--bisque-mid:#ffd4a0;--bisque-dark:#f0c090;
+  --brown:#7a4a1e;--brown-dark:#5a3210;--brown-mid:#a0622a;
+  --accent:#c0392b;--accent2:#1a6b3a;--accent3:#1a3a6b;
+  --ink:#2a1a0a;--ink-soft:#5a3e28;--muted:#9a7a5a;
+  --card:#fffaf4;--card-border:#e8d0b0;
+  --shadow:rgba(122,74,30,.12);--shadow-strong:rgba(122,74,30,.22);
+  --radius:14px;--transition:.25s ease;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bisque-light);color:var(--ink);font-family:'Source Sans 3',sans-serif;overflow-x:hidden;line-height:1.6}
+h1,h2,h3{font-family:'Playfair Display',serif}
+a{color:inherit;text-decoration:none}
+nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:68px;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--bisque);display:flex;align-items:center;gap:.5rem}
+.nav-logo small{color:rgba(255,228,196,.55);font-size:.8rem;font-weight:400;font-family:'Source Sans 3',sans-serif;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,228,196,.7);font-weight:600;font-size:.9rem;padding:.35rem 0;border-bottom:2px solid transparent;transition:var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--bisque);border-bottom-color:var(--bisque-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:26px;height:3px;background:var(--bisque);border-radius:3px}
+.hero{background:linear-gradient(150deg,var(--brown-dark) 0%,var(--brown) 55%,#1a3a6b 100%);padding:90px 5% 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{position:relative;z-index:1;max-width:700px}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,228,196,.15);border:1px solid rgba(255,228,196,.3);border-radius:30px;padding:.35rem 1rem;font-size:.82rem;font-weight:700;color:var(--bisque-mid);text-transform:uppercase;letter-spacing:.8px;margin-bottom:1.5rem}
+.hero h1{color:var(--bisque);font-size:clamp(2.4rem,6vw,4rem);line-height:1.15;margin-bottom:1rem}
+.hero h1 span{color:var(--bisque-mid)}
+.hero p{color:rgba(255,228,196,.8);font-size:1.1rem;max-width:560px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.75rem 1.8rem;border-radius:30px;font-weight:700;font-size:.92rem;cursor:pointer;border:2px solid transparent;transition:var(--transition);font-family:'Source Sans 3',sans-serif}
+.btn-bisque{background:var(--bisque);color:var(--brown-dark);border-color:var(--bisque)}.btn-bisque:hover{background:var(--bisque-mid)}
+.btn-outline-light{background:transparent;color:var(--bisque);border-color:rgba(255,228,196,.4)}.btn-outline-light:hover{background:rgba(255,228,196,.1);border-color:var(--bisque)}
+.stats-strip{background:var(--brown);padding:1.2rem 5%;display:flex;gap:3rem;flex-wrap:wrap;align-items:center;border-bottom:3px solid var(--brown-mid)}
+.stat{text-align:center}
+.stat-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--bisque);line-height:1}
+.stat-lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.7px;color:rgba(255,228,196,.6);font-weight:700;margin-top:.1rem}
+.section{padding:60px 5%}
+.section-alt{background:var(--bisque)}
+.section-header{margin-bottom:2.5rem}
+.section-label{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--brown-mid);margin-bottom:.6rem}
+.section-header h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--brown-dark);margin-bottom:.5rem}
+.section-header p{color:var(--ink-soft);max-width:580px}
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem}
+.subject-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 16px var(--shadow);transition:var(--transition);display:flex;flex-direction:column}
+.subject-card:hover{box-shadow:0 8px 36px var(--shadow-strong);transform:translateY(-3px)}
+.subject-card-banner{padding:2rem 2rem 1.5rem;position:relative;overflow:hidden}
+.sc-math{background:linear-gradient(135deg,var(--brown-dark),var(--brown))}
+.sc-cs{background:linear-gradient(135deg,var(--accent3),#2a5aab)}
+.subject-card-banner h3{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--bisque);margin-bottom:.4rem}
+.subject-card-banner p{color:rgba(255,228,196,.75);font-size:.9rem}
+.subject-icon{position:absolute;right:1.5rem;top:1.2rem;font-size:3.5rem;opacity:.22}
+.subject-card-body{padding:1.5rem 2rem 2rem;flex:1;display:flex;flex-direction:column}
+.level-list{list-style:none;margin-bottom:1.5rem;flex:1}
+.level-list li{display:flex;align-items:flex-start;gap:.6rem;padding:.55rem 0;border-bottom:1px solid var(--card-border);font-size:.9rem;color:var(--ink-soft)}
+.level-list li:last-child{border-bottom:none}
+.level-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--brown-mid);margin-top:.45rem;flex-shrink:0}
+.btn-brown{background:var(--brown);color:var(--bisque);border-color:var(--brown)}.btn-brown:hover{background:var(--brown-dark)}
+.btn-accent3{background:var(--accent3);color:var(--bisque);border-color:var(--accent3)}.btn-accent3:hover{background:#0f2850}
+.levels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.level-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:1.5rem;box-shadow:0 2px 10px var(--shadow)}
+.level-icon{font-size:2rem;margin-bottom:.8rem}
+.level-card h3{font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:.4rem}
+.level-card p{font-size:.88rem;color:var(--muted)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.why-card{padding:1.5rem;border-radius:12px;background:var(--card);border:1px solid var(--card-border)}
+.why-icon{font-size:1.8rem;margin-bottom:.7rem}
+.why-card h4{font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:.4rem;font-size:1.05rem}
+.why-card p{font-size:.86rem;color:var(--muted)}
+footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-brand h3{font-family:'Playfair Display',serif;color:var(--bisque);font-size:1.4rem;margin-bottom:.5rem}
+.footer-brand p{color:rgba(255,228,196,.55);font-size:.88rem;line-height:1.6}
+.footer-col h4{color:var(--bisque-mid);font-size:.82rem;text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:.8rem}
+.footer-col a{display:block;color:rgba(255,228,196,.55);font-size:.88rem;margin-bottom:.4rem;transition:var(--transition)}
+.footer-col a:hover{color:var(--bisque)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,228,196,.1)}
+.footer-bottom p{color:rgba(255,228,196,.4);font-size:.82rem}
+#scrollTop{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;border-radius:50%;background:var(--brown);color:var(--bisque);border:none;cursor:pointer;font-size:1.1rem;box-shadow:0 4px 16px var(--shadow-strong);transition:var(--transition);display:none;align-items:center;justify-content:center;z-index:500}
+#scrollTop.show{display:flex}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--brown-dark);flex-direction:column;gap:0;padding:.5rem 0;border-bottom:2px solid var(--brown-mid);transform:translateY(-120%);transition:.35s;opacity:0;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  .nav-links.open{transform:translateY(0);opacity:1}
+  .nav-links li{border-bottom:1px solid rgba(255,228,196,.08)}
+  .nav-links a{display:block;padding:.9rem 5%;font-size:1rem}
+  .stats-strip{gap:1.5rem;justify-content:center}
+  .footer-grid{grid-template-columns:1fr}
+  .subjects-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span style="font-size:1.5rem">∑</span>
+    <div><div>Ronny Edu Games</div><small>by Mwalimu Ronny</small></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="mathematics.html">Mathematics</a></li>
+    <li><a href="computer.html">Computer Science</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🎓 Free Educational Games — No Login Required</div>
+    <h1>Learn <span>Maths &amp; CS</span><br>Through Play</h1>
+    <p>Interactive educational games for Primary, Secondary and University students. Built by a teacher, for learners. No adverts. No downloads. Just learn.</p>
+    <div class="hero-btns">
+      <a href="mathematics.html" class="btn btn-bisque">🔢 Play Maths Games</a>
+      <a href="computer.html" class="btn btn-outline-light">💻 Play CS Games</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat"><div class="stat-val">24</div><div class="stat-lbl">Games</div></div>
+  <div class="stat"><div class="stat-val">2</div><div class="stat-lbl">Subjects</div></div>
+  <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Levels Each</div></div>
+  <div class="stat"><div class="stat-val">0</div><div class="stat-lbl">Cost</div></div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">📚 Choose a Subject</div>
+    <h2>Two Subjects, Dozens of Games</h2>
+    <p>Each subject covers Primary (Ages 8–13), Secondary (Form 1–4) and University level — with at least 4 games per level.</p>
+  </div>
+  <div class="subjects-grid">
+    <div class="subject-card">
+      <div class="subject-card-banner sc-math">
+        <div class="subject-icon">∑</div>
+        <h3>Mathematics</h3>
+        <p>From counting to calculus — 12 games across all levels</p>
+      </div>
+      <div class="subject-card-body">
+        <ul class="level-list">
+          <li><strong>Primary:</strong> Arithmetic Blast, Place Value, Shape Calculator, Times Tables, Fractions, Number Ordering</li>
+          <li><strong>Secondary:</strong> Algebra Blitz, Trigonometry, Statistics, Geometry Explorer, Sequences &amp; Series, Indices &amp; Logs</li>
+          <li><strong>University:</strong> Derivatives, Integration, Matrices, Probability, Limits, Complex Numbers</li>
+        </ul>
+        <a href="mathematics.html" class="btn btn-brown" style="align-self:flex-start">Explore Maths Games →</a>
+      </div>
+    </div>
+    <div class="subject-card">
+      <div class="subject-card-banner sc-cs">
+        <div class="subject-icon">&lt;/&gt;</div>
+        <h3>Computer Science</h3>
+        <p>Binary to Big-O — 12 games across all levels</p>
+      </div>
+      <div class="subject-card-body">
+        <ul class="level-list">
+          <li><strong>Primary:</strong> Binary Explorer, ASCII, Algorithm Detective, Computer Parts, Pattern Logic, Internet Basics</li>
+          <li><strong>Secondary:</strong> Number Systems, Logic Gates, Programming Concepts, Data Representation, Sorting Visualiser, Cybersecurity</li>
+          <li><strong>University:</strong> Big-O Complexity, Data Structures, Boolean Algebra, Search Algorithms, Recursion, Network Protocols</li>
+        </ul>
+        <a href="computer.html" class="btn btn-accent3" style="align-self:flex-start">Explore CS Games →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-header">
+    <div class="section-label">🎯 Three Levels</div>
+    <h2>Games for Every Stage of Learning</h2>
+    <p>Each subject has games tailored to three academic levels so every learner finds the right challenge.</p>
+  </div>
+  <div class="levels-grid">
+    <div class="level-card">
+      <div class="level-icon">🌱</div>
+      <h3>Primary Level</h3>
+      <p>Ages 8–13. Foundational concepts, visual learning, simple interactions. Perfect for building core number sense and digital literacy.</p>
+    </div>
+    <div class="level-card">
+      <div class="level-icon">📐</div>
+      <h3>Secondary Level</h3>
+      <p>Form 1–4. Aligned to KCSE syllabus. Algebra, geometry, programming fundamentals, logic gates and sorting algorithms.</p>
+    </div>
+    <div class="level-card">
+      <div class="level-icon">🎓</div>
+      <h3>University Level</h3>
+      <p>College and beyond. Calculus, linear algebra, probability, data structures, complexity analysis and Boolean algebra.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">✅ Why Ronny Edu Games</div>
+    <h2>Built for Real Learning</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🆓</div><h4>Completely Free</h4><p>No subscriptions, no paywalls, no premium tiers. Every game is free for every student, everywhere.</p></div>
+    <div class="why-card"><div class="why-icon">📵</div><h4>No Adverts</h4><p>A distraction-free learning environment. No ads interrupting your study session.</p></div>
+    <div class="why-card"><div class="why-icon">🔐</div><h4>No Login Needed</h4><p>Open a game and play instantly. No account, no email, no personal data collected.</p></div>
+    <div class="why-card"><div class="why-icon">👨‍🏫</div><h4>Teacher-Designed</h4><p>Every game created by Mwalimu Ronny — a practising Mathematics and Computer Science teacher.</p></div>
+    <div class="why-card"><div class="why-icon">📱</div><h4>Works Everywhere</h4><p>Fully responsive — plays perfectly on phones, tablets and computers. No app download required.</p></div>
+    <div class="why-card"><div class="why-icon">🧠</div><h4>Curriculum-Aligned</h4><p>Secondary games follow the KCSE Mathematics and Computer Studies syllabi.</p></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>∑ Ronny Edu Games</h3>
+      <p>Free educational games for Mathematics and Computer Science. Built with care by Mwalimu Ronny for students at every level.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Games</h4>
+      <a href="mathematics.html">Mathematics</a>
+      <a href="computer.html">Computer Science</a>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ronny Edu Games — by Mwalimu Ronny</p>
+    <p>Free to use. Free to share.</p>
+  </div>
+</footer>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>window.addEventListener('scroll',()=>document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300));</script>
+</body>
 </html>
