@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Free educational games for Mathematics and Computer Science — Primary, Secondary and University level. By Mwalimu Ronny.">
-<title>Ronny Edu Games | Free Math &amp; CS Games</title>
+<meta name="description" content="Free educational games for Mathematics and Computer Science — Primary, Secondary and University level. By Mwalimu Ronny. No login, no download, completely free.">
+<title>Ronny Edu Games | Free Math &amp; CS Games by Mwalimu Ronny</title>
 <link rel="icon" type="image/jpeg" href="profile.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <meta name="google-site-verification" content="9FZshn86tF1NT8MmwKT425iY_ITDbDzQcULO-h3ot-8" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509173858076202" crossorigin="anonymous"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -79,8 +80,16 @@ nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;ju
 .why-icon{font-size:1.8rem;margin-bottom:.7rem}
 .why-card h4{font-family:'Playfair Display',serif;color:var(--brown-dark);margin-bottom:.4rem;font-size:1.05rem}
 .why-card p{font-size:.86rem;color:var(--muted)}
+/* NEW: enriched text section for Google crawl */
+.editorial-section{padding:60px 5%;background:var(--card);border-top:3px solid var(--card-border);border-bottom:3px solid var(--card-border)}
+.editorial-inner{max-width:860px}
+.editorial-inner h2{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.8rem;margin-bottom:1rem}
+.editorial-inner p{color:var(--ink-soft);margin-bottom:1rem;line-height:1.8}
+.editorial-inner h3{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.2rem;margin:1.6rem 0 .5rem}
+.editorial-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
+.editorial-col p{color:var(--ink-soft);font-size:.95rem;line-height:1.8}
 footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
 .footer-brand h3{font-family:'Playfair Display',serif;color:var(--bisque);font-size:1.4rem;margin-bottom:.5rem}
 .footer-brand p{color:rgba(255,228,196,.55);font-size:.88rem;line-height:1.6}
 .footer-col h4{color:var(--bisque-mid);font-size:.82rem;text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:.8rem}
@@ -88,6 +97,8 @@ footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid 
 .footer-col a:hover{color:var(--bisque)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,228,196,.1)}
 .footer-bottom p{color:rgba(255,228,196,.4);font-size:.82rem}
+.footer-bottom a{color:rgba(255,228,196,.4);font-size:.82rem;margin-left:1rem}
+.footer-bottom a:hover{color:var(--bisque)}
 #scrollTop{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;border-radius:50%;background:var(--brown);color:var(--bisque);border:none;cursor:pointer;font-size:1.1rem;box-shadow:0 4px 16px var(--shadow-strong);transition:var(--transition);display:none;align-items:center;justify-content:center;z-index:500}
 #scrollTop.show{display:flex}
 @media(max-width:768px){
@@ -99,6 +110,7 @@ footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid 
   .stats-strip{gap:1.5rem;justify-content:center}
   .footer-grid{grid-template-columns:1fr}
   .subjects-grid{grid-template-columns:1fr}
+  .editorial-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -124,7 +136,7 @@ footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid 
   <div class="hero-inner">
     <div class="hero-badge">🎓 Free Educational Games — No Login Required</div>
     <h1>Learn <span>Maths &amp; CS</span><br>Through Play</h1>
-    <p>Interactive educational games for Primary, Secondary and University students. Built by a teacher, for learners. No adverts. No downloads. Just learn.</p>
+    <p>Interactive educational games for Primary, Secondary and University students. Built by a teacher, for learners. No adverts interrupting play. No downloads. Just learn.</p>
     <div class="hero-btns">
       <a href="mathematics.html" class="btn btn-bisque">🔢 Play Maths Games</a>
       <a href="computer.html" class="btn btn-outline-light">💻 Play CS Games</a>
@@ -143,7 +155,7 @@ footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid 
   <div class="section-header">
     <div class="section-label">📚 Choose a Subject</div>
     <h2>Two Subjects, Dozens of Games</h2>
-    <p>Each subject covers Primary (Ages 8–13), Secondary (Form 1–4) and University level — with at least 4 games per level.</p>
+    <p>Each subject covers Primary (Ages 8–13), Secondary (Form 1–4) and University level — with at least 4 games per level, covering the KCSE syllabus and beyond.</p>
   </div>
   <div class="subjects-grid">
     <div class="subject-card">
@@ -183,24 +195,47 @@ footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid 
   <div class="section-header">
     <div class="section-label">🎯 Three Levels</div>
     <h2>Games for Every Stage of Learning</h2>
-    <p>Each subject has games tailored to three academic levels so every learner finds the right challenge.</p>
+    <p>Each subject has games tailored to three academic levels so every learner finds the right challenge — from Ages 8 through to university.</p>
   </div>
   <div class="levels-grid">
     <div class="level-card">
       <div class="level-icon">🌱</div>
       <h3>Primary Level</h3>
-      <p>Ages 8–13. Foundational concepts, visual learning, simple interactions. Perfect for building core number sense and digital literacy.</p>
+      <p>Ages 8–13. Foundational concepts, visual learning, simple interactions. Build core number sense and digital literacy with games like Math Blast, Place Value Explorer, Binary Explorer and Algorithm Detective.</p>
     </div>
     <div class="level-card">
       <div class="level-icon">📐</div>
       <h3>Secondary Level</h3>
-      <p>Form 1–4. Aligned to KCSE syllabus. Algebra, geometry, programming fundamentals, logic gates and sorting algorithms.</p>
+      <p>Form 1–4. Aligned to the KCSE syllabus. Algebra, geometry, trigonometry, programming fundamentals, logic gates and sorting algorithms. Ideal for KCSE revision and classroom reinforcement.</p>
     </div>
     <div class="level-card">
       <div class="level-icon">🎓</div>
       <h3>University Level</h3>
-      <p>College and beyond. Calculus, linear algebra, probability, data structures, complexity analysis and Boolean algebra.</p>
+      <p>College and beyond. Calculus, linear algebra, probability, data structures, complexity analysis and Boolean algebra. Challenging games for serious mathematics and CS students.</p>
     </div>
+  </div>
+</div>
+
+<!-- EDITORIAL SECTION: substantial text for Google to crawl -->
+<div class="editorial-section">
+  <div class="editorial-inner">
+    <h2>Why Games Are Effective for Learning Mathematics and Computer Science</h2>
+    <p>Educational research consistently demonstrates that students who practice through interactive games retain knowledge significantly better than those who study purely through passive reading or repetitive drills. Ronny Edu Games was built on this principle — combining rigorous curriculum content with the motivational mechanics of gameplay to create a more powerful learning experience.</p>
+    <p>When a student plays the <strong>Algebra Blitz</strong> game and immediately discovers whether their solution to a simultaneous equation is correct, they receive instant feedback that passive revision cannot provide. When a learner watches the <strong>Sorting Visualiser</strong> step through Bubble Sort one comparison at a time, the algorithm becomes visual and concrete rather than abstract. When a primary student uses <strong>Binary Explorer</strong> to convert binary numbers and their score climbs with each correct answer, they are motivated to keep going longer than any textbook exercise would hold their attention.</p>
+    <div class="editorial-grid">
+      <div class="editorial-col">
+        <h3>For Secondary Students</h3>
+        <p>The secondary-level games on Ronny Edu Games are aligned specifically to the Kenya Certificate of Secondary Education (KCSE) syllabus for Mathematics and Computer Studies. Students preparing for national examinations can use these games to quickly test their understanding of specific topics — from solving quadratic equations in Algebra Blitz to tracing truth tables in Logic Gates, from calculating the mean, median and mode in Statistics Analyser to converting between hexadecimal and decimal in the Number System Converter.</p>
+        <p>Each game tracks your score within the session, allowing you to measure your improvement over repeated attempts. Several games also include multiple difficulty modes or topic modes, so you can focus specifically on the areas you find most challenging.</p>
+      </div>
+      <div class="editorial-col">
+        <h3>For Teachers and Classrooms</h3>
+        <p>Ronny Edu Games is designed to complement classroom instruction. Teachers can project games on a classroom screen as a warm-up activity or interactive quiz, assign specific games as homework reinforcement without needing students to create accounts, and use the games for quick formative assessment by asking students to report their scores.</p>
+        <p>Because the site requires no login and works on any device including low-end smartphones, it is accessible to students regardless of their home technology situation. The site loads quickly even on slow connections because it is built with plain HTML, CSS and JavaScript — no heavy frameworks or app downloads required.</p>
+      </div>
+    </div>
+    <h3>About the Creator</h3>
+    <p>Ronny Edu Games was built and is maintained by <strong>Mwalimu Ronny</strong>, a qualified Mathematics and Computer Science teacher based in Embu County, Kenya. Every game on this site was designed from the perspective of a practising educator who understands what students struggle with, what questions appear in KCSE examinations, and what makes the difference between a concept being memorised temporarily and genuinely understood. Learn more on the <a href="about.html" style="color:var(--brown-mid)">About page</a>.</p>
   </div>
 </div>
 
@@ -210,12 +245,12 @@ footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid 
     <h2>Built for Real Learning</h2>
   </div>
   <div class="why-grid">
-    <div class="why-card"><div class="why-icon">🆓</div><h4>Completely Free</h4><p>No subscriptions, no paywalls, no premium tiers. Every game is free for every student, everywhere.</p></div>
-    <div class="why-card"><div class="why-icon">📵</div><h4>No Adverts</h4><p>A distraction-free learning environment. No ads interrupting your study session.</p></div>
-    <div class="why-card"><div class="why-icon">🔐</div><h4>No Login Needed</h4><p>Open a game and play instantly. No account, no email, no personal data collected.</p></div>
-    <div class="why-card"><div class="why-icon">👨‍🏫</div><h4>Teacher-Designed</h4><p>Every game created by Mwalimu Ronny — a practising Mathematics and Computer Science teacher.</p></div>
-    <div class="why-card"><div class="why-icon">📱</div><h4>Works Everywhere</h4><p>Fully responsive — plays perfectly on phones, tablets and computers. No app download required.</p></div>
-    <div class="why-card"><div class="why-icon">🧠</div><h4>Curriculum-Aligned</h4><p>Secondary games follow the KCSE Mathematics and Computer Studies syllabi.</p></div>
+    <div class="why-card"><div class="why-icon">🆓</div><h4>Completely Free</h4><p>No subscriptions, no paywalls, no premium tiers. Every game is free for every student, everywhere — forever.</p></div>
+    <div class="why-card"><div class="why-icon">📵</div><h4>No Adverts in Games</h4><p>A distraction-free learning environment. Advertising does not interrupt or overlay any game.</p></div>
+    <div class="why-card"><div class="why-icon">🔐</div><h4>No Login Needed</h4><p>Open a game and play instantly. No account, no email, no personal data collected from learners.</p></div>
+    <div class="why-card"><div class="why-icon">👨‍🏫</div><h4>Teacher-Designed</h4><p>Every game created by Mwalimu Ronny — a practising Mathematics and Computer Science teacher in Kenya.</p></div>
+    <div class="why-card"><div class="why-icon">📱</div><h4>Works Everywhere</h4><p>Fully responsive — plays perfectly on phones, tablets and computers. No app download required. Works on slow connections.</p></div>
+    <div class="why-card"><div class="why-icon">🧠</div><h4>Curriculum-Aligned</h4><p>Secondary games closely follow the KCSE Mathematics and Computer Studies syllabi used in Kenyan schools.</p></div>
   </div>
 </div>
 
@@ -223,22 +258,35 @@ footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid 
   <div class="footer-grid">
     <div class="footer-brand">
       <h3>∑ Ronny Edu Games</h3>
-      <p>Free educational games for Mathematics and Computer Science. Built with care by Mwalimu Ronny for students at every level.</p>
+      <p>Free educational games and guides for Mathematics and Computer Science — by Mwalimu Ronny, Kenya.</p>
     </div>
     <div class="footer-col">
       <h4>Games</h4>
-      <a href="mathematics.html">Mathematics</a>
-      <a href="computer.html">Computer Science</a>
+      <a href="mathematics.html">Mathematics Games</a>
+      <a href="computer.html">CS Games</a>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <a href="binary-numbers-guide.html">Binary Numbers</a>
+      <a href="logic-gates-guide.html">Logic Gates</a>
+      <a href="sorting-algorithms-guide.html">Sorting Algorithms</a>
+      <a href="kcse-algebra-guide.html">KCSE Algebra</a>
+      <a href="sequences-series-guide.html">Sequences &amp; Series</a>
     </div>
     <div class="footer-col">
       <h4>Site</h4>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2025 Ronny Edu Games — by Mwalimu Ronny</p>
-    <p>Free to use. Free to share.</p>
+    <p>&copy; 2026 Ronny Edu Games — by Mwalimu Ronny</p>
+    <div>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
   </div>
 </footer>
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete guide to sorting algorithms — Bubble Sort, Selection Sort and Insertion Sort explained with step-by-step worked examples, comparisons and KCSE Computer Studies notes. By Mwalimu Ronny.">
+<title>Sorting Algorithms Explained — Bubble, Selection and Insertion Sort | Ronny Edu Games</title>
+<link rel="icon" type="image/jpeg" href="profile.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509173858076202" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bisque:#ffe4c4;--bisque-light:#fff8f0;--bisque-mid:#ffd4a0;--brown:#7a4a1e;--brown-dark:#5a3210;--brown-mid:#a0622a;--accent2:#1a6b3a;--accent3:#1a3a6b;--ink:#2a1a0a;--ink-soft:#5a3e28;--muted:#9a7a5a;--card:#fffaf4;--card-border:#e8d0b0;--shadow:rgba(122,74,30,.12);--radius:14px;--transition:.25s ease;}
+html{scroll-behavior:smooth}
+body{background:var(--bisque-light);color:var(--ink);font-family:'Source Sans 3',sans-serif;line-height:1.8}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+a{color:var(--brown-mid);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:68px;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--bisque);display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.nav-logo small{color:rgba(255,228,196,.55);font-size:.8rem;font-weight:400;font-family:'Source Sans 3',sans-serif;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,228,196,.7);font-weight:600;font-size:.9rem;padding:.35rem 0;border-bottom:2px solid transparent;transition:var(--transition);text-decoration:none}
+.nav-links a:hover{color:var(--bisque);border-bottom-color:var(--bisque-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:26px;height:3px;background:var(--bisque);border-radius:3px}
+.page-hero{background:linear-gradient(150deg,var(--brown-dark),#1a3a6b);padding:56px 5%;border-bottom:3px solid var(--brown-mid)}
+.page-hero .tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,228,196,.15);border:1px solid rgba(255,228,196,.3);border-radius:20px;padding:.3rem .9rem;font-size:.78rem;font-weight:700;color:var(--bisque-mid);text-transform:uppercase;letter-spacing:.7px;margin-bottom:1rem}
+.page-hero h1{color:var(--bisque);font-size:clamp(1.8rem,5vw,3rem);line-height:1.2;margin-bottom:.8rem}
+.page-hero p{color:rgba(255,228,196,.8);font-size:1.05rem;max-width:620px}
+.meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1rem}
+.meta span{color:rgba(255,228,196,.55);font-size:.84rem}
+.breadcrumb{padding:.9rem 5%;font-size:.84rem;color:var(--muted);border-bottom:1px solid var(--card-border);background:var(--bisque)}
+.breadcrumb a{color:var(--brown-mid)}
+.layout{display:grid;grid-template-columns:1fr 280px;gap:2.5rem;padding:48px 5%;max-width:1200px;margin:0 auto}
+article h2{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.6rem;margin:2.2rem 0 .8rem;padding-bottom:.4rem;border-bottom:2px solid var(--card-border)}
+article h2:first-child{margin-top:0}
+article h3{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.2rem;margin:1.6rem 0 .5rem}
+article p{color:var(--ink-soft);margin-bottom:1rem}
+article ul,article ol{margin:0 0 1.2rem 1.5rem;color:var(--ink-soft)}
+article li{margin-bottom:.5rem}
+article strong{color:var(--ink)}
+.worked-example{background:var(--card);border:1px solid var(--card-border);border-left:4px solid var(--brown-mid);border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+.worked-example h4{color:var(--brown-mid);font-size:.85rem;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:.8rem;font-family:'Source Sans 3',sans-serif}
+.worked-example p{margin-bottom:.6rem;color:var(--ink-soft)}
+.array-row{display:flex;gap:4px;flex-wrap:wrap;margin:.5rem 0;align-items:center}
+.arr-cell{width:40px;height:40px;border-radius:6px;border:2px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.95rem;background:var(--bisque-light);color:var(--ink)}
+.arr-cell.comparing{background:#fff0e0;border-color:var(--brown-mid);color:var(--brown)}
+.arr-cell.sorted{background:rgba(26,107,58,.12);border-color:var(--accent2);color:var(--accent2)}
+.arr-cell.swapped{background:rgba(192,57,43,.1);border-color:#c0392b;color:#c0392b}
+.arr-label{font-size:.8rem;color:var(--muted);margin-left:.5rem;font-style:italic}
+.complexity-table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.9rem}
+.complexity-table th{background:var(--brown-dark);color:var(--bisque);padding:.6rem 1rem;text-align:left}
+.complexity-table td{padding:.6rem 1rem;border-bottom:1px solid var(--card-border);color:var(--ink-soft)}
+.complexity-table tr:nth-child(even) td{background:var(--bisque-light)}
+.highlight-box{background:rgba(26,59,107,.06);border:1px solid rgba(26,59,107,.2);border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+.highlight-box p{margin:0;color:var(--ink-soft)}
+.cta-card{background:var(--brown-dark);border-radius:12px;padding:1.5rem;margin:2rem 0;text-align:center}
+.cta-card h3{color:var(--bisque);font-size:1.2rem;margin-bottom:.5rem}
+.cta-card p{color:rgba(255,228,196,.7);font-size:.9rem;margin-bottom:1rem}
+.cta-card a{display:inline-flex;align-items:center;gap:.4rem;background:var(--bisque);color:var(--brown-dark);padding:.65rem 1.6rem;border-radius:30px;font-weight:700;font-size:.9rem;text-decoration:none}
+.sidebar{position:sticky;top:88px;align-self:start}
+.sidebar-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;box-shadow:0 2px 8px var(--shadow)}
+.sidebar-card h4{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1rem;margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--card-border)}
+.sidebar-card ul{list-style:none;margin:0}
+.sidebar-card li{margin-bottom:.5rem}
+.sidebar-card li a{color:var(--ink-soft);font-size:.88rem;display:flex;align-items:center;gap:.4rem}
+.sidebar-card li a:hover{color:var(--brown-mid)}
+.sidebar-card li a::before{content:'›';color:var(--brown-mid);font-weight:700}
+.guide-link{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;background:var(--bisque-light);border:1px solid var(--card-border);border-radius:8px;margin-bottom:.5rem;font-size:.85rem;color:var(--ink-soft);text-decoration:none}
+.guide-link:hover{border-color:var(--brown-mid);color:var(--brown-mid)}
+.guide-link .icon{font-size:1.1rem;flex-shrink:0}
+footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-brand h3{font-family:'Playfair Display',serif;color:var(--bisque);font-size:1.3rem;margin-bottom:.5rem}
+.footer-brand p{color:rgba(255,228,196,.55);font-size:.85rem;line-height:1.6}
+.footer-col h4{color:var(--bisque-mid);font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:.8rem}
+.footer-col a{display:block;color:rgba(255,228,196,.55);font-size:.85rem;margin-bottom:.4rem;transition:var(--transition);text-decoration:none}
+.footer-col a:hover{color:var(--bisque)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,228,196,.1)}
+.footer-bottom p{color:rgba(255,228,196,.4);font-size:.82rem}
+.footer-bottom a{color:rgba(255,228,196,.4);font-size:.82rem;margin-left:1rem;text-decoration:none}
+.footer-bottom a:hover{color:var(--bisque)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:static}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hamburger{display:flex}.nav-links{position:fixed;top:68px;left:0;right:0;background:var(--brown-dark);flex-direction:column;gap:0;padding:.5rem 0;border-bottom:2px solid var(--brown-mid);transform:translateY(-120%);transition:.35s;opacity:0}.nav-links.open{transform:translateY(0);opacity:1}.nav-links li{border-bottom:1px solid rgba(255,228,196,.08)}.nav-links a{display:block;padding:.9rem 5%}.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span style="font-size:1.5rem">∑</span><div><div>Ronny Edu Games</div><small>by Mwalimu Ronny</small></div></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="mathematics.html">Mathematics</a></li><li><a href="computer.html">Computer Science</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="tag">💻 Computer Science Guide</div>
+  <h1>Sorting Algorithms Explained</h1>
+  <p>A step-by-step guide to Bubble Sort, Selection Sort and Insertion Sort — with full worked examples, comparison counts and complexity analysis for KCSE and university level.</p>
+  <div class="meta"><span>✍️ By Mwalimu Ronny</span><span>📚 Secondary &amp; University Level</span><span>⏱️ 14 min read</span></div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a> › <a href="computer.html">Computer Science</a> › Sorting Algorithms Guide</div>
+
+<div class="layout">
+<article>
+
+  <h2>What Is a Sorting Algorithm?</h2>
+  <p>A sorting algorithm is a set of instructions that rearranges a list of items into a specific order — typically ascending (smallest to largest) or descending (largest to smallest). Sorting is one of the most fundamental operations in computing, and being able to sort data efficiently is crucial for tasks ranging from displaying contacts in alphabetical order to organising millions of search results in milliseconds.</p>
+  <p>For KCSE Computer Studies, you need to understand three sorting algorithms in detail: <strong>Bubble Sort</strong>, <strong>Selection Sort</strong> and <strong>Insertion Sort</strong>. Each works differently, has different performance characteristics, and suits different situations.</p>
+
+  <div class="highlight-box">
+    <p><strong>Key terminology:</strong> A <strong>comparison</strong> is when two elements are checked to see which is larger. A <strong>swap</strong> is when two elements exchange positions. The number of comparisons and swaps determines how efficient a sorting algorithm is.</p>
+  </div>
+
+  <h2>Bubble Sort</h2>
+  <p>Bubble Sort is the simplest sorting algorithm to understand. It works by repeatedly stepping through the list, comparing adjacent pairs of elements and swapping them if they are in the wrong order. After each complete pass through the list, the largest unsorted element "bubbles up" to its correct position at the end.</p>
+  <p>The algorithm repeats this process, each time ignoring the last element (which is now sorted), until no swaps are needed in a complete pass — at which point the list is fully sorted.</p>
+
+  <h3>Bubble Sort — Worked Example</h3>
+  <p>Sort the array: <strong>[64, 34, 25, 12, 22]</strong></p>
+
+  <div class="worked-example">
+    <h4>Pass 1 (comparing all 5 elements)</h4>
+    <p>Compare 64 and 34 → 64 > 34, swap:</p>
+    <div class="array-row"><div class="arr-cell sorted">34</div><div class="arr-cell sorted">64</div><div class="arr-cell">25</div><div class="arr-cell">12</div><div class="arr-cell">22</div></div>
+    <p>Compare 64 and 25 → 64 > 25, swap:</p>
+    <div class="array-row"><div class="arr-cell">34</div><div class="arr-cell sorted">25</div><div class="arr-cell sorted">64</div><div class="arr-cell">12</div><div class="arr-cell">22</div></div>
+    <p>Compare 64 and 12 → 64 > 12, swap:</p>
+    <div class="array-row"><div class="arr-cell">34</div><div class="arr-cell">25</div><div class="arr-cell sorted">12</div><div class="arr-cell sorted">64</div><div class="arr-cell">22</div></div>
+    <p>Compare 64 and 22 → 64 > 22, swap:</p>
+    <div class="array-row"><div class="arr-cell">34</div><div class="arr-cell">25</div><div class="arr-cell">12</div><div class="arr-cell">22</div><div class="arr-cell sorted">64</div><div class="arr-label">← 64 is now in place</div></div>
+    <p><strong>After Pass 1:</strong> [34, 25, 12, 22, <strong>64</strong>] — 4 comparisons, 4 swaps</p>
+    <p><strong>After Pass 2:</strong> [25, 12, 22, <strong>34, 64</strong>]</p>
+    <p><strong>After Pass 3:</strong> [12, 22, <strong>25, 34, 64</strong>]</p>
+    <p><strong>After Pass 4:</strong> [<strong>12, 22, 25, 34, 64</strong>] — fully sorted!</p>
+  </div>
+
+  <p><strong>Time complexity:</strong> O(n²) in the worst and average case. For 5 elements, the maximum number of comparisons is 4+3+2+1 = 10. For n elements it is n(n-1)/2 comparisons.</p>
+
+  <h2>Selection Sort</h2>
+  <p>Selection Sort works by dividing the list into a sorted portion (initially empty, on the left) and an unsorted portion (initially the whole list). In each pass, it <strong>selects the smallest element</strong> from the unsorted portion and places it at the end of the sorted portion. Unlike Bubble Sort, Selection Sort makes at most one swap per pass.</p>
+
+  <div class="worked-example">
+    <h4>Selection Sort — Array: [64, 25, 12, 22, 11]</h4>
+    <p><strong>Pass 1:</strong> Find minimum of [64,25,12,22,11] → 11. Swap 11 with 64:</p>
+    <div class="array-row"><div class="arr-cell sorted">11</div><div class="arr-cell">25</div><div class="arr-cell">12</div><div class="arr-cell">22</div><div class="arr-cell">64</div></div>
+    <p><strong>Pass 2:</strong> Find minimum of [25,12,22,64] → 12. Swap 12 with 25:</p>
+    <div class="array-row"><div class="arr-cell sorted">11</div><div class="arr-cell sorted">12</div><div class="arr-cell">25</div><div class="arr-cell">22</div><div class="arr-cell">64</div></div>
+    <p><strong>Pass 3:</strong> Find minimum of [25,22,64] → 22. Swap 22 with 25:</p>
+    <div class="array-row"><div class="arr-cell sorted">11</div><div class="arr-cell sorted">12</div><div class="arr-cell sorted">22</div><div class="arr-cell">25</div><div class="arr-cell">64</div></div>
+    <p><strong>Pass 4:</strong> Find minimum of [25,64] → 25. Already in place, no swap needed.</p>
+    <div class="array-row"><div class="arr-cell sorted">11</div><div class="arr-cell sorted">12</div><div class="arr-cell sorted">22</div><div class="arr-cell sorted">25</div><div class="arr-cell sorted">64</div></div>
+    <p><strong>Result:</strong> [11, 12, 22, 25, 64] — 10 comparisons, only 3 swaps</p>
+  </div>
+
+  <p><strong>Key advantage of Selection Sort over Bubble Sort:</strong> fewer swaps. This is important when swapping items is expensive (e.g. swapping large records in a database).</p>
+
+  <h2>Insertion Sort</h2>
+  <p>Insertion Sort works the way most people sort playing cards in their hand. It takes one element at a time from the unsorted portion and <strong>inserts it into its correct position</strong> in the already-sorted portion, shifting other elements along to make room.</p>
+  <p>Insertion Sort is particularly efficient when the list is already nearly sorted — it can sort such a list in close to O(n) time.</p>
+
+  <div class="worked-example">
+    <h4>Insertion Sort — Array: [5, 3, 8, 1, 4]</h4>
+    <p><strong>Start:</strong> Treat first element [5] as sorted.</p>
+    <p><strong>Step 1:</strong> Take 3. Compare with 5 → 3 &lt; 5, shift 5 right, insert 3:</p>
+    <div class="array-row"><div class="arr-cell sorted">3</div><div class="arr-cell sorted">5</div><div class="arr-cell">8</div><div class="arr-cell">1</div><div class="arr-cell">4</div></div>
+    <p><strong>Step 2:</strong> Take 8. Compare with 5 → 8 > 5, insert after 5:</p>
+    <div class="array-row"><div class="arr-cell sorted">3</div><div class="arr-cell sorted">5</div><div class="arr-cell sorted">8</div><div class="arr-cell">1</div><div class="arr-cell">4</div></div>
+    <p><strong>Step 3:</strong> Take 1. Shift 8, 5, 3 right, insert 1 at start:</p>
+    <div class="array-row"><div class="arr-cell sorted">1</div><div class="arr-cell sorted">3</div><div class="arr-cell sorted">5</div><div class="arr-cell sorted">8</div><div class="arr-cell">4</div></div>
+    <p><strong>Step 4:</strong> Take 4. Shift 8, 5 right, insert 4 after 3:</p>
+    <div class="array-row"><div class="arr-cell sorted">1</div><div class="arr-cell sorted">3</div><div class="arr-cell sorted">4</div><div class="arr-cell sorted">5</div><div class="arr-cell sorted">8</div></div>
+    <p><strong>Result:</strong> [1, 3, 4, 5, 8] ✓</p>
+  </div>
+
+  <h2>Comparing the Three Algorithms</h2>
+  <table class="complexity-table">
+    <thead><tr><th>Algorithm</th><th>Best Case</th><th>Average Case</th><th>Worst Case</th><th>Swaps</th></tr></thead>
+    <tbody>
+      <tr><td>Bubble Sort</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>Up to O(n²)</td></tr>
+      <tr><td>Selection Sort</td><td>O(n²)</td><td>O(n²)</td><td>O(n²)</td><td>O(n) — at most 1 per pass</td></tr>
+      <tr><td>Insertion Sort</td><td>O(n)</td><td>O(n²)</td><td>O(n²)</td><td>Up to O(n²)</td></tr>
+    </tbody>
+  </table>
+  <p>All three algorithms have O(n²) worst-case performance, which makes them inefficient for large datasets. More advanced algorithms like Merge Sort and Quick Sort achieve O(n log n), but those are university-level topics.</p>
+  <p>For the KCSE syllabus, the key points are: Bubble Sort is simplest but makes many swaps; Selection Sort makes fewer swaps; Insertion Sort is best when data is nearly sorted.</p>
+
+  <h2>KCSE Examination Tips</h2>
+  <ul>
+    <li>When tracing a sort, always show each pass clearly with the array state after each swap or comparison.</li>
+    <li>Count comparisons and swaps separately — examiners often ask for one or both.</li>
+    <li>Know which algorithm is most efficient for nearly-sorted data (Insertion Sort) and which makes the fewest swaps (Selection Sort).</li>
+    <li>Bubble Sort's optimised version stops early if no swaps occur in a pass — mention this if asked about efficiency improvements.</li>
+  </ul>
+
+  <div class="cta-card">
+    <h3>↕ Watch Sorting in Action</h3>
+    <p>Our Sorting Visualiser lets you step through Bubble, Selection and Insertion sort with live bar animations.</p>
+    <a href="computer.html">Open Sorting Visualiser →</a>
+  </div>
+
+</article>
+
+<aside class="sidebar">
+  <div class="sidebar-card">
+    <h4>Related Guides</h4>
+    <a href="binary-numbers-guide.html" class="guide-link"><span class="icon">01</span>Binary Numbers</a>
+    <a href="logic-gates-guide.html" class="guide-link"><span class="icon">⊕</span>Logic Gates</a>
+    <a href="kcse-algebra-guide.html" class="guide-link"><span class="icon">𝑥</span>KCSE Algebra</a>
+    <a href="sequences-series-guide.html" class="guide-link"><span class="icon">∑</span>Sequences &amp; Series</a>
+  </div>
+  <div class="sidebar-card">
+    <h4>Practice Games</h4>
+    <ul>
+      <li><a href="computer.html">📐 Sorting Visualiser</a></li>
+      <li><a href="computer.html">🎓 Big-O Complexity</a></li>
+      <li><a href="computer.html">🎓 Search Algorithms</a></li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <h4>Quick Reference</h4>
+    <p style="font-size:.82rem;color:var(--ink-soft);line-height:2"><strong>Bubble:</strong> compare adjacent, swap if wrong order<br><strong>Selection:</strong> find min, place at front<br><strong>Insertion:</strong> take one, insert in right place<br><br>All: O(n²) worst case</p>
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h3>∑ Ronny Edu Games</h3><p>Free educational games and guides for Mathematics and Computer Science — by Mwalimu Ronny, Kenya.</p></div>
+    <div class="footer-col"><h4>Games</h4><a href="mathematics.html">Mathematics Games</a><a href="computer.html">CS Games</a></div>
+    <div class="footer-col"><h4>Guides</h4><a href="binary-numbers-guide.html">Binary Numbers</a><a href="logic-gates-guide.html">Logic Gates</a><a href="sorting-algorithms-guide.html">Sorting Algorithms</a><a href="kcse-algebra-guide.html">KCSE Algebra</a><a href="sequences-series-guide.html">Sequences &amp; Series</a></div>
+    <div class="footer-col"><h4>Site</h4><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Ronny Edu Games — by Mwalimu Ronny</p><div><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div></div>
+</footer>
+<script>document.getElementById('navLinks').querySelectorAll('a').forEach(a=>a.onclick=()=>document.getElementById('navLinks').classList.remove('open'));</script>
+</body>
+</html>

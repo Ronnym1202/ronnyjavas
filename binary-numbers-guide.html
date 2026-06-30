@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete guide to binary numbers — how to convert binary to decimal, decimal to binary, and why computers use binary. With worked examples for KCSE Computer Studies. By Mwalimu Ronny.">
+<title>Understanding Binary Numbers — A Complete Guide | Ronny Edu Games</title>
+<link rel="icon" type="image/jpeg" href="profile.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509173858076202" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bisque:#ffe4c4;--bisque-light:#fff8f0;--bisque-mid:#ffd4a0;--brown:#7a4a1e;--brown-dark:#5a3210;--brown-mid:#a0622a;--accent2:#1a6b3a;--accent3:#1a3a6b;--ink:#2a1a0a;--ink-soft:#5a3e28;--muted:#9a7a5a;--card:#fffaf4;--card-border:#e8d0b0;--shadow:rgba(122,74,30,.12);--radius:14px;--transition:.25s ease;}
+html{scroll-behavior:smooth}
+body{background:var(--bisque-light);color:var(--ink);font-family:'Source Sans 3',sans-serif;line-height:1.8}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+a{color:var(--brown-mid);text-decoration:none}
+a:hover{text-decoration:underline}
+nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:999;height:68px;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--bisque);display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.nav-logo small{color:rgba(255,228,196,.55);font-size:.8rem;font-weight:400;font-family:'Source Sans 3',sans-serif;display:block}
+.nav-links{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,228,196,.7);font-weight:600;font-size:.9rem;padding:.35rem 0;border-bottom:2px solid transparent;transition:var(--transition);text-decoration:none}
+.nav-links a:hover{color:var(--bisque);border-bottom-color:var(--bisque-mid)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:26px;height:3px;background:var(--bisque);border-radius:3px}
+.page-hero{background:linear-gradient(150deg,var(--brown-dark),#1a3a6b);padding:56px 5%;border-bottom:3px solid var(--brown-mid)}
+.page-hero .tag{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,228,196,.15);border:1px solid rgba(255,228,196,.3);border-radius:20px;padding:.3rem .9rem;font-size:.78rem;font-weight:700;color:var(--bisque-mid);text-transform:uppercase;letter-spacing:.7px;margin-bottom:1rem}
+.page-hero h1{color:var(--bisque);font-size:clamp(1.8rem,5vw,3rem);line-height:1.2;margin-bottom:.8rem}
+.page-hero p{color:rgba(255,228,196,.8);font-size:1.05rem;max-width:620px}
+.meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1rem}
+.meta span{color:rgba(255,228,196,.55);font-size:.84rem}
+.breadcrumb{padding:.9rem 5%;font-size:.84rem;color:var(--muted);border-bottom:1px solid var(--card-border);background:var(--bisque)}
+.breadcrumb a{color:var(--brown-mid)}
+.layout{display:grid;grid-template-columns:1fr 280px;gap:2.5rem;padding:48px 5%;max-width:1200px;margin:0 auto}
+article h2{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.6rem;margin:2.2rem 0 .8rem;padding-bottom:.4rem;border-bottom:2px solid var(--card-border)}
+article h2:first-child{margin-top:0}
+article h3{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.2rem;margin:1.6rem 0 .5rem}
+article h4{color:var(--brown-mid);font-size:1rem;margin:1.2rem 0 .4rem;font-family:'Source Sans 3',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+article p{color:var(--ink-soft);margin-bottom:1rem}
+article ul,article ol{margin:0 0 1.2rem 1.5rem;color:var(--ink-soft)}
+article li{margin-bottom:.5rem}
+article strong{color:var(--ink)}
+.worked-example{background:var(--card);border:1px solid var(--card-border);border-left:4px solid var(--brown-mid);border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+.worked-example h4{color:var(--brown-mid);font-size:.85rem;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:.8rem;font-family:'Source Sans 3',sans-serif}
+.worked-example p{margin-bottom:.6rem;color:var(--ink-soft)}
+.worked-example .step{display:flex;gap:.8rem;margin-bottom:.5rem;font-size:.95rem;color:var(--ink-soft)}
+.worked-example .step-num{background:var(--brown);color:var(--bisque);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;margin-top:.1rem}
+.code{font-family:'JetBrains Mono',monospace;background:var(--brown-dark);color:var(--bisque);padding:.15rem .5rem;border-radius:4px;font-size:.88rem}
+.table-wrap{overflow-x:auto;margin:1.2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{background:var(--brown-dark);color:var(--bisque);padding:.6rem 1rem;text-align:left;font-family:'Source Sans 3',sans-serif;font-weight:700}
+td{padding:.6rem 1rem;border-bottom:1px solid var(--card-border);color:var(--ink-soft)}
+tr:nth-child(even) td{background:var(--bisque-light)}
+.bit-table{display:flex;gap:0;margin:1rem 0;overflow-x:auto}
+.bit-cell{min-width:56px;border:2px solid var(--card-border);text-align:center}
+.bit-cell .pos{background:var(--brown-dark);color:var(--bisque);font-family:'JetBrains Mono',monospace;font-size:.75rem;padding:.3rem;font-weight:700}
+.bit-cell .val{background:var(--bisque);color:var(--brown-dark);font-size:.82rem;padding:.25rem;font-weight:700}
+.bit-cell .bit{background:var(--card);color:var(--brown-mid);font-family:'JetBrains Mono',monospace;font-size:1.3rem;padding:.4rem;font-weight:900}
+.highlight-box{background:rgba(26,59,107,.06);border:1px solid rgba(26,59,107,.2);border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+.highlight-box p{margin:0;color:var(--ink-soft)}
+.highlight-box strong{color:var(--accent3)}
+.cta-card{background:var(--brown-dark);border-radius:12px;padding:1.5rem;margin:2rem 0;text-align:center}
+.cta-card h3{color:var(--bisque);font-size:1.2rem;margin-bottom:.5rem}
+.cta-card p{color:rgba(255,228,196,.7);font-size:.9rem;margin-bottom:1rem}
+.cta-card a{display:inline-flex;align-items:center;gap:.4rem;background:var(--bisque);color:var(--brown-dark);padding:.65rem 1.6rem;border-radius:30px;font-weight:700;font-size:.9rem;text-decoration:none}
+.cta-card a:hover{background:var(--bisque-mid)}
+/* sidebar */
+.sidebar{position:sticky;top:88px;align-self:start}
+.sidebar-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;box-shadow:0 2px 8px var(--shadow)}
+.sidebar-card h4{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1rem;margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid var(--card-border)}
+.sidebar-card ul{list-style:none;margin:0}
+.sidebar-card li{margin-bottom:.5rem}
+.sidebar-card li a{color:var(--ink-soft);font-size:.88rem;display:flex;align-items:center;gap:.4rem}
+.sidebar-card li a:hover{color:var(--brown-mid)}
+.sidebar-card li a::before{content:'›';color:var(--brown-mid);font-weight:700}
+.guide-link{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;background:var(--bisque-light);border:1px solid var(--card-border);border-radius:8px;margin-bottom:.5rem;font-size:.85rem;color:var(--ink-soft);text-decoration:none}
+.guide-link:hover{border-color:var(--brown-mid);color:var(--brown-mid)}
+.guide-link .icon{font-size:1.1rem;flex-shrink:0}
+/* footer */
+footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-brand h3{font-family:'Playfair Display',serif;color:var(--bisque);font-size:1.3rem;margin-bottom:.5rem}
+.footer-brand p{color:rgba(255,228,196,.55);font-size:.85rem;line-height:1.6}
+.footer-col h4{color:var(--bisque-mid);font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:.8rem}
+.footer-col a{display:block;color:rgba(255,228,196,.55);font-size:.85rem;margin-bottom:.4rem;transition:var(--transition);text-decoration:none}
+.footer-col a:hover{color:var(--bisque)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,228,196,.1)}
+.footer-bottom p{color:rgba(255,228,196,.4);font-size:.82rem}
+.footer-bottom a{color:rgba(255,228,196,.4);font-size:.82rem;margin-left:1rem;text-decoration:none}
+.footer-bottom a:hover{color:var(--bisque)}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:static}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--brown-dark);flex-direction:column;gap:0;padding:.5rem 0;border-bottom:2px solid var(--brown-mid);transform:translateY(-120%);transition:.35s;opacity:0}
+  .nav-links.open{transform:translateY(0);opacity:1}
+  .nav-links li{border-bottom:1px solid rgba(255,228,196,.08)}
+  .nav-links a{display:block;padding:.9rem 5%}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span style="font-size:1.5rem">∑</span>
+    <div><div>Ronny Edu Games</div><small>by Mwalimu Ronny</small></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mathematics.html">Mathematics</a></li>
+    <li><a href="computer.html">Computer Science</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <div class="tag">💻 Computer Science Guide</div>
+  <h1>Understanding Binary Numbers</h1>
+  <p>A complete guide to the binary number system — how it works, how to convert between binary and decimal, and why every computer in the world uses it.</p>
+  <div class="meta">
+    <span>✍️ By Mwalimu Ronny</span>
+    <span>📚 Primary &amp; Secondary Level</span>
+    <span>⏱️ 10 min read</span>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a> › <a href="computer.html">Computer Science</a> › Binary Numbers Guide</div>
+
+<div class="layout">
+<article>
+
+  <h2>What Is the Binary Number System?</h2>
+  <p>The binary number system is a way of counting that uses only two digits: <strong>0</strong> and <strong>1</strong>. Every number, letter, image, sound and video stored or processed by a computer is ultimately represented using only these two digits.</p>
+  <p>The number system we use in everyday life is called the <strong>decimal system</strong> (also called base 10), because it uses ten digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. Binary is called <strong>base 2</strong> because it uses only two digits.</p>
+  <p>Binary was not invented for computers — it has been studied by mathematicians for centuries. But it became the foundation of modern computing because electronic circuits have exactly two stable states: <strong>on</strong> (represented as 1) and <strong>off</strong> (represented as 0). This makes binary the natural language of all digital electronics.</p>
+
+  <div class="highlight-box">
+    <p><strong>Key fact:</strong> A single binary digit (a 0 or a 1) is called a <strong>bit</strong>, which is short for <em>binary digit</em>. Eight bits together form a <strong>byte</strong>. Your phone's storage is measured in gigabytes — billions of bytes — all made up of individual 0s and 1s.</p>
+  </div>
+
+  <h2>Why Do Computers Use Binary?</h2>
+  <p>You might wonder: why not build computers that use the decimal system like humans do? The reason is physical. Inside every computer, data is stored and processed using tiny electronic switches called <strong>transistors</strong>. A transistor has two states — it is either conducting electricity (on) or not conducting electricity (off). These two states map perfectly to 1 and 0.</p>
+  <p>If we tried to build a decimal computer, we would need transistors that could reliably hold ten different voltage levels — one for each digit from 0 to 9. This is extremely difficult to do reliably, especially at the billions-per-second speeds modern computers operate at. Binary is robust, fast and error-resistant, which is why it has been the foundation of computing since the first electronic computers in the 1940s.</p>
+  <p>Everything a computer does — running an application, displaying a webpage, playing a video, storing a photograph — is ultimately just billions of transistors switching between on and off, billions of times per second.</p>
+
+  <h2>Place Values in Binary</h2>
+  <p>In the decimal system, each digit position represents a power of 10. The rightmost digit is the ones place (10⁰ = 1), the next is the tens place (10¹ = 10), then hundreds (10² = 100), and so on.</p>
+  <p>In binary, each digit position represents a power of <strong>2</strong> instead. The rightmost position is 2⁰ = 1, the next is 2¹ = 2, then 2² = 4, 2³ = 8, 2⁴ = 16, 2⁵ = 32, 2⁶ = 64, and 2⁷ = 128.</p>
+  <p>This is the bit position table you need to memorise for KCSE Computer Studies:</p>
+
+  <div class="bit-table">
+    <div class="bit-cell"><div class="pos">2⁷</div><div class="val">128</div><div class="bit">bit 7</div></div>
+    <div class="bit-cell"><div class="pos">2⁶</div><div class="val">64</div><div class="bit">bit 6</div></div>
+    <div class="bit-cell"><div class="pos">2⁵</div><div class="val">32</div><div class="bit">bit 5</div></div>
+    <div class="bit-cell"><div class="pos">2⁴</div><div class="val">16</div><div class="bit">bit 4</div></div>
+    <div class="bit-cell"><div class="pos">2³</div><div class="val">8</div><div class="bit">bit 3</div></div>
+    <div class="bit-cell"><div class="pos">2²</div><div class="val">4</div><div class="bit">bit 2</div></div>
+    <div class="bit-cell"><div class="pos">2¹</div><div class="val">2</div><div class="bit">bit 1</div></div>
+    <div class="bit-cell"><div class="pos">2⁰</div><div class="val">1</div><div class="bit">bit 0</div></div>
+  </div>
+
+  <p>When a binary digit in a particular position is <strong>1</strong>, you include that position's value in the total. When it is <strong>0</strong>, you do not. This is the key rule for all binary-to-decimal conversions.</p>
+
+  <h2>Converting Binary to Decimal</h2>
+  <p>To convert a binary number to decimal, write out the bit positions, place the binary digits under their positions, then add up the values of all positions that have a 1.</p>
+
+  <div class="worked-example">
+    <h4>Worked Example 1 — Convert 1011₂ to decimal</h4>
+    <div class="step"><div class="step-num">1</div><div>Write the bit positions from right to left: 8, 4, 2, 1</div></div>
+    <div class="step"><div class="step-num">2</div><div>Place the binary digits under the positions: 1→8, 0→4, 1→2, 1→1</div></div>
+    <div class="step"><div class="step-num">3</div><div>Multiply each bit by its position value: (1×8) + (0×4) + (1×2) + (1×1)</div></div>
+    <div class="step"><div class="step-num">4</div><div>Add the results: 8 + 0 + 2 + 1 = <strong>11</strong></div></div>
+    <p style="margin-top:.8rem;font-weight:700;color:var(--brown-dark)">Answer: 1011₂ = 11₁₀</p>
+  </div>
+
+  <div class="worked-example">
+    <h4>Worked Example 2 — Convert 10110100₂ to decimal</h4>
+    <div class="step"><div class="step-num">1</div><div>Bit positions (right to left): 128, 64, 32, 16, 8, 4, 2, 1</div></div>
+    <div class="step"><div class="step-num">2</div><div>Binary digits: 1, 0, 1, 1, 0, 1, 0, 0</div></div>
+    <div class="step"><div class="step-num">3</div><div>Multiply: (1×128)+(0×64)+(1×32)+(1×16)+(0×8)+(1×4)+(0×2)+(0×1)</div></div>
+    <div class="step"><div class="step-num">4</div><div>Add: 128 + 0 + 32 + 16 + 0 + 4 + 0 + 0 = <strong>180</strong></div></div>
+    <p style="margin-top:.8rem;font-weight:700;color:var(--brown-dark)">Answer: 10110100₂ = 180₁₀</p>
+  </div>
+
+  <div class="worked-example">
+    <h4>Worked Example 3 — Convert 11111111₂ to decimal</h4>
+    <div class="step"><div class="step-num">1</div><div>All 8 bits are 1, so we add all position values</div></div>
+    <div class="step"><div class="step-num">2</div><div>128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = <strong>255</strong></div></div>
+    <p style="margin-top:.8rem;font-weight:700;color:var(--brown-dark)">Answer: 11111111₂ = 255₁₀ — this is the maximum value of one byte</p>
+  </div>
+
+  <h2>Converting Decimal to Binary</h2>
+  <p>To convert a decimal number to binary, use the <strong>repeated division by 2</strong> method. Divide the number by 2, write down the remainder (0 or 1), then divide the quotient by 2 again. Repeat until the quotient reaches 0. The binary number is the remainders read from bottom to top.</p>
+
+  <div class="worked-example">
+    <h4>Worked Example 4 — Convert 25₁₀ to binary</h4>
+    <div class="step"><div class="step-num">1</div><div>25 ÷ 2 = 12 remainder <strong>1</strong></div></div>
+    <div class="step"><div class="step-num">2</div><div>12 ÷ 2 = 6 remainder <strong>0</strong></div></div>
+    <div class="step"><div class="step-num">3</div><div>6 ÷ 2 = 3 remainder <strong>0</strong></div></div>
+    <div class="step"><div class="step-num">4</div><div>3 ÷ 2 = 1 remainder <strong>1</strong></div></div>
+    <div class="step"><div class="step-num">5</div><div>1 ÷ 2 = 0 remainder <strong>1</strong> ← stop here (quotient = 0)</div></div>
+    <div class="step"><div class="step-num">6</div><div>Read remainders from bottom to top: 1, 1, 0, 0, 1</div></div>
+    <p style="margin-top:.8rem;font-weight:700;color:var(--brown-dark)">Answer: 25₁₀ = 11001₂</p>
+    <p style="color:var(--muted);font-size:.88rem">Verify: (1×16)+(1×8)+(0×4)+(0×2)+(1×1) = 16+8+1 = 25 ✓</p>
+  </div>
+
+  <div class="worked-example">
+    <h4>Worked Example 5 — Convert 200₁₀ to binary</h4>
+    <div class="step"><div class="step-num">1</div><div>200 ÷ 2 = 100 r <strong>0</strong></div></div>
+    <div class="step"><div class="step-num">2</div><div>100 ÷ 2 = 50 r <strong>0</strong></div></div>
+    <div class="step"><div class="step-num">3</div><div>50 ÷ 2 = 25 r <strong>0</strong></div></div>
+    <div class="step"><div class="step-num">4</div><div>25 ÷ 2 = 12 r <strong>1</strong></div></div>
+    <div class="step"><div class="step-num">5</div><div>12 ÷ 2 = 6 r <strong>0</strong></div></div>
+    <div class="step"><div class="step-num">6</div><div>6 ÷ 2 = 3 r <strong>0</strong></div></div>
+    <div class="step"><div class="step-num">7</div><div>3 ÷ 2 = 1 r <strong>1</strong></div></div>
+    <div class="step"><div class="step-num">8</div><div>1 ÷ 2 = 0 r <strong>1</strong> ← stop</div></div>
+    <div class="step"><div class="step-num">9</div><div>Read bottom to top: 11001000</div></div>
+    <p style="margin-top:.8rem;font-weight:700;color:var(--brown-dark)">Answer: 200₁₀ = 11001000₂</p>
+  </div>
+
+  <h2>Binary Addition</h2>
+  <p>Binary addition follows the same rules as decimal addition, but with only two digits. The rules are:</p>
+  <ul>
+    <li><span class="code">0 + 0 = 0</span></li>
+    <li><span class="code">0 + 1 = 1</span></li>
+    <li><span class="code">1 + 0 = 1</span></li>
+    <li><span class="code">1 + 1 = 10</span> (write 0, carry 1)</li>
+    <li><span class="code">1 + 1 + 1 = 11</span> (write 1, carry 1)</li>
+  </ul>
+
+  <div class="worked-example">
+    <h4>Worked Example 6 — Add 1011₂ + 0110₂</h4>
+    <div class="step"><div class="step-num">1</div><div>Rightmost column: 1 + 0 = 1. Write 1.</div></div>
+    <div class="step"><div class="step-num">2</div><div>Next column: 1 + 1 = 10. Write 0, carry 1.</div></div>
+    <div class="step"><div class="step-num">3</div><div>Next column: 0 + 1 + 1 (carry) = 10. Write 0, carry 1.</div></div>
+    <div class="step"><div class="step-num">4</div><div>Next column: 1 + 0 + 1 (carry) = 10. Write 0, carry 1.</div></div>
+    <div class="step"><div class="step-num">5</div><div>Final carry: write 1.</div></div>
+    <p style="margin-top:.8rem;font-weight:700;color:var(--brown-dark)">Answer: 1011₂ + 0110₂ = 10001₂ (= 11 + 6 = 17 ✓)</p>
+  </div>
+
+  <h2>Binary and Data Storage</h2>
+  <p>Understanding binary helps you understand how computers measure and store data. The units of storage are all based on powers of 2:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Unit</th><th>Symbol</th><th>Size</th><th>Approximate Value</th></tr></thead>
+      <tbody>
+        <tr><td>Bit</td><td>b</td><td>1 binary digit (0 or 1)</td><td>—</td></tr>
+        <tr><td>Nibble</td><td>—</td><td>4 bits</td><td>—</td></tr>
+        <tr><td>Byte</td><td>B</td><td>8 bits</td><td>One character (e.g. the letter A)</td></tr>
+        <tr><td>Kilobyte</td><td>KB</td><td>1,024 bytes</td><td>A short text message</td></tr>
+        <tr><td>Megabyte</td><td>MB</td><td>1,024 KB</td><td>A digital photograph</td></tr>
+        <tr><td>Gigabyte</td><td>GB</td><td>1,024 MB</td><td>About 250 songs</td></tr>
+        <tr><td>Terabyte</td><td>TB</td><td>1,024 GB</td><td>A large hard drive</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Note that storage units use powers of 2 (1,024 = 2¹⁰) rather than powers of 10 (1,000). This is a common source of confusion — a hard drive manufacturer may advertise a "1 TB" drive using 1,000,000,000,000 bytes, but your operating system will show slightly less because it uses the binary definition (1,099,511,627,776 bytes = 1 TB).</p>
+
+  <h2>Binary and ASCII — How Text Is Stored</h2>
+  <p>Every letter, number and symbol you type on a keyboard is stored in the computer as a binary number. The ASCII (American Standard Code for Information Interchange) system assigns a number to each character, which is then stored in binary.</p>
+  <p>For example: the letter <strong>A</strong> has ASCII code 65, which in binary is <span class="code">01000001</span>. The letter <strong>a</strong> (lowercase) has ASCII code 97, which in binary is <span class="code">01100001</span>. The digit <strong>0</strong> (the character, not the number) has ASCII code 48 = <span class="code">00110000</span>.</p>
+  <p>This means when you type the word "Hello" and save it in a file, the computer actually stores five bytes of binary data — one byte per character — each representing an ASCII code.</p>
+
+  <h2>Common Mistakes to Avoid</h2>
+  <ul>
+    <li><strong>Reading binary left to right instead of right to left.</strong> Always start assigning bit position values from the rightmost digit (position 2⁰ = 1).</li>
+    <li><strong>Forgetting the carry in binary addition.</strong> When two 1s are added, the result is 10 (binary) — you must carry the 1 to the next column.</li>
+    <li><strong>Confusing the subscript.</strong> Always write the base as a subscript to avoid confusion: 1011₂ means binary, 1011₁₀ means decimal. They are very different numbers.</li>
+    <li><strong>Not padding to 8 bits.</strong> When writing a binary byte, always use 8 digits, padding with leading zeros if necessary. So 25 in binary is written as 00011001, not just 11001.</li>
+  </ul>
+
+  <h2>KCSE Examination Tips</h2>
+  <p>Binary number conversions appear regularly in KCSE Computer Studies Paper 1. Here is what to focus on:</p>
+  <ul>
+    <li>Memorise the 8 bit position values: 128, 64, 32, 16, 8, 4, 2, 1.</li>
+    <li>Always show your working — the division table for decimal-to-binary or the addition of bit position values for binary-to-decimal.</li>
+    <li>Practice binary addition carefully, paying special attention to the carry digit.</li>
+    <li>Know the relationships: 1 byte = 8 bits, 1 KB = 1024 bytes, 1 MB = 1024 KB.</li>
+    <li>Know ASCII codes for A (65), a (97), 0 (48) and be able to explain why uppercase letters have lower codes than lowercase letters.</li>
+  </ul>
+
+  <div class="cta-card">
+    <h3>🎮 Test Your Binary Knowledge</h3>
+    <p>Practice binary-to-decimal conversion with instant feedback in our free interactive game.</p>
+    <a href="computer.html">Play Binary Explorer →</a>
+  </div>
+
+  <h2>Summary</h2>
+  <p>Binary is the base-2 number system using only 0 and 1. Computers use binary because transistors have two stable states (on/off). Each bit position represents a power of 2 (from right: 1, 2, 4, 8, 16, 32, 64, 128). To convert binary to decimal, add the values of positions with a 1. To convert decimal to binary, repeatedly divide by 2 and read remainders upward. Eight bits make one byte, which is the basic unit of data storage and can represent numbers from 0 to 255.</p>
+
+</article>
+
+<aside class="sidebar">
+  <div class="sidebar-card">
+    <h4>Related Guides</h4>
+    <a href="logic-gates-guide.html" class="guide-link"><span class="icon">⊕</span>Logic Gates &amp; Truth Tables</a>
+    <a href="sorting-algorithms-guide.html" class="guide-link"><span class="icon">↕</span>Sorting Algorithms</a>
+    <a href="kcse-algebra-guide.html" class="guide-link"><span class="icon">𝑥</span>KCSE Algebra Guide</a>
+    <a href="sequences-series-guide.html" class="guide-link"><span class="icon">∑</span>Sequences &amp; Series</a>
+  </div>
+  <div class="sidebar-card">
+    <h4>Practice Games</h4>
+    <ul>
+      <li><a href="computer.html">🌱 Binary Explorer</a></li>
+      <li><a href="computer.html">🌱 ASCII Adventure</a></li>
+      <li><a href="computer.html">📐 Number System Converter</a></li>
+      <li><a href="computer.html">📐 Data Representation</a></li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <h4>Quick Reference</h4>
+    <p style="font-size:.85rem;color:var(--ink-soft);margin-bottom:.6rem">Bit position values:</p>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--brown-dark);line-height:2">128 · 64 · 32 · 16<br>8 · 4 · 2 · 1</p>
+    <p style="font-size:.85rem;color:var(--ink-soft);margin:.8rem 0 .4rem">Storage units:</p>
+    <p style="font-size:.82rem;color:var(--ink-soft);line-height:1.8">8 bits = 1 byte<br>1024 B = 1 KB<br>1024 KB = 1 MB<br>1024 MB = 1 GB</p>
+  </div>
+</aside>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>∑ Ronny Edu Games</h3>
+      <p>Free educational games and guides for Mathematics and Computer Science — by Mwalimu Ronny, Kenya.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Games</h4>
+      <a href="mathematics.html">Mathematics Games</a>
+      <a href="computer.html">CS Games</a>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <a href="binary-numbers-guide.html">Binary Numbers</a>
+      <a href="logic-gates-guide.html">Logic Gates</a>
+      <a href="sorting-algorithms-guide.html">Sorting Algorithms</a>
+      <a href="kcse-algebra-guide.html">KCSE Algebra</a>
+      <a href="sequences-series-guide.html">Sequences &amp; Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Ronny Edu Games — by Mwalimu Ronny</p>
+    <div>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('navLinks').querySelectorAll('a').forEach(a=>a.onclick=()=>document.getElementById('navLinks').classList.remove('open'));</script>
+</body>
+</html>

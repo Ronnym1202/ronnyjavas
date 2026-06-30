@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Free computer science games - Binary, Logic Gates, Algorithms, Sorting, Programming concepts. By Mwalimu Ronny.">
-<title>Computer Science Games | Ronny Edu Games</title>
+<meta name="description" content="Free computer science games — Binary, Logic Gates, Algorithms, Sorting, Programming concepts. KCSE-aligned. By Mwalimu Ronny, Kenya.">
+<title>Computer Science Games | Ronny Edu Games — Free CS Practice by Mwalimu Ronny</title>
 <link rel="icon" type="image/jpeg" href="profile.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3509173858076202" crossorigin="anonymous"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -87,10 +88,27 @@ nav{background:var(--brown-dark);padding:0 5%;display:flex;align-items:center;ju
 .sort-bar.sorted{background:var(--accent2)}
 .ds-cell{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:2px solid var(--card-border);font-family:var(--mono);font-weight:700;font-size:.9rem;transition:var(--transition);border-radius:4px;background:var(--bisque-light)}
 .ds-cell.highlight{background:var(--bisque-mid);border-color:var(--brown)}
-footer{background:var(--brown-dark);padding:2.5rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
+/* editorial section */
+.editorial-section{padding:56px 5%;background:var(--card);border-top:3px solid var(--card-border)}
+.editorial-inner{max-width:860px}
+.editorial-inner h2{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.8rem;margin-bottom:1rem}
+.editorial-inner h3{font-family:'Playfair Display',serif;color:var(--brown-dark);font-size:1.2rem;margin:1.6rem 0 .5rem}
+.editorial-inner p{color:var(--ink-soft);margin-bottom:1rem;line-height:1.8}
+.editorial-inner ul{margin:0 0 1.2rem 1.5rem;color:var(--ink-soft);line-height:1.8}
+.editorial-inner li{margin-bottom:.5rem}
+.ed-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1rem}
+/* footer */
+footer{background:var(--brown-dark);padding:3rem 5% 1.5rem;border-top:3px solid var(--brown-mid)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+.footer-brand h3{font-family:'Playfair Display',serif;color:var(--bisque);font-size:1.4rem;margin-bottom:.5rem}
+.footer-brand p{color:rgba(255,228,196,.55);font-size:.88rem;line-height:1.6}
+.footer-col h4{color:var(--bisque-mid);font-size:.82rem;text-transform:uppercase;letter-spacing:.8px;font-weight:700;margin-bottom:.8rem}
+.footer-col a{display:block;color:rgba(255,228,196,.55);font-size:.88rem;margin-bottom:.4rem;transition:var(--transition)}
+.footer-col a:hover{color:var(--bisque)}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,228,196,.1)}
-.footer-bottom p,.footer-bottom a{color:rgba(255,228,196,.5);font-size:.82rem}
-.footer-bottom a:hover{color:var(--bisque)}.footer-links{display:flex;gap:1.2rem}
+.footer-bottom p{color:rgba(255,228,196,.4);font-size:.82rem}
+.footer-bottom a{color:rgba(255,228,196,.4);font-size:.82rem;margin-left:1rem}
+.footer-bottom a:hover{color:var(--bisque)}
 #scrollTop{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;border-radius:50%;background:var(--brown);color:var(--bisque);border:none;cursor:pointer;font-size:1.1rem;box-shadow:0 4px 16px var(--shadow-strong);transition:var(--transition);display:none;align-items:center;justify-content:center;z-index:500}
 #scrollTop.show{display:flex}
 @media(max-width:768px){
@@ -102,6 +120,8 @@ footer{background:var(--brown-dark);padding:2.5rem 5% 1.5rem;border-top:3px soli
   .level-tab{padding:.75rem 1rem;font-size:.84rem}
   .games-grid{grid-template-columns:1fr}
   .opts-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .ed-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -126,7 +146,7 @@ footer{background:var(--brown-dark);padding:2.5rem 5% 1.5rem;border-top:3px soli
 
 <div class="page-hero">
   <h1>💻 Computer Science Games</h1>
-  <p>Binary, logic gates, algorithms, data structures, programming concepts — 12 games across three levels, all playable in your browser.</p>
+  <p>Binary, logic gates, algorithms, data structures, programming concepts — 12 free games across three levels, all playable in your browser.</p>
 </div>
 <div class="breadcrumb"><a href="index.html">Home</a> › Computer Science Games</div>
 
@@ -268,7 +288,7 @@ footer{background:var(--brown-dark);padding:2.5rem 5% 1.5rem;border-top:3px soli
   <div class="level-header">
     <div class="level-badge lb-secondary">📐 Secondary Level · Form 1–4</div>
     <h2>Secondary Computer Science</h2>
-    <p>Number systems, logic gates, programming fundamentals, data representation and sorting algorithms.</p>
+    <p>Number systems, logic gates, programming fundamentals, data representation and sorting algorithms — aligned to the KCSE Computer Studies syllabus.</p>
   </div>
   <div class="games-grid">
 
@@ -534,14 +554,62 @@ footer{background:var(--brown-dark);padding:2.5rem 5% 1.5rem;border-top:3px soli
   </div>
 </div>
 
+<!-- ======================== EDITORIAL CONTENT (for Google to crawl) ======================== -->
+<div class="editorial-section">
+  <div class="editorial-inner">
+    <h2>About the Computer Science Games on This Site</h2>
+    <p>These 12 free Computer Science games span three academic levels — from foundational digital literacy for primary school children through to university-level topics in algorithms, data structures and network protocols. Every game was created by <strong>Mwalimu Ronny</strong>, a practising Computer Science teacher based in Embu County, Kenya, drawing on firsthand experience of what students find challenging and what kinds of practice produce the best results.</p>
+    <p>Computer Science is a subject that rewards active engagement far more than passive reading. Understanding why a bubble sort makes the comparisons it does, or how binary search halves the search space with each step, requires tracing through the logic step by step — exactly what these games are designed to do. The Sorting Visualiser, Search Algorithms game and Recursion Tracer all build this procedural understanding in a way that static textbook diagrams cannot replicate.</p>
+
+    <div class="ed-grid">
+      <div>
+        <h3>Secondary CS — KCSE Computer Studies Alignment</h3>
+        <p>The six secondary-level Computer Science games map directly to the Kenya Certificate of Secondary Education (KCSE) Computer Studies syllabus. <strong>Number System Converter</strong> covers binary, decimal, octal and hexadecimal conversions (Form 1–2), including Bin→Dec, Dec→Bin and Dec→Hex modes with immediate feedback on each attempt. <strong>Logic Gates</strong> covers the six fundamental gates — AND, OR, NOT, NAND, NOR and XOR — through truth table questions with an SVG gate diagram drawn for each question (Form 2–3). <strong>Programming Concepts</strong> covers pseudocode and Python tracing, including loops, conditionals, functions and variable assignment (Form 2–3). <strong>Data Representation</strong> covers bits, bytes, kilobytes, megabytes, image encoding (colour depth), sound sampling and lossless compression (Form 1–3). <strong>Sorting Visualiser</strong> provides animated, step-by-step visualisation of Bubble Sort, Selection Sort and Insertion Sort with comparison counts (Form 3). <strong>Cybersecurity Quiz</strong> covers phishing, malware, ransomware, firewalls, encryption, two-factor authentication and VPNs (Form 3–4).</p>
+      </div>
+      <div>
+        <h3>University CS — Algorithms and Theory</h3>
+        <p>The six university-level games tackle the theoretical foundations of Computer Science taught in first and second year undergraduate courses. <strong>Big-O Complexity</strong> presents code snippets in Python and asks students to identify the time complexity — covering O(1), O(n), O(n²), O(log n) and O(n log n). <strong>Data Structures</strong> tests knowledge of stacks (LIFO), queues (FIFO), binary trees, graphs, linked lists and hash tables — including operation names like push, pop, enqueue and dequeue. <strong>Boolean Algebra</strong> covers De Morgan's laws, identity laws, complement laws and expression simplification. <strong>Search Algorithms</strong> generates random sorted arrays and asks students to count how many comparisons Linear Search or Binary Search would need to find a given target — building genuine understanding of the difference in efficiency. <strong>Recursion Tracer</strong> presents Python recursive functions (factorial, Fibonacci, sum) and asks students to trace the output. <strong>Network Protocols</strong> covers the OSI model (7 layers), TCP vs UDP, HTTP/HTTPS ports, DNS, DHCP, FTP, SMTP and ARP.</p>
+      </div>
+    </div>
+
+    <h3>Primary CS — Building Digital Literacy from the Ground Up</h3>
+    <p>The six primary-level Computer Science games introduce the foundational ideas of computing in a format that is accessible to children from the age of 8, with no prior knowledge of computers or programming required. <strong>Binary Explorer</strong> uses a multiple-choice format to teach binary-to-decimal conversion, with a permanent reminder of the bit position values (128, 64, 32, 16, 8, 4, 2, 1) displayed beneath each question. <strong>ASCII Adventure</strong> teaches the ASCII character encoding system — that every letter, digit and symbol is stored as a number — through quiz questions about ASCII codes and their meanings. <strong>Algorithm Detective</strong> presents everyday algorithms (making tea, sending an email, brushing teeth) as shuffled step lists and asks students to tap pairs of steps to swap them into the correct order, building an intuition for sequential logic. <strong>Computer Parts Quiz</strong> covers the main hardware components — CPU, RAM, ROM, hard disk, GPU, motherboard, input devices and output devices — with 12 questions drawn from a randomised bank. <strong>Pattern Logic</strong> presents sequences of numbers, letters or emoji and asks students to identify the next item, building the abstract thinking that underpins programming loops and conditional logic. <strong>Internet Basics</strong> covers how the internet works — including HTTP, DNS, IP addresses, routers, Wi-Fi, browsers and web URLs — through 10 multiple-choice questions.</p>
+    <p>All games on this page are completely free, require no login and work on any device. Visit the <a href="about.html" style="color:var(--brown-mid)">About page</a> to learn more about the site and its creator, or play the <a href="mathematics.html" style="color:var(--brown-mid)">Mathematics games</a> for the companion subject.</p>
+  </div>
+</div>
+
 <footer>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Ronny Edu Games — by Mwalimu Ronny</p>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="mathematics.html">Maths</a>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>∑ Ronny Edu Games</h3>
+      <p>Free educational games and guides for Mathematics and Computer Science — by Mwalimu Ronny, Kenya.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Games</h4>
+      <a href="mathematics.html">Mathematics Games</a>
+      <a href="computer.html">CS Games</a>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <a href="binary-numbers-guide.html">Binary Numbers</a>
+      <a href="logic-gates-guide.html">Logic Gates</a>
+      <a href="sorting-algorithms-guide.html">Sorting Algorithms</a>
+      <a href="kcse-algebra-guide.html">KCSE Algebra</a>
+      <a href="sequences-series-guide.html">Sequences &amp; Series</a>
+    </div>
+    <div class="footer-col">
+      <h4>Site</h4>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Ronny Edu Games — by Mwalimu Ronny</p>
+    <div>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
     </div>
   </div>
 </footer>

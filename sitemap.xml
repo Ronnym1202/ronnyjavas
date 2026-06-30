@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://ronnygame.netlify.app/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/mathematics.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/computer.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/about.html</loc><priority>0.7</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/contact.html</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/privacy-policy.html</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/terms.html</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+
+  <!-- Educational guides -->
+  <url><loc>https://ronnygame.netlify.app/binary-numbers-guide.html</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/logic-gates-guide.html</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/sorting-algorithms-guide.html</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/kcse-algebra-guide.html</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://ronnygame.netlify.app/sequences-series-guide.html</loc><priority>0.8</priority><changefreq>yearly</changefreq></url>
+
+</urlset>
